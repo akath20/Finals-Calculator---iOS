@@ -1,0 +1,260 @@
+//
+//  GetAverageViewController.m
+//  Finals Calculator
+//
+//  Created by Alex Atwater on 1/25/14.
+//  Copyright (c) 2014 Alex Atwater. All rights reserved.
+//
+
+#import "GetAverageViewController.h"
+#import "FirstViewController.h"
+@class FirstViewController;
+
+@interface GetAverageViewController ()
+
+
+
+
+@end
+
+@implementation GetAverageViewController
+
+#pragma mark Set Up
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+    
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+    [self.buttonView setHidden:TRUE];
+    self.whatsShowing = 0;
+    
+    //set observers to help with the keyboard show/hide methods
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    
+    //get original starting frame values for the moving objects on screen
+    self.originalRectButtonView = self.buttonView.frame;
+    self.originalRectMainView = self.view.frame;
+    self.originalRectCalculateButton = self.calculateButton.frame;
+    self.originalInstructLabel = self.instructLabel.frame;
+    [self.averageLabel setHidden:TRUE];
+    haveValueToReturn = FALSE;
+    
+    
+}
+
+#pragma mark Keyboard
+
+-(void)keyboardWillShow {
+    // Animate the current view out of the way
+    
+    /*
+    origins:
+    main frame: (0, 0, 320, 568)
+    buttonView: (0, 155, 320, 413)
+    act Button: (110, 217, 101, 30
+     */
+    
+    //move the frames up
+    if ((int)[[UIScreen mainScreen] bounds].size.height == 568) {
+        // This is iPhone 5 screen
+        
+        //move button frame up
+        CGRect buttonFrame = self.buttonView.frame;
+        buttonFrame.origin.y -= 20; // new y coordinate button
+
+        
+        
+        //move the button up
+        CGRect calculateButtonFrame = self.calculateButton.frame;
+        calculateButtonFrame.origin.y -= 33;
+
+        
+        //execute animation of moving
+        [UIView animateWithDuration:0.3f animations:^ {
+            self.buttonView.frame = buttonFrame;
+            self.calculateButton.frame = calculateButtonFrame;
+        }];
+        
+    } else {
+        
+        // This is iPhone 4/4s screen
+    
+        CGRect buttonFrame = self.buttonView.frame;
+        buttonFrame.origin.y -= 105; // new y coordinate button
+
+        //move the button up
+        CGRect calculateButtonFrame = self.calculateButton.frame;
+        calculateButtonFrame.origin.y -= 35;
+
+        //Move instruction label up
+        CGRect instructRect = self.instructLabel.frame;
+        instructRect.origin.y += 7;
+        
+        //execute animation of moving
+        [UIView animateWithDuration:0.3f animations:^ {
+            self.buttonView.frame = buttonFrame;
+            self.calculateButton.frame = calculateButtonFrame;
+            self.termSeg.alpha = 0;
+            self.howManyTermsLabel.alpha = 0;
+            self.instructLabel.frame = instructRect;
+        }];
+        
+    }
+    
+}
+
+-(void)keyboardWillHide {
+    // Animate the current view back to its original position
+    [UIView animateWithDuration:0.3f animations:^ {
+        self.buttonView.frame = self.originalRectButtonView;
+        self.view.frame = self.originalRectMainView;
+        self.calculateButton.frame = self.originalRectCalculateButton;
+        self.instructLabel.frame = self.originalInstructLabel;
+        if (self.termSeg.alpha != 1) {
+            self.termSeg.alpha = 1;
+            self.howManyTermsLabel.alpha = 1;
+        }
+        
+    }];
+}
+
+-(void)hideTheKeyboard {
+    for (UITextField *currentField in self.textFieldsOutlet) {
+        [currentField resignFirstResponder];
+    }
+}
+
+#pragma mark Everything Else
+
+- (IBAction)termsSegment:(id)sender {
+    
+    int x =-1;
+    self.whatsShowing = 0;
+    UISegmentedControl *segControl = (UISegmentedControl *)sender;
+    for (UITextField *currentTextField in self.textFieldsOutlet) {
+        if ([segControl selectedSegmentIndex] >= x ) {
+            [currentTextField setHidden:FALSE];
+            self.whatsShowing++;
+        } else {
+            [currentTextField setHidden:TRUE];
+            [currentTextField setText:@""];
+        }
+        x++;
+    }
+    //if the visable text boxs are full, enable the calculate button
+    if (self.visableTextsFull) {
+        [self.calculateButton setEnabled:true];
+    } else {
+        [self.calculateButton setEnabled:FALSE];
+    }
+    
+    [self.buttonView setHidden:FALSE];
+    
+}
+
+- (IBAction)valueDidChange:(id)sender {
+    //if the visable text boxs are full, enable the calculate button
+    if (self.visableTextsFull) {
+        [self.calculateButton setEnabled:TRUE];
+    } else {
+        [self.calculateButton setEnabled:FALSE];
+    }
+}
+
+- (BOOL)visableTextsFull {
+    //Check to see if the current showing text boxes are full
+    BOOL tof = TRUE;
+    xValue = 0;
+    for (UITextField *currentTextField in self.textFieldsOutlet) {
+        //if empty and it's showing, then return the texts aren't full
+        if ([currentTextField.text isEqualToString:@""] && (xValue < self.whatsShowing)) {
+            tof = FALSE;
+            break;
+        }
+        xValue++;
+    }
+    return tof;
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    //if a touch happens on the screen then hide the keyboard
+    [self hideTheKeyboard];
+}
+
+- (IBAction)calculateAverage:(id)sender {
+    [self hideTheKeyboard];
+    int y = 0;
+    float averageSum = 0.0;
+    for (UITextField *currentField in self.textFieldsOutlet) {
+        if (self.whatsShowing >= y) {
+            averageSum += [currentField.text floatValue];
+        y++;
+        } else {
+            break;
+        }
+        
+    }
+    
+    //Calculate Average and pass to the class
+    actualAverage = (averageSum/((float)self.whatsShowing));
+
+    //show the actual label and back button
+    [self.averageLabel setText:[NSString stringWithFormat:@"Your Combined Average is: %.2f%%", actualAverage]];
+    [self.averageLabel setHidden:FALSE];
+    
+    //enable the back button to return the value to the first screen textbox
+    haveValueToReturn = true;
+    
+}
+
+- (IBAction)backButton:(id)sender {
+    if (haveValueToReturn) {
+        
+        //set the firstviewtext box to the percent somehow
+        FirstViewController *firstViewControllerObject = [self.storyboard instantiateInitialViewController];
+        firstViewControllerObject.string = [[NSString alloc] initWithFormat:@"%f", actualAverage];
+    }
+    
+    //switch the views
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@end

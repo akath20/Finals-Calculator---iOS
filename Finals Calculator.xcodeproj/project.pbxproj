@@ -15,13 +15,14 @@
 		FA26A72818945678006F1D69 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA26A72718945678006F1D69 /* AppDelegate.m */; };
 		FA26A72B18945678006F1D69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA26A72918945678006F1D69 /* Main.storyboard */; };
 		FA26A72E18945678006F1D69 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA26A72D18945678006F1D69 /* FirstViewController.m */; };
-		FA26A73118945678006F1D69 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA26A73018945678006F1D69 /* SecondViewController.m */; };
 		FA26A73318945678006F1D69 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA26A73218945678006F1D69 /* Images.xcassets */; };
 		FA26A73A18945679006F1D69 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA26A73918945679006F1D69 /* XCTest.framework */; };
 		FA26A73B18945679006F1D69 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA26A71718945678006F1D69 /* Foundation.framework */; };
 		FA26A73C18945679006F1D69 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA26A71B18945678006F1D69 /* UIKit.framework */; };
 		FA26A74418945679006F1D69 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA26A74218945679006F1D69 /* InfoPlist.strings */; };
 		FA26A74618945679006F1D69 /* Finals_CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA26A74518945679006F1D69 /* Finals_CalculatorTests.m */; };
+		FA26A754189462BD006F1D69 /* GetAverageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA26A753189462BD006F1D69 /* GetAverageViewController.m */; };
+		FA79376A1897399C001F2BD2 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7937691897399C001F2BD2 /* AboutViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,14 +49,16 @@
 		FA26A72A18945678006F1D69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA26A72C18945678006F1D69 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		FA26A72D18945678006F1D69 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		FA26A72F18945678006F1D69 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		FA26A73018945678006F1D69 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		FA26A73218945678006F1D69 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FA26A73818945679006F1D69 /* Finals CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Finals CalculatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA26A73918945679006F1D69 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		FA26A74118945679006F1D69 /* Finals CalculatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Finals CalculatorTests-Info.plist"; sourceTree = "<group>"; };
 		FA26A74318945679006F1D69 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FA26A74518945679006F1D69 /* Finals_CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Finals_CalculatorTests.m; sourceTree = "<group>"; };
+		FA26A752189462BD006F1D69 /* GetAverageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetAverageViewController.h; sourceTree = "<group>"; };
+		FA26A753189462BD006F1D69 /* GetAverageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetAverageViewController.m; sourceTree = "<group>"; };
+		FA7937681897399C001F2BD2 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		FA7937691897399C001F2BD2 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,13 +120,15 @@
 			children = (
 				FA26A72618945678006F1D69 /* AppDelegate.h */,
 				FA26A72718945678006F1D69 /* AppDelegate.m */,
-				FA26A72918945678006F1D69 /* Main.storyboard */,
 				FA26A72C18945678006F1D69 /* FirstViewController.h */,
 				FA26A72D18945678006F1D69 /* FirstViewController.m */,
-				FA26A72F18945678006F1D69 /* SecondViewController.h */,
-				FA26A73018945678006F1D69 /* SecondViewController.m */,
 				FA26A73218945678006F1D69 /* Images.xcassets */,
+				FA26A72918945678006F1D69 /* Main.storyboard */,
 				FA26A71E18945678006F1D69 /* Supporting Files */,
+				FA26A752189462BD006F1D69 /* GetAverageViewController.h */,
+				FA26A753189462BD006F1D69 /* GetAverageViewController.m */,
+				FA7937681897399C001F2BD2 /* AboutViewController.h */,
+				FA7937691897399C001F2BD2 /* AboutViewController.m */,
 			);
 			path = "Finals Calculator";
 			sourceTree = "<group>";
@@ -254,10 +259,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA26A73118945678006F1D69 /* SecondViewController.m in Sources */,
 				FA26A72818945678006F1D69 /* AppDelegate.m in Sources */,
+				FA79376A1897399C001F2BD2 /* AboutViewController.m in Sources */,
 				FA26A72E18945678006F1D69 /* FirstViewController.m in Sources */,
 				FA26A72418945678006F1D69 /* main.m in Sources */,
+				FA26A754189462BD006F1D69 /* GetAverageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +393,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Finals Calculator/Finals Calculator-Prefix.pch";
 				INFOPLIST_FILE = "Finals Calculator/Finals Calculator-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -400,6 +407,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Finals Calculator/Finals Calculator-Prefix.pch";
 				INFOPLIST_FILE = "Finals Calculator/Finals Calculator-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -466,6 +474,7 @@
 				FA26A74B18945679006F1D69 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA26A74C18945679006F1D69 /* Build configuration list for PBXNativeTarget "Finals CalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +483,7 @@
 				FA26A74E18945679006F1D69 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
