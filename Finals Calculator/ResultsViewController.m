@@ -6,21 +6,24 @@
 //  Copyright (c) 2014 Alex Atwater. All rights reserved.
 //
 
-#import "AnalyzeViewController.h"
+#import "ResultsViewController.h"
 #import "SharedValues.h"
 
-@interface AnalyzeViewController ()
+@interface ResultsViewController ()
 
 @end
 
-@implementation AnalyzeViewController
+@implementation ResultsViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    NSLog(@"\nLPG: %f\n", [[SharedValues allValues] lowestPossibleGrade]);
     
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.zeroLabel.text = [NSString stringWithFormat:@"%.2f", [[SharedValues allValues] lowestPossibleGrade]];
 }
 
 

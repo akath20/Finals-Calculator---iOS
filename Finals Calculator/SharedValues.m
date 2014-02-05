@@ -32,12 +32,13 @@
 
 - (float)lowestPossibleGrade {
     //ALL GOOD
+    //That is if user got a zero on the final
     
     
     float termWeight = (1 - [[SharedValues allValues] finalWeight]);
     float termPoints = [[SharedValues allValues] currentCombinedAverage]*termWeight;
     
-    //That is if user got a zero on the final
+    
     return termPoints;
 }
 

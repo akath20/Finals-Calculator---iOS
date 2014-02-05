@@ -23,7 +23,7 @@
 		FA26A74618945679006F1D69 /* Finals_CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA26A74518945679006F1D69 /* Finals_CalculatorTests.m */; };
 		FA26A754189462BD006F1D69 /* GetAverageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA26A753189462BD006F1D69 /* GetAverageViewController.m */; };
 		FA674B2518A1C2C300C0B8FB /* SharedValues.m in Sources */ = {isa = PBXBuildFile; fileRef = FA674B2418A1C2C300C0B8FB /* SharedValues.m */; };
-		FA674B2818A1DB1900C0B8FB /* AnalyzeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA674B2718A1DB1900C0B8FB /* AnalyzeViewController.m */; };
+		FA674B2818A1DB1900C0B8FB /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA674B2718A1DB1900C0B8FB /* ResultsViewController.m */; };
 		FA79376A1897399C001F2BD2 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7937691897399C001F2BD2 /* AboutViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -61,8 +61,8 @@
 		FA26A753189462BD006F1D69 /* GetAverageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetAverageViewController.m; sourceTree = "<group>"; };
 		FA674B2318A1C2C300C0B8FB /* SharedValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedValues.h; sourceTree = "<group>"; };
 		FA674B2418A1C2C300C0B8FB /* SharedValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedValues.m; sourceTree = "<group>"; };
-		FA674B2618A1DB1900C0B8FB /* AnalyzeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyzeViewController.h; sourceTree = "<group>"; };
-		FA674B2718A1DB1900C0B8FB /* AnalyzeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyzeViewController.m; sourceTree = "<group>"; };
+		FA674B2618A1DB1900C0B8FB /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
+		FA674B2718A1DB1900C0B8FB /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
 		FA7937681897399C001F2BD2 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		FA7937691897399C001F2BD2 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,8 +172,8 @@
 				FA26A753189462BD006F1D69 /* GetAverageViewController.m */,
 				FA7937681897399C001F2BD2 /* AboutViewController.h */,
 				FA7937691897399C001F2BD2 /* AboutViewController.m */,
-				FA674B2618A1DB1900C0B8FB /* AnalyzeViewController.h */,
-				FA674B2718A1DB1900C0B8FB /* AnalyzeViewController.m */,
+				FA674B2618A1DB1900C0B8FB /* ResultsViewController.h */,
+				FA674B2718A1DB1900C0B8FB /* ResultsViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -293,7 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA674B2818A1DB1900C0B8FB /* AnalyzeViewController.m in Sources */,
+				FA674B2818A1DB1900C0B8FB /* ResultsViewController.m in Sources */,
 				FA26A72818945678006F1D69 /* AppDelegate.m in Sources */,
 				FA79376A1897399C001F2BD2 /* AboutViewController.m in Sources */,
 				FA26A72E18945678006F1D69 /* FirstViewController.m in Sources */,
