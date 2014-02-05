@@ -17,4 +17,5 @@
 + (SharedValues *) allValues;
 
 - (float)lowestPossibleGrade;
+- (float)highestPossibleGrade;
 @end

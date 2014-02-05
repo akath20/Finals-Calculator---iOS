@@ -33,13 +33,19 @@
 - (float)lowestPossibleGrade {
     //ALL GOOD
     //That is if user got a zero on the final
-    
-    
     float termWeight = (1 - [[SharedValues allValues] finalWeight]);
-    float termPoints = [[SharedValues allValues] currentCombinedAverage]*termWeight;
+    float lowestGrade = [[SharedValues allValues] currentCombinedAverage]*termWeight;
     
+    return lowestGrade;
+}
+
+- (float)highestPossibleGrade {
+    //ALL GOOD
+    //this is if you get a 100 on the final
+    //  *NOTE*    [[ShareValue allValues] variable] is the same thing as doing self.variable *NOTE*
+    float highestGrade = ([[SharedValues allValues] currentCombinedAverage]*(1 - [[SharedValues allValues] finalWeight]))+(100*[[SharedValues allValues] finalWeight]);
     
-    return termPoints;
+    return highestGrade;
 }
 
 

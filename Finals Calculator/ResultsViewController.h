@@ -15,5 +15,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *hundredLabel;
 @property (strong, nonatomic) IBOutlet UILabel *customScoreLabel;
 @property (strong, nonatomic) IBOutlet UILabel *minScoreLabel;
+@property (strong, nonatomic) IBOutlet UIView *scrollViewView;
+
+- (IBAction)customScoreTextField:(id)sender;
 
 @end
