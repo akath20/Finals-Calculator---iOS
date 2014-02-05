@@ -7,7 +7,7 @@
 //
 
 #import "AnalyzeViewController.h"
-#import "ValuesObject.h"
+#import "SharedValues.h"
 
 @interface AnalyzeViewController ()
 
@@ -19,22 +19,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+//    NSLog(@"\nLPG: %@\n",)
+    [[valu]]
 }
 
-#pragma mark Calculations
-- (void)highestPossibleGrade {
-    //Plus what you need to achieve that
-}
 
--(float)lowestPossibleGrade {
-    float termWeight = (100 - [[ValuesObject allValues] finalWeight]);
-    float termPoints = [[ValuesObject allValues] currentCombinedAverage]*termWeight;
-    
-    //That is if user got a zero on the final
-    return termPoints;
-    
-    
-}
+
 
 
 

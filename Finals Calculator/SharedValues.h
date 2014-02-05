@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ValuesObject : NSObject
+@interface SharedValues : NSObject
 
 @property float currentCombinedAverage;
 @property float finalWeight;
 @property BOOL roundUp;
 
-+ (ValuesObject *) allValues;
++ (SharedValues *) allValues;
 
 
 @end

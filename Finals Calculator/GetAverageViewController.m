@@ -8,7 +8,7 @@
 
 #import "GetAverageViewController.h"
 #import "FirstViewController.h"
-#import "ValuesObject.h"
+#import "SharedValues.h"
 @class FirstViewController;
 
 @interface GetAverageViewController ()
@@ -215,7 +215,7 @@
 - (IBAction)backButton:(id)sender {
     if (haveValueToReturn) {
         //set the allValues object equal to this
-        [[ValuesObject allValues] setCurrentCombinedAverage:actualAverage];
+        [[SharedValues allValues] setCurrentCombinedAverage:actualAverage];
     }
     //might want to make currentcombined average to -1.0 here (see appDelegate)
     

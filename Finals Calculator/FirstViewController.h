@@ -1,3 +1,4 @@
+
 //
 //  FirstViewController.h
 //  Finals Calculator
@@ -18,6 +19,8 @@
 @property CGRect originalTextField;
 
 - (IBAction)goPushed:(id)sender;
+- (IBAction)textboxEdited:(UITextField *)sender;
+- (IBAction)segmentSelected:(UISegmentedControl *)sender;
 
 @end
 
@@ -25,3 +28,4 @@ BOOL allFilledIn;
 bool firstTextFull;
 bool secondTextFull;
 bool segmentSelected;
+int xCount;
