@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *instructLabel;
 @property (weak, nonatomic) IBOutlet UILabel *averageLabel;
 
+
+//this might belong as a class instance variable rather than a property; doesn't really matter, but cleaner code
 @property int whatsShowing;
 @property CGRect originalRectButtonView;
 @property CGRect originalRectMainView;

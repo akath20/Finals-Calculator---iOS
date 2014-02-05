@@ -19,8 +19,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-//    NSLog(@"\nLPG: %@\n",)
-    [[valu]]
+    NSLog(@"\nLPG: %f\n", [[SharedValues allValues] lowestPossibleGrade]);
+    
 }
 
 

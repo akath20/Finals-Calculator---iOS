@@ -26,22 +26,22 @@
     if ([[SharedValues allValues] currentCombinedAverage] == -1.0) {
         self.percentAverageTextField.placeholder = @"%";
     } else {
-        self.percentAverageTextField.text = [NSString stringWithFormat:@"%.2f", [[SharedValues allValues] currentCombinedAverage]];
+        self.percentAverageTextField.text = [NSString stringWithFormat:@"%.2f %%", [[SharedValues allValues] currentCombinedAverage]];
     }
     if ([self allFilled]) {
         [self.goButton setEnabled:true];
     } else {
         [self.goButton setEnabled:false];
     }
-    
-
 }
 
 - (IBAction)goPushed:(id)sender {
     
     //set the allValues variables to the onscreen values
     [[SharedValues allValues] setCurrentCombinedAverage:[self.percentAverageTextField.text floatValue]];
-    [[SharedValues allValues] setFinalWeight:[self.finalWeight.text floatValue]];
+    
+    //MAKE IT A DECIMAL
+    [[SharedValues allValues] setFinalWeight:([self.finalWeight.text floatValue]/100)];
     
     //move to next screen
     [self performSegueWithIdentifier:@"goSegue" sender:nil];
@@ -54,6 +54,7 @@
         } else {
             secondTextFull = true;
         }
+        [sender setText:[NSString stringWithFormat:@"%.2f", [sender.text floatValue]]];
     } else {
         if (sender.tag == 0) {
             firstTextFull = false;
@@ -62,7 +63,6 @@
         }
 
     }
-    
     
     //check to see if enable button
     if ([self allFilled]) {
@@ -118,6 +118,11 @@
     [self.finalWeight resignFirstResponder];
 }
 
+- (IBAction)editingEndedTextbox:(id)sender {
+    //modify the text box to have a % symbol in there
+    //add later?
+    
+}
 
 
 

@@ -24,7 +24,6 @@
     return [self allValues];
 }
 
-
 #pragma mark Calculations
 
 //- (void)highestPossibleGrade {
@@ -32,13 +31,14 @@
 //}
 
 - (float)lowestPossibleGrade {
-    float termWeight = (100 - [[SharedValues allValues] finalWeight]);
+    //ALL GOOD
+    
+    
+    float termWeight = (1 - [[SharedValues allValues] finalWeight]);
     float termPoints = [[SharedValues allValues] currentCombinedAverage]*termWeight;
     
     //That is if user got a zero on the final
     return termPoints;
-    
-    
 }
 
 
