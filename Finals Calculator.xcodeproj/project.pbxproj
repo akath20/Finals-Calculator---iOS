@@ -22,6 +22,8 @@
 		FA26A74418945679006F1D69 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA26A74218945679006F1D69 /* InfoPlist.strings */; };
 		FA26A74618945679006F1D69 /* Finals_CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA26A74518945679006F1D69 /* Finals_CalculatorTests.m */; };
 		FA26A754189462BD006F1D69 /* GetAverageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA26A753189462BD006F1D69 /* GetAverageViewController.m */; };
+		FA674B2518A1C2C300C0B8FB /* ValuesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FA674B2418A1C2C300C0B8FB /* ValuesObject.m */; };
+		FA674B2818A1DB1900C0B8FB /* AnalyzeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA674B2718A1DB1900C0B8FB /* AnalyzeViewController.m */; };
 		FA79376A1897399C001F2BD2 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7937691897399C001F2BD2 /* AboutViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,10 @@
 		FA26A74518945679006F1D69 /* Finals_CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Finals_CalculatorTests.m; sourceTree = "<group>"; };
 		FA26A752189462BD006F1D69 /* GetAverageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetAverageViewController.h; sourceTree = "<group>"; };
 		FA26A753189462BD006F1D69 /* GetAverageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetAverageViewController.m; sourceTree = "<group>"; };
+		FA674B2318A1C2C300C0B8FB /* ValuesObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValuesObject.h; sourceTree = "<group>"; };
+		FA674B2418A1C2C300C0B8FB /* ValuesObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValuesObject.m; sourceTree = "<group>"; };
+		FA674B2618A1DB1900C0B8FB /* AnalyzeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyzeViewController.h; sourceTree = "<group>"; };
+		FA674B2718A1DB1900C0B8FB /* AnalyzeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyzeViewController.m; sourceTree = "<group>"; };
 		FA7937681897399C001F2BD2 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		FA7937691897399C001F2BD2 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,17 +124,12 @@
 		FA26A71D18945678006F1D69 /* Finals Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				FA26A72618945678006F1D69 /* AppDelegate.h */,
-				FA26A72718945678006F1D69 /* AppDelegate.m */,
-				FA26A72C18945678006F1D69 /* FirstViewController.h */,
-				FA26A72D18945678006F1D69 /* FirstViewController.m */,
+				FA674B1B189C693300C0B8FB /* App Delegate */,
+				FA674B1C189C694600C0B8FB /* Classes */,
+				FA674B1A189C692C00C0B8FB /* ViewControllers */,
 				FA26A73218945678006F1D69 /* Images.xcassets */,
 				FA26A72918945678006F1D69 /* Main.storyboard */,
 				FA26A71E18945678006F1D69 /* Supporting Files */,
-				FA26A752189462BD006F1D69 /* GetAverageViewController.h */,
-				FA26A753189462BD006F1D69 /* GetAverageViewController.m */,
-				FA7937681897399C001F2BD2 /* AboutViewController.h */,
-				FA7937691897399C001F2BD2 /* AboutViewController.m */,
 			);
 			path = "Finals Calculator";
 			sourceTree = "<group>";
@@ -160,6 +161,39 @@
 				FA26A74218945679006F1D69 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA674B1A189C692C00C0B8FB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA26A72C18945678006F1D69 /* FirstViewController.h */,
+				FA26A72D18945678006F1D69 /* FirstViewController.m */,
+				FA26A752189462BD006F1D69 /* GetAverageViewController.h */,
+				FA26A753189462BD006F1D69 /* GetAverageViewController.m */,
+				FA7937681897399C001F2BD2 /* AboutViewController.h */,
+				FA7937691897399C001F2BD2 /* AboutViewController.m */,
+				FA674B2618A1DB1900C0B8FB /* AnalyzeViewController.h */,
+				FA674B2718A1DB1900C0B8FB /* AnalyzeViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FA674B1B189C693300C0B8FB /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				FA26A72618945678006F1D69 /* AppDelegate.h */,
+				FA26A72718945678006F1D69 /* AppDelegate.m */,
+			);
+			name = "App Delegate";
+			sourceTree = "<group>";
+		};
+		FA674B1C189C694600C0B8FB /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FA674B2318A1C2C300C0B8FB /* ValuesObject.h */,
+				FA674B2418A1C2C300C0B8FB /* ValuesObject.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,10 +293,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA674B2818A1DB1900C0B8FB /* AnalyzeViewController.m in Sources */,
 				FA26A72818945678006F1D69 /* AppDelegate.m in Sources */,
 				FA79376A1897399C001F2BD2 /* AboutViewController.m in Sources */,
 				FA26A72E18945678006F1D69 /* FirstViewController.m in Sources */,
 				FA26A72418945678006F1D69 /* main.m in Sources */,
+				FA674B2518A1C2C300C0B8FB /* ValuesObject.m in Sources */,
 				FA26A754189462BD006F1D69 /* GetAverageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

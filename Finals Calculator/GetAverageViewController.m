@@ -8,28 +8,16 @@
 
 #import "GetAverageViewController.h"
 #import "FirstViewController.h"
+#import "ValuesObject.h"
 @class FirstViewController;
 
 @interface GetAverageViewController ()
-
-
-
 
 @end
 
 @implementation GetAverageViewController
 
 #pragma mark Set Up
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-    
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -226,11 +214,10 @@
 
 - (IBAction)backButton:(id)sender {
     if (haveValueToReturn) {
-        
-        //set the firstviewtext box to the percent somehow
-        FirstViewController *firstViewControllerObject = [self.storyboard instantiateInitialViewController];
-        firstViewControllerObject.string = [[NSString alloc] initWithFormat:@"%f", actualAverage];
+        //set the allValues object equal to this
+        [[ValuesObject allValues] setCurrentCombinedAverage:actualAverage];
     }
+    //might want to make currentcombined average to -1.0 here (see appDelegate)
     
     //switch the views
     [self dismissViewControllerAnimated:YES completion:nil];

@@ -10,5 +10,18 @@
 
 @interface FirstViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UITextField *percentAverageTextField;
-@property (strong, nonatomic) NSString *string;
+@property (strong, nonatomic) IBOutlet UITextField *finalWeight;
+@property (strong, nonatomic) IBOutlet UIButton *goButton;
+@property (strong, nonatomic) IBOutlet UILabel *weightWorthLabel;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *roundUpSegment;
+@property CGRect originalLabel;
+@property CGRect originalTextField;
+
+- (IBAction)goPushed:(id)sender;
+
 @end
+
+BOOL allFilledIn;
+bool firstTextFull;
+bool secondTextFull;
+bool segmentSelected;

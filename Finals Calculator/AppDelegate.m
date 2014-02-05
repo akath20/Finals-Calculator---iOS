@@ -5,14 +5,16 @@
 //  Created by Alex Atwater on 1/25/14.
 //  Copyright (c) 2014 Alex Atwater. All rights reserved.
 //
-
 #import "AppDelegate.h"
+#import "ValuesObject.h"
+
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [[ValuesObject allValues] setCurrentCombinedAverage:-1.0];
     return YES;
 }
 							
@@ -42,5 +44,6 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
 
 @end
