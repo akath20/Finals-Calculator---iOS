@@ -22,6 +22,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    //REEVALUTE TO SEE IF I SHOULD MOVE IT TO viewWillShow
+    
     [self.buttonView setHidden:TRUE];
     self.whatsShowing = 0;
     
@@ -45,6 +48,13 @@
     haveValueToReturn = FALSE;
     
     
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    //cancel the keyboardwatchers
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
 }
 
 #pragma mark Keyboard

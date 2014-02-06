@@ -18,4 +18,5 @@
 
 - (float)lowestPossibleGrade;
 - (float)highestPossibleGrade;
+- (float)customScore:(float)customScore;
 @end

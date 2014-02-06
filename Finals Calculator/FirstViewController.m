@@ -26,7 +26,7 @@
     if ([[SharedValues allValues] currentCombinedAverage] == -1.0) {
         self.percentAverageTextField.placeholder = @"%";
     } else {
-        self.percentAverageTextField.text = [NSString stringWithFormat:@"%.2f %%", [[SharedValues allValues] currentCombinedAverage]];
+        self.percentAverageTextField.text = [NSString stringWithFormat:@"%.2f", [[SharedValues allValues] currentCombinedAverage]];
     }
     if ([self allFilled]) {
         [self.goButton setEnabled:true];
@@ -112,6 +112,9 @@
     }
     
 }
+
+
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     //resign the keyboard when background touched
     [self.percentAverageTextField resignFirstResponder];

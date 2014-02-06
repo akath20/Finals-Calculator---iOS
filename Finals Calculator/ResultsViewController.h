@@ -16,7 +16,14 @@
 @property (strong, nonatomic) IBOutlet UILabel *customScoreLabel;
 @property (strong, nonatomic) IBOutlet UILabel *minScoreLabel;
 @property (strong, nonatomic) IBOutlet UIView *scrollViewView;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *getGradeSegment;
+@property (strong, nonatomic) IBOutlet UITextField *customScoreTextFieldOutlet;
+@property (strong, nonatomic) IBOutlet UIButton *hideKeyboardDoneButton;
+
 
 - (IBAction)customScoreTextField:(id)sender;
+- (IBAction)segmentValueChanged:(id)sender;
+- (IBAction)hideKeyboardButton:(id)sender;
+
 
 @end

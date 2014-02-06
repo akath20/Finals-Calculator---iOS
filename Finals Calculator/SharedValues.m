@@ -48,6 +48,11 @@
     return highestGrade;
 }
 
+- (float)customScore:(float)customScore {
+    float customGrade = ([[SharedValues allValues] currentCombinedAverage]*(1 - [[SharedValues allValues] finalWeight]))+(customScore*[[SharedValues allValues] finalWeight]);
+    
+    return customGrade;
+}
 
 
 @end
