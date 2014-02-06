@@ -22,9 +22,12 @@
     
     //make sure at runtime it doesn't account for the toolbar being there so that it's not moved down when accouting for it
     [self setAutomaticallyAdjustsScrollViewInsets:false];
+    [self.mainScrollView setContentSize:CGSizeMake(320, 800)];
     
-    //create the done button to be able to hide the keyboard when a custom value is inputed
-    //self.hideKeyboardButton = [[UIButton alloc] initWithFrame:CGRectMake((self.customScoreTextFieldOutlet.frame.origin.x), (self.customScoreTextFieldOutlet.frame.origin.y - 10), 54, 22)];
+    //auto reposition so if i edit in IB it will return at runtime
+    //y NOT 64 to not have a white space above it
+    [self.scrollViewView setFrame:CGRectMake(0, 0, self.scrollViewView.frame.size.width, self.scrollViewView.frame.size.height)];
+
     
 }
 
@@ -63,10 +66,21 @@
 
 - (IBAction)customScoreTextField:(id)sender {
     //put error checking here as well LATER
-    float customValue = [[(UITextField *)sender text] floatValue];
+    if (![self.customScoreTextFieldOutlet.text isEqualToString:@""]) {
+        float customValue = [[(UITextField *)sender text] floatValue];
+        
+        //run the calculation and update the label
+        self.customScoreLabel.text = [NSString stringWithFormat:@"%.2f%%", [[SharedValues allValues] customScore:customValue]];
+        
+        //reformat the textbox
+        //[sender setText:[NSString stringWithFormat:@"%.2f", [sender.text floatValue]]];
+        [self.customScoreTextFieldOutlet setText:[NSString stringWithFormat:@"%.2f", [self.customScoreTextFieldOutlet.text floatValue]]];
+    } else {
+        //and reset the placeholder the textbox
+        self.customScoreTextFieldOutlet.text = @"";
+        self.customScoreTextFieldOutlet.placeholder = @"%";
+    }
     
-    //run the calculation and update the label
-    self.customScoreLabel.text = [NSString stringWithFormat:@"@%.2f%%", [[SharedValues allValues] customScore:customValue]];
     
 }
 
@@ -75,11 +89,10 @@
 
 - (IBAction)hideKeyboardButton:(id)sender {
     
-    //error check textfield here TO DO
+    //error check textfield here TO DO OR BELOW
     [self.customScoreTextFieldOutlet resignFirstResponder];
     [self.hideKeyboardDoneButton setHidden:true];
 }
-
 
 
 
