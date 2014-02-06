@@ -54,5 +54,4 @@
     return customGrade;
 }
 
-
 @end

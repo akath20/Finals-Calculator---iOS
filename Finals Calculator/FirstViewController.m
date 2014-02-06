@@ -20,6 +20,29 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    
+    
+    //Set up the dictionary of the grade scale
+    //create
+    NSMutableDictionary *loadGradeDictionary = [[NSMutableDictionary alloc] initWithCapacity:11];
+    
+    //load values OVERRIDE USER GIVEN VALUES HERE
+    [loadGradeDictionary setObject:[NSString stringWithFormat:@"%f", 92.5] forKey:@"A"];
+    [loadGradeDictionary setObject:[NSString stringWithFormat:@"%f", 89.5] forKey:@"A-"];
+    [loadGradeDictionary setObject:[NSString stringWithFormat:@"%f", 86.5] forKey:@"B+"];
+    [loadGradeDictionary setObject:[NSString stringWithFormat:@"%f", 82.5] forKey:@"B"];
+    [loadGradeDictionary setObject:[NSString stringWithFormat:@"%f", 79.5] forKey:@"B-"];
+    [loadGradeDictionary setObject:[NSString stringWithFormat:@"%f", 76.5] forKey:@"C+"];
+    [loadGradeDictionary setObject:[NSString stringWithFormat:@"%f", 72.5] forKey:@"C"];
+    [loadGradeDictionary setObject:[NSString stringWithFormat:@"%f", 69.5] forKey:@"C-"];
+    [loadGradeDictionary setObject:[NSString stringWithFormat:@"%f", 66.5] forKey:@"D+"];
+    [loadGradeDictionary setObject:[NSString stringWithFormat:@"%f", 62.5] forKey:@"D"];
+    [loadGradeDictionary setObject:[NSString stringWithFormat:@"%f", 59.5] forKey:@"D-"];
+    
+    //set the dictionary in sharedValues
+    [[SharedValues allValues] setGradeScale:loadGradeDictionary];
+    
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -112,8 +135,6 @@
     }
     
 }
-
-
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     //resign the keyboard when background touched

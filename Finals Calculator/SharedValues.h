@@ -13,6 +13,7 @@
 @property float currentCombinedAverage;
 @property float finalWeight;
 @property BOOL roundUp;
+@property NSMutableDictionary *gradeScale;
 
 + (SharedValues *) allValues;
 

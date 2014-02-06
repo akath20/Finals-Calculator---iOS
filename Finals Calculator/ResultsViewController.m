@@ -46,6 +46,9 @@
                                                object:nil];
     [self.hideKeyboardDoneButton setHidden:true];
     
+    //update the segment control to present the appropriate labels
+    [self formatSegmentControl];
+    
 
 }
 
@@ -94,9 +97,79 @@
     [self.hideKeyboardDoneButton setHidden:true];
 }
 
+- (void)formatSegmentControl {
+    //update the segment control to present the appropriate labels
+    float theAverage = [[SharedValues allValues] currentCombinedAverage];
+    float lowestScore = [[SharedValues allValues] lowestPossibleGrade];
+    float highestScore = [[SharedValues allValues] highestPossibleGrade];
+    NSString *highestScoreAsLetter = [[NSString alloc] initWithString:[self gradeAsLetter:highestScore]];
+    NSString *lowestScoreAsLetter = [[NSString alloc] initWithString:[self gradeAsLetter:lowestScore]];
+    NSLog(@"\nhighestScoreAsLetter: %@\nlowestScoreAsLetter: %@", highestScoreAsLetter, lowestScoreAsLetter);
+    
+    
+    
+    
+    
+    
+    
+}
 
-
-
+-(NSString *)gradeAsLetter:(float)x {
+    NSMutableDictionary *gradeScale = [[SharedValues allValues] gradeScale];
+    NSMutableString *returnString = [[NSMutableString alloc] initWithCapacity:2];
+    if (x > [[gradeScale valueForKey:@"A"] floatValue]) {
+        //return the letter here
+        returnString = [@"A" mutableCopy];
+    } else if (([[gradeScale valueForKey:@"A"] floatValue] > x) && (x > [[gradeScale valueForKey:@"A-"] floatValue])) {
+        //return the letter here
+        returnString = [@"A-" mutableCopy];
+        //return @"A-";
+    } else if (([[gradeScale valueForKey:@"A-"] floatValue] > x) && (x > [[gradeScale valueForKey:@"B+"] floatValue])) {
+        //return the letter here
+        returnString = [@"B+" mutableCopy];
+        //return @"B+";
+    } else if (([[gradeScale valueForKey:@"B+"] floatValue] > x) && (x > [[gradeScale valueForKey:@"B"] floatValue])) {
+        //return the letter here
+        returnString = [@"B" mutableCopy];
+        //return @"B";
+    } else if (([[gradeScale valueForKey:@"B"] floatValue] > x) && (x > [[gradeScale valueForKey:@"B-"] floatValue])) {
+        //return the letter here
+        returnString = [@"B-" mutableCopy];
+        //return @"B-";
+    } else if (([[gradeScale valueForKey:@"B-"] floatValue] > x) && (x > [[gradeScale valueForKey:@"C+"] floatValue])) {
+        //return the letter here
+        returnString = [@"C+" mutableCopy];
+        //return @"C+";
+    } else if (([[gradeScale valueForKey:@"C+"] floatValue] > x) && (x > [[gradeScale valueForKey:@"C"] floatValue])) {
+        //return the letter here
+        returnString = [@"C" mutableCopy];
+        //return @"C";
+    } else if (([[gradeScale valueForKey:@"C"] floatValue] > x) && (x > [[gradeScale valueForKey:@"C-"] floatValue])) {
+        //return the letter here
+        returnString = [@"C-" mutableCopy];
+        //return @"C-";
+    } else if (([[gradeScale valueForKey:@"C-"] floatValue] > x) && (x > [[gradeScale valueForKey:@"D+"] floatValue])) {
+        //return the letter here
+        returnString = [@"D+" mutableCopy];
+        //return @"D+";
+    } else if (([[gradeScale valueForKey:@"D+"] floatValue] > x) && (x > [[gradeScale valueForKey:@"D"] floatValue])) {
+        //return the letter here
+        returnString = [@"D" mutableCopy];
+        //return @"D";
+    } else if (([[gradeScale valueForKey:@"D"] floatValue] > x) && (x > [[gradeScale valueForKey:@"D-"] floatValue])) {
+        //return the letter here
+        returnString = [@"D-" mutableCopy];
+        //return @"D-";
+    } else if ([[gradeScale valueForKey:@"D-"] floatValue] > x) {
+        //return the letter here
+        returnString = [@"F" mutableCopy];
+        //return @"F";
+    }
+    
+    //Error; Shouldn't reach here, should return a value above
+    //NSLog(@"Error. -> ResultsViewController.m -> -gradeAsLetter");
+    return returnString;
+}
 
 
 
