@@ -99,22 +99,43 @@
 
 - (void)formatSegmentControl {
     //update the segment control to present the appropriate labels
-    float theAverage = [[SharedValues allValues] currentCombinedAverage];
     float lowestScore = [[SharedValues allValues] lowestPossibleGrade];
     float highestScore = [[SharedValues allValues] highestPossibleGrade];
     NSString *highestScoreAsLetter = [[NSString alloc] initWithString:[self gradeAsLetter:highestScore]];
     NSString *lowestScoreAsLetter = [[NSString alloc] initWithString:[self gradeAsLetter:lowestScore]];
     NSLog(@"\nhighestScoreAsLetter: %@\nlowestScoreAsLetter: %@", highestScoreAsLetter, lowestScoreAsLetter);
+    //ALL SET HERE AND BELOW
     
+    //set the index of the higest/lowest grade letter from the array
+    int highGrade = [[[[SharedValues allValues] gradeScale] objectForKey:@"gradesArray"] indexOfObject:highestScoreAsLetter];
+    int lowGrade = [[[[SharedValues allValues] gradeScale] objectForKey:@"gradesArray"] indexOfObject:lowestScoreAsLetter];
     
+    //delete the older section down to two
+    while ([self.getGradeSegment numberOfSegments] > 2) {
+        [self.getGradeSegment removeSegmentAtIndex:[self.getGradeSegment numberOfSegments] animated:false];
+    }
     
+    //add the new ones in (modify first two, then add the rest
+    [self.getGradeSegment setTitle:highestScoreAsLetter forSegmentAtIndex:0];
     
-    
-    
+    //if there is an error it would be *HERE*
+    NSString *tempTitle = [NSString stringWithString:[[[[SharedValues allValues] gradeScale] objectForKey:@"gradesArray"] objectAtIndex:(highGrade + 1)]];
+    [self.getGradeSegment setTitle:tempTitle forSegmentAtIndex:1];
+   
+    //add the rest of the segments here
+    // ALSO HERE
+    for (int i = 2; lowGrade > i; i++) {
+        NSString *nestedTempTitle = [NSString stringWithString:[[[[SharedValues allValues] gradeScale] objectForKey:@"gradesArray"] objectAtIndex:(highGrade + i)]];
+        NSLog(@"\n%d: %@", i, nestedTempTitle);
+        [self.getGradeSegment insertSegmentWithTitle:nestedTempTitle atIndex:i animated:false];
+    }
     
 }
 
--(NSString *)gradeAsLetter:(float)x {
+- (NSString *)gradeAsLetter:(float)x {
+    
+    //converts the percent to a letter grade
+    
     NSMutableDictionary *gradeScale = [[SharedValues allValues] gradeScale];
     NSMutableString *returnString = [[NSMutableString alloc] initWithCapacity:2];
     if (x > [[gradeScale valueForKey:@"A"] floatValue]) {

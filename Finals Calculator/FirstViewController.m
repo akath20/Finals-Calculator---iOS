@@ -39,6 +39,9 @@
     [loadGradeDictionary setObject:[NSString stringWithFormat:@"%f", 62.5] forKey:@"D"];
     [loadGradeDictionary setObject:[NSString stringWithFormat:@"%f", 59.5] forKey:@"D-"];
     
+    //also set a NSArray to be able to loop through the grades reliably
+    [loadGradeDictionary setObject:[NSArray arrayWithObjects:@"A", @"A-", @"B+", @"B", @"B-", @"C+", @"C", @"C-", @"D+", @"D", @"D-", @"F" , nil] forKey:@"gradesArray"];
+    
     //set the dictionary in sharedValues
     [[SharedValues allValues] setGradeScale:loadGradeDictionary];
     

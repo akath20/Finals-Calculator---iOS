@@ -24,6 +24,8 @@
 - (IBAction)customScoreTextField:(id)sender;
 - (IBAction)segmentValueChanged:(id)sender;
 - (IBAction)hideKeyboardButton:(id)sender;
+- (NSString *)gradeAsLetter:(float)x;
 
 
 @end
+
