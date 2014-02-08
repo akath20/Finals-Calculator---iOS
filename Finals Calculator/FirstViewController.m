@@ -46,6 +46,10 @@
     [[SharedValues allValues] setGradeScale:loadGradeDictionary];
     
     
+    //hide the assume no label
+    [self.assumeNoLabel setHidden:true];
+    
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -104,8 +108,14 @@
     //-1 means nothing selected
     if (sender.selectedSegmentIndex >= 0) {
         segmentSelected = TRUE;
+        if (sender.selectedSegmentIndex == 2) {
+            [self.assumeNoLabel setHidden:false];
+        } else {
+            [self.assumeNoLabel setHidden:true];
+        }
     } else {
         segmentSelected = false;
+        [self.assumeNoLabel setHidden:true];
     }
     
     //check to see if enable button

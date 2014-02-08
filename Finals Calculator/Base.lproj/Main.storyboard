@@ -106,11 +106,19 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This assumes no." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fhX-tV-ZAp">
+                                <rect key="frame" x="95" y="368" width="130" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Finals Calculator" id="bgJ-Os-k1M"/>
                     <connections>
+                        <outlet property="assumeNoLabel" destination="fhX-tV-ZAp" id="dba-IA-c6n"/>
                         <outlet property="finalWeight" destination="tgo-Ih-5s8" id="Hia-pg-gBG"/>
                         <outlet property="goButton" destination="AZS-RV-Osf" id="FG5-61-ufp"/>
                         <outlet property="percentAverageTextField" destination="Z0F-Tz-pKc" id="BJh-vp-nS3"/>

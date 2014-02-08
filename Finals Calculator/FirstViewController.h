@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *finalWeight;
 @property (strong, nonatomic) IBOutlet UIButton *goButton;
 @property (strong, nonatomic) IBOutlet UILabel *weightWorthLabel;
+@property (strong, nonatomic) IBOutlet UILabel *assumeNoLabel;
 @property CGRect originalLabel;
 @property CGRect originalTextField;
 
