@@ -46,9 +46,17 @@
                                                object:nil];
     [self.hideKeyboardDoneButton setHidden:true];
     
-    //update the segment control to present the appropriate labels
-    [self formatSegmentControl];
+   
     
+    
+    if ([[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] highestPossibleGrade]]] isEqualToString:[self gradeAsLetter:[[SharedValues allValues] lowestPossibleGrade]]]) {
+        //if the two strings are equal, then don't show or create the segment  (If more than one to show basically)
+        NSLog(@"\nSame Letter");
+    } else {
+        //otherwise, format the segment
+        //update the segment control to present the appropriate labels with passing the right things in
+        [self formatSegmentControl:[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] highestPossibleGrade]]] :[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] lowestPossibleGrade]]]];
+    }
 
 }
 
@@ -97,14 +105,12 @@
     [self.hideKeyboardDoneButton setHidden:true];
 }
 
-- (void)formatSegmentControl {
+- (void)formatSegmentControl:(NSString *)highLetterGrade :(NSString *)lowLetterGrade {
     //update the segment control to present the appropriate labels
-    float lowestScore = [[SharedValues allValues] lowestPossibleGrade];
-    float highestScore = [[SharedValues allValues] highestPossibleGrade];
-    NSString *highestScoreAsLetter = [[NSString alloc] initWithString:[self gradeAsLetter:highestScore]];
-    NSString *lowestScoreAsLetter = [[NSString alloc] initWithString:[self gradeAsLetter:lowestScore]];
+    //CLEAN UP BY CUTTING OUT MIDDLE MAN
+    NSString *highestScoreAsLetter = highLetterGrade;
+    NSString *lowestScoreAsLetter = lowLetterGrade;
     NSLog(@"\nhighestScoreAsLetter: %@\nlowestScoreAsLetter: %@", highestScoreAsLetter, lowestScoreAsLetter);
-    //ALL SET HERE AND BELOW
     
     //set the index of the higest/lowest grade letter from the array
     int highGrade = [[[[SharedValues allValues] gradeScale] objectForKey:@"gradesArray"] indexOfObject:highestScoreAsLetter];
