@@ -34,8 +34,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     //Get calculation and all the update all the labels when view is about to show
-    self.zeroLabel.text = [NSString stringWithFormat:@"%.2f%%", [[SharedValues allValues] lowestPossibleGrade]];
-    self.hundredLabel.text = [NSString stringWithFormat:@"%.2f%%", [[SharedValues allValues] highestPossibleGrade]];
+    self.zeroLabel.text = [NSString stringWithFormat:@"(%@) %.2f%%", [self gradeAsLetter:[[SharedValues allValues] lowestPossibleGrade]] ,[[SharedValues allValues] lowestPossibleGrade]];
+    self.hundredLabel.text = [NSString stringWithFormat:@"(%@) %.2f%%",[self gradeAsLetter:[[SharedValues allValues] highestPossibleGrade]] ,[[SharedValues allValues] highestPossibleGrade]];
     
     
     
@@ -115,73 +115,79 @@
         [self.getGradeSegment removeSegmentAtIndex:[self.getGradeSegment numberOfSegments] animated:false];
     }
     
-    //add the new ones in (modify first two, then add the rest
-    [self.getGradeSegment setTitle:highestScoreAsLetter forSegmentAtIndex:0];
-    
-    //if there is an error it would be *HERE*
-    NSString *tempTitle = [NSString stringWithString:[[[[SharedValues allValues] gradeScale] objectForKey:@"gradesArray"] objectAtIndex:(highGrade + 1)]];
-    [self.getGradeSegment setTitle:tempTitle forSegmentAtIndex:1];
+    //set first two to null
+    [self.getGradeSegment setTitle:nil forSegmentAtIndex:0];
+    [self.getGradeSegment setTitle:nil forSegmentAtIndex:1];
    
-    //add the rest of the segments here
-    // ALSO HERE
-    for (int i = 2; lowGrade > i; i++) {
-        NSString *nestedTempTitle = [NSString stringWithString:[[[[SharedValues allValues] gradeScale] objectForKey:@"gradesArray"] objectAtIndex:(highGrade + i)]];
-        NSLog(@"\n%d: %@", i, nestedTempTitle);
-        [self.getGradeSegment insertSegmentWithTitle:nestedTempTitle atIndex:i animated:false];
+    int xCounter = 0;
+    while (abs(highGrade-lowGrade) >= xCounter) {
+        NSString *nestedTempTitle = [NSString stringWithString:[[[[SharedValues allValues] gradeScale] objectForKey:@"gradesArray"] objectAtIndex:(highGrade + xCounter)]];
+        if (xCounter == 0) {
+            [self.getGradeSegment setTitle:nestedTempTitle forSegmentAtIndex:0];
+        } else if (xCounter == 1) {
+            [self.getGradeSegment setTitle:nestedTempTitle forSegmentAtIndex:1];
+        }
+        else {
+            [self.getGradeSegment insertSegmentWithTitle:nestedTempTitle atIndex:xCounter animated:false];
+            
+        }
+        
+        //increment the counter
+        xCounter++;
     }
     
 }
 
-- (NSString *)gradeAsLetter:(float)x {
+- (NSString *)gradeAsLetter:(float)passedGrade {
     
     //converts the percent to a letter grade
     
     NSMutableDictionary *gradeScale = [[SharedValues allValues] gradeScale];
     NSMutableString *returnString = [[NSMutableString alloc] initWithCapacity:2];
-    if (x > [[gradeScale valueForKey:@"A"] floatValue]) {
+    if (passedGrade > [[gradeScale valueForKey:@"A"] floatValue]) {
         //return the letter here
         returnString = [@"A" mutableCopy];
-    } else if (([[gradeScale valueForKey:@"A"] floatValue] > x) && (x > [[gradeScale valueForKey:@"A-"] floatValue])) {
+    } else if (([[gradeScale valueForKey:@"A"] floatValue] > passedGrade) && (passedGrade > [[gradeScale valueForKey:@"A-"] floatValue])) {
         //return the letter here
         returnString = [@"A-" mutableCopy];
         //return @"A-";
-    } else if (([[gradeScale valueForKey:@"A-"] floatValue] > x) && (x > [[gradeScale valueForKey:@"B+"] floatValue])) {
+    } else if (([[gradeScale valueForKey:@"A-"] floatValue] > passedGrade) && (passedGrade > [[gradeScale valueForKey:@"B+"] floatValue])) {
         //return the letter here
         returnString = [@"B+" mutableCopy];
         //return @"B+";
-    } else if (([[gradeScale valueForKey:@"B+"] floatValue] > x) && (x > [[gradeScale valueForKey:@"B"] floatValue])) {
+    } else if (([[gradeScale valueForKey:@"B+"] floatValue] > passedGrade) && (passedGrade > [[gradeScale valueForKey:@"B"] floatValue])) {
         //return the letter here
         returnString = [@"B" mutableCopy];
         //return @"B";
-    } else if (([[gradeScale valueForKey:@"B"] floatValue] > x) && (x > [[gradeScale valueForKey:@"B-"] floatValue])) {
+    } else if (([[gradeScale valueForKey:@"B"] floatValue] > passedGrade) && (passedGrade > [[gradeScale valueForKey:@"B-"] floatValue])) {
         //return the letter here
         returnString = [@"B-" mutableCopy];
         //return @"B-";
-    } else if (([[gradeScale valueForKey:@"B-"] floatValue] > x) && (x > [[gradeScale valueForKey:@"C+"] floatValue])) {
+    } else if (([[gradeScale valueForKey:@"B-"] floatValue] > passedGrade) && (passedGrade > [[gradeScale valueForKey:@"C+"] floatValue])) {
         //return the letter here
         returnString = [@"C+" mutableCopy];
         //return @"C+";
-    } else if (([[gradeScale valueForKey:@"C+"] floatValue] > x) && (x > [[gradeScale valueForKey:@"C"] floatValue])) {
+    } else if (([[gradeScale valueForKey:@"C+"] floatValue] > passedGrade) && (passedGrade > [[gradeScale valueForKey:@"C"] floatValue])) {
         //return the letter here
         returnString = [@"C" mutableCopy];
         //return @"C";
-    } else if (([[gradeScale valueForKey:@"C"] floatValue] > x) && (x > [[gradeScale valueForKey:@"C-"] floatValue])) {
+    } else if (([[gradeScale valueForKey:@"C"] floatValue] > passedGrade) && (passedGrade > [[gradeScale valueForKey:@"C-"] floatValue])) {
         //return the letter here
         returnString = [@"C-" mutableCopy];
         //return @"C-";
-    } else if (([[gradeScale valueForKey:@"C-"] floatValue] > x) && (x > [[gradeScale valueForKey:@"D+"] floatValue])) {
+    } else if (([[gradeScale valueForKey:@"C-"] floatValue] > passedGrade) && (passedGrade > [[gradeScale valueForKey:@"D+"] floatValue])) {
         //return the letter here
         returnString = [@"D+" mutableCopy];
         //return @"D+";
-    } else if (([[gradeScale valueForKey:@"D+"] floatValue] > x) && (x > [[gradeScale valueForKey:@"D"] floatValue])) {
+    } else if (([[gradeScale valueForKey:@"D+"] floatValue] > passedGrade) && (passedGrade > [[gradeScale valueForKey:@"D"] floatValue])) {
         //return the letter here
         returnString = [@"D" mutableCopy];
         //return @"D";
-    } else if (([[gradeScale valueForKey:@"D"] floatValue] > x) && (x > [[gradeScale valueForKey:@"D-"] floatValue])) {
+    } else if (([[gradeScale valueForKey:@"D"] floatValue] > passedGrade) && (passedGrade > [[gradeScale valueForKey:@"D-"] floatValue])) {
         //return the letter here
         returnString = [@"D-" mutableCopy];
         //return @"D-";
-    } else if ([[gradeScale valueForKey:@"D-"] floatValue] > x) {
+    } else if ([[gradeScale valueForKey:@"D-"] floatValue] > passedGrade) {
         //return the letter here
         returnString = [@"F" mutableCopy];
         //return @"F";
