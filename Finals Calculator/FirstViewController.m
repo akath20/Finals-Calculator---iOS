@@ -79,12 +79,53 @@
 
 - (IBAction)textboxEdited:(UITextField *)sender {
     if (![sender.text isEqualToString:@""]) {
+        //if something is in the textbox
         if (sender.tag == 0) {
-            firstTextFull = true;
+            //if score text box
+            if ([sender.text floatValue] > 100.0) {
+                UIAlertView *tooHighAlert = [[UIAlertView alloc] initWithTitle:@"Value Too High" message:@"Value cannot exceed 100%, please input a smaller average." delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+                [tooHighAlert show];
+                firstTextFull = false;
+                
+                //go back to the textbox for new value
+                [sender becomeFirstResponder];
+            } else if ([sender.text floatValue] < 20.0) {
+                UIAlertView *tooLowAlert = [[UIAlertView alloc] initWithTitle:@"Value Too Low" message:@"Value too low, please input a larger average." delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+                [tooLowAlert show];
+                firstTextFull = false;
+                
+                //go back to the textbox for new value
+                [sender becomeFirstResponder];
+            } else {
+                //if all good, say the text is full
+                firstTextFull = true;
+                [sender setText:[NSString stringWithFormat:@"%.2f", [sender.text floatValue]]];
+            }
+            
         } else {
-            secondTextFull = true;
+            //if weight text box
+            if ([sender.text floatValue] > 95.0) {
+                UIAlertView *tooHighAlert = [[UIAlertView alloc] initWithTitle:@"Weight Too High" message:@"Weight too high, please input a smaller weight." delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+                [tooHighAlert show];
+                secondTextFull = false;
+                
+                //go back to the textbox for new value
+                [sender becomeFirstResponder];
+            } else if ([sender.text floatValue] < 5.0) {
+                UIAlertView *tooLowAlert = [[UIAlertView alloc] initWithTitle:@"Weight Too Low" message:@"Weight too low, please input a larger weight." delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+                [tooLowAlert show];
+                secondTextFull = false;
+                
+                //go back to the textbox for new value
+                [sender becomeFirstResponder];
+            } else {
+                //if all good, say the text is full
+                secondTextFull = true;
+                [sender setText:[NSString stringWithFormat:@"%.2f", [sender.text floatValue]]];
+            }
         }
-        [sender setText:[NSString stringWithFormat:@"%.2f", [sender.text floatValue]]];
+        
+        
     } else {
         if (sender.tag == 0) {
             firstTextFull = false;

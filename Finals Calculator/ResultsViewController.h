@@ -18,12 +18,11 @@
 @property (strong, nonatomic) IBOutlet UIView *scrollViewView;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *getGradeSegment;
 @property (strong, nonatomic) IBOutlet UITextField *customScoreTextFieldOutlet;
-@property (strong, nonatomic) IBOutlet UIButton *hideKeyboardDoneButton;
+@property (strong, nonatomic) IBOutlet UIView *pickGradeView;
 
 
 - (IBAction)customScoreTextField:(id)sender;
 - (IBAction)segmentValueChanged:(id)sender;
-- (IBAction)hideKeyboardButton:(id)sender;
 - (NSString *)gradeAsLetter:(float)x;
 
 

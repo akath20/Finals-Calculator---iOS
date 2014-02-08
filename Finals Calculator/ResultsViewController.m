@@ -9,7 +9,10 @@
 #import "ResultsViewController.h"
 #import "SharedValues.h"
 
-@interface ResultsViewController ()
+@interface ResultsViewController () {
+    UITapGestureRecognizer *yourTap;
+
+}
 
 @end
 
@@ -27,6 +30,10 @@
     //auto reposition so if i edit in IB it will return at runtime
     //y NOT 64 to not have a white space above it
     [self.scrollViewView setFrame:CGRectMake(0, 0, self.scrollViewView.frame.size.width, self.scrollViewView.frame.size.height)];
+    
+    //init the gesture tap
+    yourTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollTap)];
+
 
     
 }
@@ -39,41 +46,52 @@
     
     
     
-    //Check for keyboard show
+    //Check for keyboard show/hide
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow)
                                                  name:UIKeyboardWillShowNotification
                                                object:nil];
-    [self.hideKeyboardDoneButton setHidden:true];
-    
-   
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
     
     if ([[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] highestPossibleGrade]]] isEqualToString:[self gradeAsLetter:[[SharedValues allValues] lowestPossibleGrade]]]) {
         //if the two strings are equal, then don't show or create the segment  (If more than one to show basically)
-        NSLog(@"\nSame Letter");
+        //hide the view and move the view behind up
+        //MOVE THE VIEW UP
+        [self.pickGradeView setHidden:true];
+        
     } else {
-        //otherwise, format the segment
+        //otherwise, format the segment and show the view
         //update the segment control to present the appropriate labels with passing the right things in
         [self formatSegmentControl:[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] highestPossibleGrade]]] :[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] lowestPossibleGrade]]]];
+        
+        //show the view
+        [self.pickGradeView setHidden:false];
     }
 
 }
 
-//cancel the keyboard watchers
+- (void)keyboardWillHide {
+    [self.mainScrollView removeGestureRecognizer:yourTap];
+}
+
 - (void)viewDidDisappear:(BOOL)animated {
     //cancel the keyboardwatchers
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
 }
 
-
 -(void)keyboardWillShow {
-    //move the view up AND create a show the done button to hide the keyboard
-    [self.hideKeyboardDoneButton setHidden:false];
+    //detect the tap when keyboard is up
+       [self.mainScrollView addGestureRecognizer:yourTap];
     
 }
 
+- (void)scrollTap {
+    [self.customScoreTextFieldOutlet resignFirstResponder];
+}
 
 - (IBAction)customScoreTextField:(id)sender {
     //put error checking here as well LATER
@@ -96,13 +114,6 @@
 }
 
 - (IBAction)segmentValueChanged:(id)sender {
-}
-
-- (IBAction)hideKeyboardButton:(id)sender {
-    
-    //error check textfield here TO DO OR BELOW
-    [self.customScoreTextFieldOutlet resignFirstResponder];
-    [self.hideKeyboardDoneButton setHidden:true];
 }
 
 - (void)formatSegmentControl:(NSString *)highLetterGrade :(NSString *)lowLetterGrade {

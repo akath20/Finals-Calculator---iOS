@@ -191,51 +191,47 @@
                                                     <action selector="customScoreTextField:" destination="Mqt-Pv-NyQ" eventType="editingDidEnd" id="l4M-7V-bKv"/>
                                                 </connections>
                                             </textField>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To get a(n):" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gxk-Qk-zaK">
-                                                <rect key="frame" x="116" y="309" width="89" height="21"/>
+                                            <view contentMode="scaleToFill" id="rpx-Z8-Fno" userLabel="PickGradeView">
+                                                <rect key="frame" x="0.0" y="309" width="320" height="144"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You need at least a:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Ig-Xt-e1j">
-                                                <rect key="frame" x="85" y="374" width="151" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1hQ-mQ-VAN">
-                                                <rect key="frame" x="85" y="399" width="151" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="on your final." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="40w-OM-cBv">
-                                                <rect key="frame" x="103" y="432" width="115" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" id="9cq-fq-OqY">
-                                                <rect key="frame" x="20" y="338" width="280" height="29"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <segments>
-                                                    <segment title="First"/>
-                                                    <segment title="Second"/>
-                                                </segments>
-                                                <connections>
-                                                    <action selector="segmentValueChanged:" destination="Mqt-Pv-NyQ" eventType="valueChanged" id="yr2-rN-hkj"/>
-                                                </connections>
-                                            </segmentedControl>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Tln-Wc-wuB">
-                                                <rect key="frame" x="244" y="174" width="37" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Done">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="hideKeyboardButton:" destination="Mqt-Pv-NyQ" eventType="touchUpInside" id="80t-aK-NI0"/>
-                                                </connections>
-                                            </button>
+                                                <subviews>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To get a(n):" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gxk-Qk-zaK">
+                                                        <rect key="frame" x="116" y="0.0" width="89" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You need at least a:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Ig-Xt-e1j">
+                                                        <rect key="frame" x="85" y="65" width="151" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1hQ-mQ-VAN">
+                                                        <rect key="frame" x="85" y="89" width="151" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="on your final." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="40w-OM-cBv">
+                                                        <rect key="frame" x="103" y="120" width="115" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" id="9cq-fq-OqY">
+                                                        <rect key="frame" x="20" y="29" width="280" height="29"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <segments>
+                                                            <segment title="First"/>
+                                                            <segment title="Second"/>
+                                                        </segments>
+                                                        <connections>
+                                                            <action selector="segmentValueChanged:" destination="Mqt-Pv-NyQ" eventType="valueChanged" id="yr2-rN-hkj"/>
+                                                        </connections>
+                                                    </segmentedControl>
+                                                </subviews>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
@@ -249,10 +245,10 @@
                         <outlet property="customScoreLabel" destination="oNb-oQ-8qC" id="BJ5-xY-XmL"/>
                         <outlet property="customScoreTextFieldOutlet" destination="2kI-ed-5wn" id="GkO-sv-0Le"/>
                         <outlet property="getGradeSegment" destination="9cq-fq-OqY" id="9QH-JQ-Dq3"/>
-                        <outlet property="hideKeyboardDoneButton" destination="Tln-Wc-wuB" id="mSX-eh-9I9"/>
                         <outlet property="hundredLabel" destination="7hI-36-dvL" id="9Pa-hN-mQn"/>
                         <outlet property="mainScrollView" destination="jEz-DP-hhz" id="n8r-0w-oXw"/>
                         <outlet property="minScoreLabel" destination="1hQ-mQ-VAN" id="lcw-P3-bIA"/>
+                        <outlet property="pickGradeView" destination="rpx-Z8-Fno" id="IZL-W5-STL"/>
                         <outlet property="scrollViewView" destination="I1M-jI-CMV" id="JbX-T4-M6c"/>
                         <outlet property="zeroLabel" destination="kB3-B5-hC7" id="RfR-Ow-3mW"/>
                     </connections>
