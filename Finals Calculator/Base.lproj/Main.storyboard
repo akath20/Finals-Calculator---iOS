@@ -122,6 +122,7 @@
                         <outlet property="finalWeight" destination="tgo-Ih-5s8" id="Hia-pg-gBG"/>
                         <outlet property="goButton" destination="AZS-RV-Osf" id="FG5-61-ufp"/>
                         <outlet property="percentAverageTextField" destination="Z0F-Tz-pKc" id="BJh-vp-nS3"/>
+                        <outlet property="segmentOutlet" destination="99F-Zw-dzQ" id="ppw-QF-t17"/>
                         <outlet property="weightWorthLabel" destination="3pi-Q7-rXd" id="jcQ-Op-QFX"/>
                         <segue destination="Mqt-Pv-NyQ" kind="push" identifier="goSegue" id="isn-hA-khg"/>
                     </connections>

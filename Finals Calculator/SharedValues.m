@@ -33,7 +33,7 @@
 - (float)lowestPossibleGrade {
     //ALL GOOD
     //That is if user got a zero on the final
-    float termWeight = (1 - [[SharedValues allValues] finalWeight]);
+    float termWeight = (1 - [[NSString stringWithFormat:@"%.2f", [[SharedValues allValues] finalWeight]] floatValue]);
     float lowestGrade = [[SharedValues allValues] currentCombinedAverage]*termWeight;
     
     return lowestGrade;

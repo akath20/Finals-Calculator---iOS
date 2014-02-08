@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *goButton;
 @property (strong, nonatomic) IBOutlet UILabel *weightWorthLabel;
 @property (strong, nonatomic) IBOutlet UILabel *assumeNoLabel;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentOutlet;
 @property CGRect originalLabel;
 @property CGRect originalTextField;
 

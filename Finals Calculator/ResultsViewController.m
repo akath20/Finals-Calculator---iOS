@@ -11,7 +11,6 @@
 
 @interface ResultsViewController () {
     UITapGestureRecognizer *yourTap;
-
 }
 
 @end
@@ -34,16 +33,17 @@
     //init the gesture tap
     yourTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollTap)];
 
-
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    //create the grade scale dictionary
+    [self createDictionary];
     
     //Get calculation and all the update all the labels when view is about to show
     self.zeroLabel.text = [NSString stringWithFormat:@"(%@) %.2f%%", [self gradeAsLetter:[[SharedValues allValues] lowestPossibleGrade]] ,[[SharedValues allValues] lowestPossibleGrade]];
     self.hundredLabel.text = [NSString stringWithFormat:@"(%@) %.2f%%",[self gradeAsLetter:[[SharedValues allValues] highestPossibleGrade]] ,[[SharedValues allValues] highestPossibleGrade]];
     
+    NSLog(@"\nzeroLabel: %@\nhundredLabel: %@", self.zeroLabel.text, self.hundredLabel.text);
     
     
     //Check for keyboard show/hide
@@ -65,6 +65,8 @@
     } else {
         //otherwise, format the segment and show the view
         //update the segment control to present the appropriate labels with passing the right things in
+        NSLog(@"\nlowestPossibleGrade: %f", [[SharedValues allValues] lowestPossibleGrade]);
+        NSLog(@"\nlowLetterGrade Sent As: %@", [NSString stringWithFormat:@"%@", [self gradeAsLetter:[[SharedValues allValues] lowestPossibleGrade]]]);
         [self formatSegmentControl:[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] highestPossibleGrade]]] :[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] lowestPossibleGrade]]]];
         
         //show the view
@@ -94,17 +96,38 @@
 }
 
 - (IBAction)customScoreTextField:(id)sender {
-    //put error checking here as well LATER
+    //error check and update the label
     if (![self.customScoreTextFieldOutlet.text isEqualToString:@""]) {
+        //if there is a value here
+        
         float customValue = [[(UITextField *)sender text] floatValue];
         
-        //run the calculation and update the label
-        self.customScoreLabel.text = [NSString stringWithFormat:@"%.2f%%", [[SharedValues allValues] customScore:customValue]];
+        //if score text box
+        if (customValue > 100.0) {
+            UIAlertView *tooHighAlert = [[UIAlertView alloc] initWithTitle:@"Score Too High" message:@"Value cannot exceed 100%, please input a smaller score." delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+            [tooHighAlert show];
+            
+            //go back to the textbox for new value
+            [sender becomeFirstResponder];
+        } else if (customValue < 20.0) {
+            UIAlertView *tooLowAlert = [[UIAlertView alloc] initWithTitle:@"Score Too Low" message:@"Value too low, please input a larger score." delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+            [tooLowAlert show];
+            
+            //go back to the textbox for new value
+            [sender becomeFirstResponder];
+        } else {
+            //If everything is all good
+            //run the calculation and update the label
+            self.customScoreLabel.text = [NSString stringWithFormat:@"%.2f%%", [[SharedValues allValues] customScore:customValue]];
+            
+            //reformat the textbox
+            //[sender setText:[NSString stringWithFormat:@"%.2f", [sender.text floatValue]]];
+            [self.customScoreTextFieldOutlet setText:[NSString stringWithFormat:@"%.2f", [self.customScoreTextFieldOutlet.text floatValue]]];
+            
+        }
         
-        //reformat the textbox
-        //[sender setText:[NSString stringWithFormat:@"%.2f", [sender.text floatValue]]];
-        [self.customScoreTextFieldOutlet setText:[NSString stringWithFormat:@"%.2f", [self.customScoreTextFieldOutlet.text floatValue]]];
     } else {
+        //if no value in textbox
         //and reset the placeholder the textbox
         self.customScoreTextFieldOutlet.text = @"";
         self.customScoreTextFieldOutlet.placeholder = @"%";
@@ -114,6 +137,7 @@
 }
 
 - (IBAction)segmentValueChanged:(id)sender {
+    
 }
 
 - (void)formatSegmentControl:(NSString *)highLetterGrade :(NSString *)lowLetterGrade {
@@ -158,10 +182,12 @@
 - (NSString *)gradeAsLetter:(float)passedGrade {
     
     //converts the percent to a letter grade
-    
-    NSMutableDictionary *gradeScale = [[SharedValues allValues] gradeScale];
+
+    NSDictionary *gradeScale = [[SharedValues allValues] gradeScale];
     NSMutableString *returnString = [[NSMutableString alloc] initWithCapacity:2];
-    if (passedGrade > [[gradeScale valueForKey:@"A"] floatValue]) {
+    float xValue = [[gradeScale valueForKey:@"A"] floatValue];
+    
+    if (passedGrade > xValue) {
         //return the letter here
         returnString = [@"A" mutableCopy];
     } else if (([[gradeScale valueForKey:@"A"] floatValue] > passedGrade) && (passedGrade > [[gradeScale valueForKey:@"A-"] floatValue])) {
@@ -216,7 +242,62 @@
 }
 
 
-
+- (void)createDictionary {
+    //decide how to create the dictionary
+    NSMutableDictionary *loadGradeDictionary = [[NSMutableDictionary alloc] initWithCapacity:11];
+    //also set a NSArray to be able to loop through the grades reliably
+    [loadGradeDictionary setObject:[NSArray arrayWithObjects:@"A", @"A-", @"B+", @"B", @"B-", @"C+", @"C", @"C-", @"D+", @"D", @"D-", @"F" , nil] forKey:@"gradesArray"];
+    
+    if ([[SharedValues allValues] roundUp]) {
+        //if the teacher rounds up leave it the way it is with .5 values
+        //Set up the dictionary of the grade scale
+        //create
+        
+        
+        //load values OVERRIDE USER GIVEN VALUES HERE
+        [loadGradeDictionary setObject:[NSNumber numberWithFloat: 92.5] forKey:@"A"];
+        [loadGradeDictionary setObject:[NSNumber numberWithFloat: 89.5] forKey:@"A-"];
+        [loadGradeDictionary setObject:[NSNumber numberWithFloat: 86.5] forKey:@"B+"];
+        [loadGradeDictionary setObject:[NSNumber numberWithFloat: 82.5] forKey:@"B"];
+        [loadGradeDictionary setObject:[NSNumber numberWithFloat: 79.5] forKey:@"B-"];
+        [loadGradeDictionary setObject:[NSNumber numberWithFloat: 76.5] forKey:@"C+"];
+        [loadGradeDictionary setObject:[NSNumber numberWithFloat: 72.5] forKey:@"C"];
+        [loadGradeDictionary setObject:[NSNumber numberWithFloat: 69.5] forKey:@"C-"];
+        [loadGradeDictionary setObject:[NSNumber numberWithFloat: 66.5] forKey:@"D+"];
+        [loadGradeDictionary setObject:[NSNumber numberWithFloat: 62.5] forKey:@"D"];
+        [loadGradeDictionary setObject:[NSNumber numberWithFloat: 59.5] forKey:@"D-"];
+        
+        
+        
+        //set the dictionary in sharedValues
+                
+    } else {
+        
+        //if the teacher doesn't round up, add +.5 to make sure that that min value is at least this if not round up
+        //Set up the dictionary of the grade scale
+        //create
+        
+        
+        //load values OVERRIDE USER GIVEN VALUES HERE
+        [loadGradeDictionary setObject:[NSNumber numberWithFloat: (92.5 + .5)] forKey:@"A"];
+        [loadGradeDictionary setObject:[NSNumber numberWithFloat: (89.5 + .5)] forKey:@"A-"];
+        [loadGradeDictionary setObject:[NSNumber numberWithFloat: (86.5 + .5)] forKey:@"B+"];
+        [loadGradeDictionary setObject:[NSNumber numberWithFloat: (82.5 + .5)] forKey:@"B"];
+        [loadGradeDictionary setObject:[NSNumber numberWithFloat: (79.5 + .5)] forKey:@"B-"];
+        [loadGradeDictionary setObject:[NSNumber numberWithFloat: (76.5 + .5)] forKey:@"C+"];
+        [loadGradeDictionary setObject:[NSNumber numberWithFloat: (72.5 + .5)] forKey:@"C"];
+        [loadGradeDictionary setObject:[NSNumber numberWithFloat: (69.5 + .5)] forKey:@"C-"];
+        [loadGradeDictionary setObject:[NSNumber numberWithFloat: (66.5 + .5)] forKey:@"D+"];
+        [loadGradeDictionary setObject:[NSNumber numberWithFloat: (62.5 + .5)] forKey:@"D"];
+        [loadGradeDictionary setObject:[NSNumber numberWithFloat: (59.5 + .5)] forKey:@"D-"];
+        
+        
+        
+        //set the dictionary in sharedValues
+        
+    }
+    [[SharedValues allValues] setGradeScale:loadGradeDictionary];
+}
 
 
 
