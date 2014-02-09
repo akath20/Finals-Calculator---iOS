@@ -7,6 +7,7 @@
 //
 
 #import "FirstViewController.h"
+#import "ResultsViewController.h"
 #import "SharedValues.h"
 
 @interface FirstViewController ()
@@ -49,15 +50,15 @@
     [[SharedValues allValues] setFinalWeight:([self.finalWeight.text floatValue]/100)];
     
     //set round up
+    NSString *roundUpTF = [NSString alloc];
     if (self.segmentOutlet.selectedSegmentIndex == 0) {
-        [[SharedValues allValues] setRoundUp:true];
+        roundUpTF = [roundUpTF initWithString:@"true"];
     } else {
-        [[SharedValues allValues] setRoundUp:false];
+        roundUpTF = [roundUpTF initWithString:@"false"];
     }
     
-    
     //move to next screen
-    [self performSegueWithIdentifier:@"goSegue" sender:nil];
+    [self performSegueWithIdentifier:@"goSegue" sender:roundUpTF];
 }
 
 - (IBAction)textboxEdited:(UITextField *)sender {
@@ -185,6 +186,14 @@
     
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString: @"goSegue"]) {
+        ResultsViewController *dest = (ResultsViewController *)segue.destinationViewController;
+        //the sender is what you pass into the previous method
+        dest.roundUpDestTF = (NSString *)sender;
+        
+    }
+}
 
 
 

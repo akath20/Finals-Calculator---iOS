@@ -37,6 +37,13 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     //create the grade scale dictionary
+    if ([self.roundUpDestTF isEqualToString:@"true"]) {
+        roundUp = true;
+    } else {
+        roundUp = false;
+    }
+    
+    
     [self createDictionary];
     
     //Get calculation and all the update all the labels when view is about to show
@@ -185,48 +192,48 @@
 
     NSDictionary *gradeScale = [[SharedValues allValues] gradeScale];
     NSMutableString *returnString = [[NSMutableString alloc] initWithCapacity:2];
-    float xValue = [[gradeScale valueForKey:@"A"] floatValue];
+    NSString *xString = [NSString stringWithFormat:@"%.2f", passedGrade];
     
-    if (passedGrade > xValue) {
+    if (([xString floatValue] > [[gradeScale valueForKey:@"A"] floatValue])) {
         //return the letter here
         returnString = [@"A" mutableCopy];
-    } else if (([[gradeScale valueForKey:@"A"] floatValue] > passedGrade) && (passedGrade > [[gradeScale valueForKey:@"A-"] floatValue])) {
+    } else if (([[gradeScale valueForKey:@"A"] floatValue] > passedGrade) && (passedGrade >= [[gradeScale valueForKey:@"A-"] floatValue])) {
         //return the letter here
         returnString = [@"A-" mutableCopy];
         //return @"A-";
-    } else if (([[gradeScale valueForKey:@"A-"] floatValue] > passedGrade) && (passedGrade > [[gradeScale valueForKey:@"B+"] floatValue])) {
+    } else if (([[gradeScale valueForKey:@"A-"] floatValue] > passedGrade) && (passedGrade >= [[gradeScale valueForKey:@"B+"] floatValue])) {
         //return the letter here
         returnString = [@"B+" mutableCopy];
         //return @"B+";
-    } else if (([[gradeScale valueForKey:@"B+"] floatValue] > passedGrade) && (passedGrade > [[gradeScale valueForKey:@"B"] floatValue])) {
+    } else if (([[gradeScale valueForKey:@"B+"] floatValue] > passedGrade) && (passedGrade >= [[gradeScale valueForKey:@"B"] floatValue])) {
         //return the letter here
         returnString = [@"B" mutableCopy];
         //return @"B";
-    } else if (([[gradeScale valueForKey:@"B"] floatValue] > passedGrade) && (passedGrade > [[gradeScale valueForKey:@"B-"] floatValue])) {
+    } else if (([[gradeScale valueForKey:@"B"] floatValue] > passedGrade) && (passedGrade >= [[gradeScale valueForKey:@"B-"] floatValue])) {
         //return the letter here
         returnString = [@"B-" mutableCopy];
         //return @"B-";
-    } else if (([[gradeScale valueForKey:@"B-"] floatValue] > passedGrade) && (passedGrade > [[gradeScale valueForKey:@"C+"] floatValue])) {
+    } else if (([[gradeScale valueForKey:@"B-"] floatValue] > passedGrade) && (passedGrade >= [[gradeScale valueForKey:@"C+"] floatValue])) {
         //return the letter here
         returnString = [@"C+" mutableCopy];
         //return @"C+";
-    } else if (([[gradeScale valueForKey:@"C+"] floatValue] > passedGrade) && (passedGrade > [[gradeScale valueForKey:@"C"] floatValue])) {
+    } else if (([[gradeScale valueForKey:@"C+"] floatValue] > passedGrade) && (passedGrade >= [[gradeScale valueForKey:@"C"] floatValue])) {
         //return the letter here
         returnString = [@"C" mutableCopy];
         //return @"C";
-    } else if (([[gradeScale valueForKey:@"C"] floatValue] > passedGrade) && (passedGrade > [[gradeScale valueForKey:@"C-"] floatValue])) {
+    } else if (([[gradeScale valueForKey:@"C"] floatValue] > passedGrade) && (passedGrade >= [[gradeScale valueForKey:@"C-"] floatValue])) {
         //return the letter here
         returnString = [@"C-" mutableCopy];
         //return @"C-";
-    } else if (([[gradeScale valueForKey:@"C-"] floatValue] > passedGrade) && (passedGrade > [[gradeScale valueForKey:@"D+"] floatValue])) {
+    } else if (([[gradeScale valueForKey:@"C-"] floatValue] > passedGrade) && (passedGrade >= [[gradeScale valueForKey:@"D+"] floatValue])) {
         //return the letter here
         returnString = [@"D+" mutableCopy];
         //return @"D+";
-    } else if (([[gradeScale valueForKey:@"D+"] floatValue] > passedGrade) && (passedGrade > [[gradeScale valueForKey:@"D"] floatValue])) {
+    } else if (([[gradeScale valueForKey:@"D+"] floatValue] > passedGrade) && (passedGrade >= [[gradeScale valueForKey:@"D"] floatValue])) {
         //return the letter here
         returnString = [@"D" mutableCopy];
         //return @"D";
-    } else if (([[gradeScale valueForKey:@"D"] floatValue] > passedGrade) && (passedGrade > [[gradeScale valueForKey:@"D-"] floatValue])) {
+    } else if (([[gradeScale valueForKey:@"D"] floatValue] > passedGrade) && (passedGrade >= [[gradeScale valueForKey:@"D-"] floatValue])) {
         //return the letter here
         returnString = [@"D-" mutableCopy];
         //return @"D-";
@@ -238,6 +245,7 @@
     
     //Error; Shouldn't reach here, should return a value above
     //NSLog(@"Error. -> ResultsViewController.m -> -gradeAsLetter");
+    
     return returnString;
 }
 
@@ -248,24 +256,25 @@
     //also set a NSArray to be able to loop through the grades reliably
     [loadGradeDictionary setObject:[NSArray arrayWithObjects:@"A", @"A-", @"B+", @"B", @"B-", @"C+", @"C", @"C-", @"D+", @"D", @"D-", @"F" , nil] forKey:@"gradesArray"];
     
-    if ([[SharedValues allValues] roundUp]) {
+    if (roundUp) {
         //if the teacher rounds up leave it the way it is with .5 values
         //Set up the dictionary of the grade scale
         //create
         
         
         //load values OVERRIDE USER GIVEN VALUES HERE
-        [loadGradeDictionary setObject:[NSNumber numberWithFloat: 92.5] forKey:@"A"];
-        [loadGradeDictionary setObject:[NSNumber numberWithFloat: 89.5] forKey:@"A-"];
-        [loadGradeDictionary setObject:[NSNumber numberWithFloat: 86.5] forKey:@"B+"];
-        [loadGradeDictionary setObject:[NSNumber numberWithFloat: 82.5] forKey:@"B"];
-        [loadGradeDictionary setObject:[NSNumber numberWithFloat: 79.5] forKey:@"B-"];
-        [loadGradeDictionary setObject:[NSNumber numberWithFloat: 76.5] forKey:@"C+"];
-        [loadGradeDictionary setObject:[NSNumber numberWithFloat: 72.5] forKey:@"C"];
-        [loadGradeDictionary setObject:[NSNumber numberWithFloat: 69.5] forKey:@"C-"];
-        [loadGradeDictionary setObject:[NSNumber numberWithFloat: 66.5] forKey:@"D+"];
-        [loadGradeDictionary setObject:[NSNumber numberWithFloat: 62.5] forKey:@"D"];
-        [loadGradeDictionary setObject:[NSNumber numberWithFloat: 59.5] forKey:@"D-"];
+
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  92.5] forKey:@"A"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  89.5] forKey:@"A-"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  86.5] forKey:@"B+"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  82.5] forKey:@"B"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  79.5] forKey:@"B-"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  76.5] forKey:@"C+"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  72.5] forKey:@"C"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  69.5] forKey:@"C-"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  66.5] forKey:@"D+"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  62.5] forKey:@"D"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  59.5] forKey:@"D-"];
         
         
         
@@ -279,17 +288,19 @@
         
         
         //load values OVERRIDE USER GIVEN VALUES HERE
-        [loadGradeDictionary setObject:[NSNumber numberWithFloat: (92.5 + .5)] forKey:@"A"];
-        [loadGradeDictionary setObject:[NSNumber numberWithFloat: (89.5 + .5)] forKey:@"A-"];
-        [loadGradeDictionary setObject:[NSNumber numberWithFloat: (86.5 + .5)] forKey:@"B+"];
-        [loadGradeDictionary setObject:[NSNumber numberWithFloat: (82.5 + .5)] forKey:@"B"];
-        [loadGradeDictionary setObject:[NSNumber numberWithFloat: (79.5 + .5)] forKey:@"B-"];
-        [loadGradeDictionary setObject:[NSNumber numberWithFloat: (76.5 + .5)] forKey:@"C+"];
-        [loadGradeDictionary setObject:[NSNumber numberWithFloat: (72.5 + .5)] forKey:@"C"];
-        [loadGradeDictionary setObject:[NSNumber numberWithFloat: (69.5 + .5)] forKey:@"C-"];
-        [loadGradeDictionary setObject:[NSNumber numberWithFloat: (66.5 + .5)] forKey:@"D+"];
-        [loadGradeDictionary setObject:[NSNumber numberWithFloat: (62.5 + .5)] forKey:@"D"];
-        [loadGradeDictionary setObject:[NSNumber numberWithFloat: (59.5 + .5)] forKey:@"D-"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  (92.5 + 0.5)] forKey:@"A"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  (89.5 + 0.5)] forKey:@"A-"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  (86.5 + 0.5)] forKey:@"B+"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  (82.5 + 0.5)] forKey:@"B"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  (79.5 + 0.5)] forKey:@"B-"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  (76.5 + 0.5)] forKey:@"C+"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  (72.5 + 0.5)] forKey:@"C"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  (69.5 + 0.5)] forKey:@"C-"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  (66.5 + 0.5)] forKey:@"D+"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  (62.5 + 0.5)] forKey:@"D"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  (59.5 + 0.5)] forKey:@"D-"];
+        
+        
         
         
         
@@ -298,9 +309,6 @@
     }
     [[SharedValues allValues] setGradeScale:loadGradeDictionary];
 }
-
-
-
 
 
 
