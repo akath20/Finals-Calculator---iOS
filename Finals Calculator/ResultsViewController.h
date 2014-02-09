@@ -19,8 +19,6 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *getGradeSegment;
 @property (strong, nonatomic) IBOutlet UITextField *customScoreTextFieldOutlet;
 @property (strong, nonatomic) IBOutlet UIView *pickGradeView;
-@property (strong, nonatomic) NSString *roundUpDestTF;
-
 
 - (IBAction)customScoreTextField:(id)sender;
 - (IBAction)segmentValueChanged:(id)sender;
@@ -30,4 +28,3 @@
 
 @end
 
-BOOL roundUp;

@@ -37,13 +37,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     //create the grade scale dictionary
-    if ([self.roundUpDestTF isEqualToString:@"true"]) {
-        roundUp = true;
-    } else {
-        roundUp = false;
-    }
-    
-    
     [self createDictionary];
     
     //Get calculation and all the update all the labels when view is about to show
@@ -256,7 +249,7 @@
     //also set a NSArray to be able to loop through the grades reliably
     [loadGradeDictionary setObject:[NSArray arrayWithObjects:@"A", @"A-", @"B+", @"B", @"B-", @"C+", @"C", @"C-", @"D+", @"D", @"D-", @"F" , nil] forKey:@"gradesArray"];
     
-    if (roundUp) {
+    if ([[SharedValues allValues] roundUp]) {
         //if the teacher rounds up leave it the way it is with .5 values
         //Set up the dictionary of the grade scale
         //create
