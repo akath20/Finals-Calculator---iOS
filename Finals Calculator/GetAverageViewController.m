@@ -197,7 +197,7 @@
 
 - (IBAction)editingDidEnd:(UITextField *)sender {
     if (![sender.text isEqualToString:@""]) {
-        if ([sender.text floatValue] > 105.0) {
+        if ([sender.text floatValue] > 110.0) {
             UIAlertView *tooHighAlert = [[UIAlertView alloc] initWithTitle:@"Value Too High" message:@"Value too high. Please insert a smaller value." delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [tooHighAlert show];
             [sender becomeFirstResponder];
