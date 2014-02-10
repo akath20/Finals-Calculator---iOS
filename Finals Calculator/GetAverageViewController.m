@@ -43,12 +43,16 @@
     //get original starting frame values for the moving objects on screen
     self.originalRectButtonView = self.buttonView.frame;
     self.originalRectMainView = self.view.frame;
-    self.originalRectCalculateButton = self.calculateButton.frame;
+//    self.originalRectCalculateButton = self.calculateButton.frame;
     self.originalInstructLabel = self.instructLabel.frame;
     [self.averageLabel setHidden:TRUE];
     haveValueToReturn = FALSE;
     
     
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.backButtonOutlet setTitle:@"Back"];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -61,6 +65,15 @@
 #pragma mark Keyboard
 
 -(void)keyboardWillShow {
+    
+    
+    //change the back button
+    [self.backButtonOutlet setTitle:@"Done"];
+    
+    
+    
+    
+    
     // Animate the current view out of the way
     
     /*
@@ -80,15 +93,15 @@
 
         
         
-        //move the button up
-        CGRect calculateButtonFrame = self.calculateButton.frame;
-        calculateButtonFrame.origin.y -= 33;
+//        //move the button up
+//        CGRect calculateButtonFrame = self.calculateButton.frame;
+//        calculateButtonFrame.origin.y -= 33;
 
         
         //execute animation of moving
         [UIView animateWithDuration:0.3f animations:^ {
             self.buttonView.frame = buttonFrame;
-            self.calculateButton.frame = calculateButtonFrame;
+//            self.calculateButton.frame = calculateButtonFrame;
         }];
         
     } else {
@@ -98,9 +111,9 @@
         CGRect buttonFrame = self.buttonView.frame;
         buttonFrame.origin.y -= 105; // new y coordinate button
 
-        //move the button up
-        CGRect calculateButtonFrame = self.calculateButton.frame;
-        calculateButtonFrame.origin.y -= 35;
+//        //move the button up
+//        CGRect calculateButtonFrame = self.calculateButton.frame;
+//        calculateButtonFrame.origin.y -= 35;
 
         //Move instruction label up
         CGRect instructRect = self.instructLabel.frame;
@@ -109,7 +122,7 @@
         //execute animation of moving
         [UIView animateWithDuration:0.3f animations:^ {
             self.buttonView.frame = buttonFrame;
-            self.calculateButton.frame = calculateButtonFrame;
+//            self.calculateButton.frame = calculateButtonFrame;
             self.termSeg.alpha = 0;
             self.howManyTermsLabel.alpha = 0;
             self.instructLabel.frame = instructRect;
@@ -120,11 +133,17 @@
 }
 
 -(void)keyboardWillHide {
+    
+    //change the back button back
+    [self.backButtonOutlet setTitle:@"Back"];
+    
+    
+    
     // Animate the current view back to its original position
     [UIView animateWithDuration:0.3f animations:^ {
         self.buttonView.frame = self.originalRectButtonView;
         self.view.frame = self.originalRectMainView;
-        self.calculateButton.frame = self.originalRectCalculateButton;
+//        self.calculateButton.frame = self.originalRectCalculateButton;
         self.instructLabel.frame = self.originalInstructLabel;
         if (self.termSeg.alpha != 1) {
             self.termSeg.alpha = 1;
@@ -150,13 +169,21 @@
     for (UITextField *currentTextField in self.textFieldsOutlet) {
         if ([segControl selectedSegmentIndex] >= x ) {
             [currentTextField setHidden:FALSE];
+            
+            //DEBUG HERE
+            [[self.percentLabels objectAtIndex:(x+1)] setHidden:FALSE];
+            
+            
             self.whatsShowing++;
         } else {
             [currentTextField setHidden:TRUE];
             [currentTextField setText:@""];
+            [[self.percentLabels objectAtIndex:(x+1)] setHidden:true];
+
         }
         x++;
     }
+    
     //if the visable text boxs are full, enable the calculate button
     if (self.visableTextsFull) {
         [self.calculateButton setEnabled:true];
@@ -168,14 +195,32 @@
     
 }
 
-- (IBAction)valueDidChange:(id)sender {
-    //if the visable text boxs are full, enable the calculate button
-    if (self.visableTextsFull) {
-        [self.calculateButton setEnabled:TRUE];
-    } else {
-        [self.calculateButton setEnabled:FALSE];
+- (IBAction)editingDidEnd:(UITextField *)sender {
+    if (![sender.text isEqualToString:@""]) {
+        if ([sender.text floatValue] > 105.0) {
+            UIAlertView *tooHighAlert = [[UIAlertView alloc] initWithTitle:@"Value Too High" message:@"Value too high. Please insert a smaller value." delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [tooHighAlert show];
+            [sender becomeFirstResponder];
+        } else if ([sender.text floatValue] <= 1.0) {
+            UIAlertView *tooLowAlert = [[UIAlertView alloc] initWithTitle:@"Value Too Low" message:@"Value too low. Please insert a larger value." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [tooLowAlert show];
+            [sender becomeFirstResponder];
+        } else {
+            //reformat the text
+            [sender setText:[NSString stringWithFormat:@"%.2f", [sender.text floatValue]]];
+            
+            //if the visable text boxs are full, enable the calculate button
+            if (self.visableTextsFull) {
+                [self.calculateButton setEnabled:TRUE];
+            } else {
+                [self.calculateButton setEnabled:FALSE];
+            }
+            
+        }
     }
-}
+    
+    
+   }
 
 - (BOOL)visableTextsFull {
     //Check to see if the current showing text boxes are full
@@ -224,14 +269,27 @@
 }
 
 - (IBAction)backButton:(id)sender {
-    if (haveValueToReturn) {
-        //set the allValues object equal to this
-        [[SharedValues allValues] setCurrentCombinedAverage:actualAverage];
+    if ([self.backButtonOutlet.title isEqualToString:@"Done"]) {
+        [self hideTheKeyboard];
+    } else {
+        
+        //if the keyboard isn't showing and it says it's the back button
+        
+        if (haveValueToReturn) {
+            //set the allValues object equal to this
+            [[SharedValues allValues] setCurrentCombinedAverage:actualAverage];
+        }
+        //might want to make currentcombined average to -1.0 here (see appDelegate)
+        
+        //set firstViewValue full 
+        [[SharedValues allValues] setFirstViewFirstTextFull:true];
+        
+        
+        
+        //switch the views
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
-    //might want to make currentcombined average to -1.0 here (see appDelegate)
     
-    //switch the views
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

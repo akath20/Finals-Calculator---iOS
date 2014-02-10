@@ -14,6 +14,7 @@
 @property float finalWeight;
 @property NSMutableDictionary *gradeScale;
 @property bool roundUp;
+@property bool firstViewFirstTextFull;
 
 + (SharedValues *) allValues;
 

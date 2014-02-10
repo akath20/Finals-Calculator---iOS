@@ -44,7 +44,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
-                                    <action selector="editingEndedTextbox:" destination="CZ4-MO-1fc" eventType="editingDidEnd" id="IV1-vR-ukh"/>
                                     <action selector="textboxEdited:" destination="CZ4-MO-1fc" eventType="editingDidEnd" id="QND-VN-k4m"/>
                                 </connections>
                             </textField>
@@ -54,7 +53,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
-                                    <action selector="editingEndedTextbox:" destination="CZ4-MO-1fc" eventType="editingDidEnd" id="gvw-Cp-nJL"/>
                                     <action selector="textboxEdited:" destination="CZ4-MO-1fc" eventType="editingDidEnd" id="JCo-9u-FFb"/>
                                 </connections>
                             </textField>
@@ -291,57 +289,57 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Term 1" clearsOnBeginEditing="YES" minimumFontSize="17" id="ILN-ip-FEI">
-                                        <rect key="frame" x="20" y="48" width="138" height="30"/>
+                                        <rect key="frame" x="20" y="48" width="106" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         <connections>
-                                            <action selector="valueDidChange:" destination="DbV-Tt-inA" eventType="editingChanged" id="PYN-g8-Afn"/>
+                                            <action selector="editingDidEnd:" destination="DbV-Tt-inA" eventType="editingDidEnd" id="OkU-K5-Cdy"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Term 4" clearsOnBeginEditing="YES" minimumFontSize="17" id="guM-db-Ns6">
-                                        <rect key="frame" x="162" y="48" width="138" height="30"/>
+                                        <rect key="frame" x="162" y="48" width="106" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         <connections>
-                                            <action selector="valueDidChange:" destination="DbV-Tt-inA" eventType="editingChanged" id="THq-Po-MrK"/>
+                                            <action selector="editingDidEnd:" destination="DbV-Tt-inA" eventType="editingDidEnd" id="fJL-vb-mRd"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Term 5" clearsOnBeginEditing="YES" minimumFontSize="17" id="MeR-be-wwp">
-                                        <rect key="frame" x="162" y="99" width="138" height="30"/>
+                                        <rect key="frame" x="162" y="99" width="106" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         <connections>
-                                            <action selector="valueDidChange:" destination="DbV-Tt-inA" eventType="editingChanged" id="l3h-2B-2Hx"/>
+                                            <action selector="editingDidEnd:" destination="DbV-Tt-inA" eventType="editingDidEnd" id="jy3-0a-qX8"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Term 6" clearsOnBeginEditing="YES" minimumFontSize="17" id="4IK-Ey-bVD">
-                                        <rect key="frame" x="162" y="151" width="138" height="30"/>
+                                        <rect key="frame" x="162" y="151" width="106" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         <connections>
-                                            <action selector="valueDidChange:" destination="DbV-Tt-inA" eventType="editingChanged" id="gpZ-Gx-k8o"/>
+                                            <action selector="editingDidEnd:" destination="DbV-Tt-inA" eventType="editingDidEnd" id="quV-aC-Lmh"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Term 3" clearsOnBeginEditing="YES" minimumFontSize="17" id="cBz-O1-4EA">
-                                        <rect key="frame" x="20" y="151" width="138" height="30"/>
+                                        <rect key="frame" x="20" y="151" width="106" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         <connections>
-                                            <action selector="valueDidChange:" destination="DbV-Tt-inA" eventType="editingChanged" id="MpK-qf-Y03"/>
+                                            <action selector="editingDidEnd:" destination="DbV-Tt-inA" eventType="editingDidEnd" id="xsS-Kj-HuA"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Term 2" clearsOnBeginEditing="YES" minimumFontSize="17" id="2iA-tx-AWk">
-                                        <rect key="frame" x="20" y="99" width="138" height="30"/>
+                                        <rect key="frame" x="20" y="99" width="106" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         <connections>
-                                            <action selector="valueDidChange:" destination="DbV-Tt-inA" eventType="editingChanged" id="KIr-ir-xEl"/>
+                                            <action selector="editingDidEnd:" destination="DbV-Tt-inA" eventType="editingDidEnd" id="emB-bU-lvP"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please input each terms average." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GDb-Ga-FTF">
@@ -367,6 +365,48 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NjA-wc-smO">
+                                        <rect key="frame" x="123" y="52" width="29" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cFS-kN-Gz8">
+                                        <rect key="frame" x="123" y="108" width="29" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zdx-7C-xPk">
+                                        <rect key="frame" x="123" y="155" width="29" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mQQ-V1-uld">
+                                        <rect key="frame" x="266" y="52" width="29" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bjQ-xK-2r4">
+                                        <rect key="frame" x="266" y="108" width="29" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1pG-96-R3A">
+                                        <rect key="frame" x="266" y="155" width="29" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -383,6 +423,7 @@
                     <keyCommands/>
                     <connections>
                         <outlet property="averageLabel" destination="Ab6-79-xd0" id="l9L-r4-KAA"/>
+                        <outlet property="backButtonOutlet" destination="gog-7F-ctK" id="Ara-eh-FA8"/>
                         <outlet property="buttonView" destination="6to-Vc-cGj" id="GfP-hd-UxC"/>
                         <outlet property="calculateButton" destination="xll-VV-7Lg" id="jGA-ES-jT1"/>
                         <outlet property="howManyTermsLabel" destination="xbf-sf-KOa" id="0Le-gQ-peF"/>
@@ -394,6 +435,12 @@
                         <outletCollection property="textFieldsOutlet" destination="guM-db-Ns6" id="hzF-Xo-FHP"/>
                         <outletCollection property="textFieldsOutlet" destination="MeR-be-wwp" id="F8U-FF-KtS"/>
                         <outletCollection property="textFieldsOutlet" destination="4IK-Ey-bVD" id="0uX-9j-N45"/>
+                        <outletCollection property="percentLabels" destination="NjA-wc-smO" id="y3s-sN-fXA"/>
+                        <outletCollection property="percentLabels" destination="cFS-kN-Gz8" id="Pwg-Wn-FVO"/>
+                        <outletCollection property="percentLabels" destination="zdx-7C-xPk" id="JYQ-Jj-kio"/>
+                        <outletCollection property="percentLabels" destination="mQQ-V1-uld" id="p5h-hr-rc7"/>
+                        <outletCollection property="percentLabels" destination="bjQ-xK-2r4" id="cef-jV-Lm3"/>
+                        <outletCollection property="percentLabels" destination="1pG-96-R3A" id="RId-Vw-42Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q5w-FN-uk5" userLabel="First Responder" sceneMemberID="firstResponder"/>

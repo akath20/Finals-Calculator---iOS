@@ -131,12 +131,17 @@
         //and reset the placeholder the textbox
         self.customScoreTextFieldOutlet.text = @"";
         self.customScoreTextFieldOutlet.placeholder = @"%";
+        self.customScoreLabel.text = @"%";
     }
     
     
 }
 
 - (IBAction)segmentValueChanged:(id)sender {
+    //update the minLabel to the minimum grade needed for the user to get that grade
+    
+    //grab dictionary 
+    NSDictionary *gradeScale = [[SharedValues allValues] gradeScale];
     
 }
 
@@ -241,7 +246,6 @@
     
     return returnString;
 }
-
 
 - (void)createDictionary {
     //decide how to create the dictionary

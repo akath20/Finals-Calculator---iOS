@@ -27,6 +27,11 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
+    
+    //set the firstTextBoxFull property from the shared class
+    self.firstTextFull = [[SharedValues allValues] firstViewFirstTextFull];
+    
+    
     if ([[SharedValues allValues] currentCombinedAverage] == -1.0) {
         self.percentAverageTextField.placeholder = @"%";
     } else {
@@ -67,20 +72,20 @@
             if ([sender.text floatValue] > 100.0) {
                 UIAlertView *tooHighAlert = [[UIAlertView alloc] initWithTitle:@"Value Too High" message:@"Value cannot exceed 100%, please input a smaller average." delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
                 [tooHighAlert show];
-                firstTextFull = false;
+                self.firstTextFull = false;
                 
                 //go back to the textbox for new value
                 [sender becomeFirstResponder];
             } else if ([sender.text floatValue] < 20.0) {
                 UIAlertView *tooLowAlert = [[UIAlertView alloc] initWithTitle:@"Value Too Low" message:@"Value too low, please input a larger average." delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
                 [tooLowAlert show];
-                firstTextFull = false;
+                self.firstTextFull = false;
                 
                 //go back to the textbox for new value
                 [sender becomeFirstResponder];
             } else {
                 //if all good, say the text is full
-                firstTextFull = true;
+                self.firstTextFull = true;
                 [sender setText:[NSString stringWithFormat:@"%.2f", [sender.text floatValue]]];
             }
             
@@ -110,7 +115,7 @@
         
     } else {
         if (sender.tag == 0) {
-            firstTextFull = false;
+            self.firstTextFull = false;
         } else {
             secondTextFull = false;
         }
@@ -152,7 +157,7 @@
 - (BOOL)allFilled {
     xCount = 0;
     
-    if (firstTextFull) {
+    if (self.firstTextFull) {
         xCount++;
     }
     
@@ -177,27 +182,6 @@
     [self.percentAverageTextField resignFirstResponder];
     [self.finalWeight resignFirstResponder];
 }
-
-- (IBAction)editingEndedTextbox:(id)sender {
-    //modify the text box to have a % symbol in there
-    //add later?
-    
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @end

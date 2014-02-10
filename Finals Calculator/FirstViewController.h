@@ -17,18 +17,18 @@
 @property (strong, nonatomic) IBOutlet UILabel *weightWorthLabel;
 @property (strong, nonatomic) IBOutlet UILabel *assumeNoLabel;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentOutlet;
+@property bool firstTextFull;
 @property CGRect originalLabel;
 @property CGRect originalTextField;
 
 - (IBAction)goPushed:(id)sender;
 - (IBAction)textboxEdited:(UITextField *)sender;
 - (IBAction)segmentSelected:(UISegmentedControl *)sender;
-- (IBAction)editingEndedTextbox:(id)sender;
+
 
 @end
 
 BOOL allFilledIn;
-bool firstTextFull;
 bool secondTextFull;
 bool segmentSelected;
 int xCount;

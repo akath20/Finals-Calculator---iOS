@@ -12,11 +12,14 @@
 
 @property (weak, nonatomic) IBOutlet UIView *buttonView;
 @property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *textFieldsOutlet;
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *percentLabels;
 @property (weak, nonatomic) IBOutlet UIButton *calculateButton;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *termSeg;
 @property (weak, nonatomic) IBOutlet UILabel *howManyTermsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *instructLabel;
 @property (weak, nonatomic) IBOutlet UILabel *averageLabel;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *backButtonOutlet;
+
 
 
 //this might belong as a class instance variable rather than a property; doesn't really matter, but cleaner code
