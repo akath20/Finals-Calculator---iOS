@@ -75,6 +75,11 @@
 
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    //make sure the view contoller before is okay
+    [[SharedValues allValues] setFirstViewFirstTextFull:true];
+}
+
 - (void)keyboardWillHide {
     [self.mainScrollView removeGestureRecognizer:yourTap];
 }
@@ -85,7 +90,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
 }
 
--(void)keyboardWillShow {
+- (void)keyboardWillShow {
     //detect the tap when keyboard is up
        [self.mainScrollView addGestureRecognizer:yourTap];
     
@@ -137,11 +142,34 @@
     
 }
 
-- (IBAction)segmentValueChanged:(id)sender {
+- (IBAction)segmentValueChanged:(UISegmentedControl *)sender {
     //update the minLabel to the minimum grade needed for the user to get that grade
     
-    //grab dictionary 
+    //grab dictionary
     NSDictionary *gradeScale = [[SharedValues allValues] gradeScale];
+    
+    //grab the requested grade
+    NSString *requestedGradeAsLetter = [sender titleForSegmentAtIndex:[sender selectedSegmentIndex]];
+    
+    //grab the requested grade as a percent
+    float requestedGradeAsPercent = [[gradeScale valueForKey:requestedGradeAsLetter] floatValue];
+    
+    //get weighted average
+    float weightedAverage = [[SharedValues allValues] currentCombinedAverage]*(1-[[SharedValues allValues] finalWeight]);
+    
+    //get the values to show
+    float minimumGrade = (requestedGradeAsPercent - weightedAverage)*10;
+    
+    //error handle the last bit of code above
+    if (minimumGrade < 0.0) {
+        minimumGrade = 0.0;
+    }
+    
+    NSString *minGradeAsLetter= [[NSString alloc] initWithString:[self gradeAsLetter:minimumGrade]];
+    
+    //set the value
+    [self.minScoreLabel setText:[NSString stringWithFormat:@"(%@) %.2f%%", minGradeAsLetter, minimumGrade]];
+    
     
 }
 
@@ -306,17 +334,6 @@
     }
     [[SharedValues allValues] setGradeScale:loadGradeDictionary];
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
