@@ -62,6 +62,14 @@
         //MOVE THE VIEW UP
         [self.pickGradeView setHidden:true];
         
+        //show the alt view and format it
+        [self.gradeAlreadyMadeView setHidden:false];
+        [self.gradeAlreadyMadeLabel setText:[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] highestPossibleGrade]]]];
+        
+        //set the bool to show the uialertview
+        gotTheA = true;
+        
+        
     } else {
         //otherwise, format the segment and show the view
         //update the segment control to present the appropriate labels with passing the right things in
@@ -71,8 +79,21 @@
         
         //show the view
         [self.pickGradeView setHidden:false];
+        
+        //hide the alt view
+        [self.gradeAlreadyMadeView setHidden:true];
+        
+        //dont' show the alert view
+        gotTheA = false;
     }
 
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    if (gotTheA) {
+        UIAlertView *gotTheAAlert = [[UIAlertView alloc] initWithTitle:@"Good News!" message:@"Good News! You're going to recieve an A this semester in this class! Congratulations!" delegate:Nil cancelButtonTitle:@"Thanks!" otherButtonTitles: nil];
+        [gotTheAAlert show];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

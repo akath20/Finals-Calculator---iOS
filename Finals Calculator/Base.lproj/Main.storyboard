@@ -142,7 +142,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="I1M-jI-CMV">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="799"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="503"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final average if you got a 0% on the final:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dyA-jF-0TD">
@@ -231,6 +231,25 @@
                                                     </segmentedControl>
                                                 </subviews>
                                             </view>
+                                            <view contentMode="scaleToFill" id="eNN-HA-Xi0" userLabel="GradeAlreadyMadeView">
+                                                <rect key="frame" x="0.0" y="309" width="320" height="195"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your grade no matter what the score of the final is going to be a(n):" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WtG-E6-vd0">
+                                                        <rect key="frame" x="20" y="-7" width="280" height="89"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hL0-BY-wMa">
+                                                        <rect key="frame" x="109" y="90" width="103" height="58"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
@@ -244,6 +263,8 @@
                         <outlet property="customScoreLabel" destination="oNb-oQ-8qC" id="BJ5-xY-XmL"/>
                         <outlet property="customScoreTextFieldOutlet" destination="2kI-ed-5wn" id="GkO-sv-0Le"/>
                         <outlet property="getGradeSegment" destination="9cq-fq-OqY" id="9QH-JQ-Dq3"/>
+                        <outlet property="gradeAlreadyMadeLabel" destination="hL0-BY-wMa" id="yDt-Fe-d20"/>
+                        <outlet property="gradeAlreadyMadeView" destination="eNN-HA-Xi0" id="XzR-Nm-7ln"/>
                         <outlet property="hundredLabel" destination="7hI-36-dvL" id="9Pa-hN-mQn"/>
                         <outlet property="mainScrollView" destination="jEz-DP-hhz" id="n8r-0w-oXw"/>
                         <outlet property="minScoreLabel" destination="1hQ-mQ-VAN" id="lcw-P3-bIA"/>

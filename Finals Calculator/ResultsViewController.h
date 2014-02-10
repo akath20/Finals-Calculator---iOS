@@ -19,12 +19,13 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *getGradeSegment;
 @property (strong, nonatomic) IBOutlet UITextField *customScoreTextFieldOutlet;
 @property (strong, nonatomic) IBOutlet UIView *pickGradeView;
+@property (strong, nonatomic) IBOutlet UIView *gradeAlreadyMadeView;
+@property (strong, nonatomic) IBOutlet UILabel *gradeAlreadyMadeLabel;
 
 - (IBAction)customScoreTextField:(id)sender;
 - (IBAction)segmentValueChanged:(id)sender;
 - (NSString *)gradeAsLetter:(float)x;
 
-
-
 @end
 
+bool gotTheA;
