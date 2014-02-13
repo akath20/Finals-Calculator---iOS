@@ -73,7 +73,7 @@
         [self.gradeAlreadyMadeLabel setText:[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] highestPossibleGrade]]]];
         
         //set the bool to show the uialertview
-        gotTheA = true;
+        showAlert = true;
         
         
     } else {
@@ -90,15 +90,22 @@
         [self.gradeAlreadyMadeView setHidden:true];
         
         //dont' show the alert view
-        gotTheA = false;
+        showAlert = false;
     }
 
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    if (gotTheA) {
-        UIAlertView *gotTheAAlert = [[UIAlertView alloc] initWithTitle:@"Good News!" message:@"Good News! You're going to recieve an A this semester in this class! Congratulations!" delegate:Nil cancelButtonTitle:@"Thanks!" otherButtonTitles: nil];
-        [gotTheAAlert show];
+    if (showAlert) {
+        if ([[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] highestPossibleGrade]]] isEqualToString:@"A"]) {
+            //if they are both A's
+            UIAlertView *gotTheAAlert = [[UIAlertView alloc] initWithTitle:@"Bad News" message:@"" delegate:Nil cancelButtonTitle:@"Thanks!" otherButtonTitles: nil];
+            [gotTheAAlert show];
+        } else {
+            UIAlertView *gotAnF = [[UIAlertView alloc] initWithTitle:@"Bad News" message:@"Unfortunately, you will not pass this class, and will recieve an F..." delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+            [gotAnF show];
+        }
+        
     }
 }
 

@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yaT-Lg-rIR" userLabel="Button1">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yaT-Lg-rIR" userLabel="Button12">
                                 <rect key="frame" x="278" y="526" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -118,7 +118,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mpN-pi-he3" firstAttribute="top" secondItem="yaT-Lg-rIR" secondAttribute="bottom" constant="20" id="6F9-XT-eW0"/>
+                            <constraint firstItem="mpN-pi-he3" firstAttribute="top" secondItem="yaT-Lg-rIR" secondAttribute="bottom" constant="20" id="ID1-MT-O1u"/>
+                            <constraint firstAttribute="trailing" secondItem="yaT-Lg-rIR" secondAttribute="trailing" constant="20" id="lx3-tD-KgQ"/>
+                            <constraint firstItem="yaT-Lg-rIR" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" constant="278" id="oof-8Z-m9W"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Finals Calculator" id="bgJ-Os-k1M"/>
@@ -495,7 +497,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFT-u1-qDA">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFT-u1-qDA">
                                 <rect key="frame" x="278" y="526" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -509,7 +511,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MeF-AR-jb3" firstAttribute="top" secondItem="QFT-u1-qDA" secondAttribute="bottom" constant="20" id="afB-Hb-Ob3"/>
+                            <constraint firstAttribute="trailing" secondItem="QFT-u1-qDA" secondAttribute="trailing" constant="20" id="1AS-sh-jEk"/>
+                            <constraint firstItem="MeF-AR-jb3" firstAttribute="top" secondItem="QFT-u1-qDA" secondAttribute="bottom" constant="20" id="iMn-Dz-4bf"/>
+                            <constraint firstItem="QFT-u1-qDA" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leading" constant="278" id="mBz-y1-Qjm"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Second" image="second" id="Z7h-1E-pvt"/>

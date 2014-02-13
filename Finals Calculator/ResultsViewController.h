@@ -28,4 +28,4 @@
 
 @end
 
-bool gotTheA;
+bool showAlert;
