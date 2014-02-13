@@ -14,7 +14,7 @@
 }
 
 @end
-
+ 
 @implementation ResultsViewController
 
 - (void)viewDidLoad
@@ -35,7 +35,13 @@
 
 }
 
+- (void)viewDidLayoutSubviews {
+    [self.mainScrollView setContentSize:CGSizeMake(320, self.scrollViewView.frame.size.height)];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
+    
+
     //create the grade scale dictionary
     [self createDictionary];
     
