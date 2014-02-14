@@ -350,9 +350,9 @@
         
         
         //set the dictionary in sharedValues
-        
+        [[SharedValues allValues] setGradeScale:loadGradeDictionary];
     }
-    [[SharedValues allValues] setGradeScale:loadGradeDictionary];
+    
 }
 
 - (void)resetDictionary {
