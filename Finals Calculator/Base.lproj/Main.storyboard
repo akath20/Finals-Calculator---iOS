@@ -497,7 +497,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="EL Logo cleanup" translatesAutoresizingMaskIntoConstraints="NO" id="1MX-Iu-IyX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="EL Logo" translatesAutoresizingMaskIntoConstraints="NO" id="1MX-Iu-IyX">
                                 <rect key="frame" x="0.0" y="66" width="320" height="502"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -576,7 +576,6 @@
         <!--Display Grade Scale View Controller - Current Grade Scale-->
         <scene sceneID="SHG-sx-Ofk">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Tfi-g8-fh4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="W9f-Ga-dcO" customClass="DisplayGradeScaleViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c3Z-c7-7fN"/>
@@ -788,7 +787,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFX-Ou-052">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFX-Ou-052">
                                         <rect key="frame" x="100" y="339" width="121" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -817,13 +816,13 @@
                         <outletCollection property="displayLabels" destination="CWe-FC-b4O" id="u7a-4O-jrR"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tfi-g8-fh4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2715" y="516"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Khq-zl-X65">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XYY-7m-qC4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="0hX-VQ-Usm" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S9G-l2-Rnm"/>
@@ -835,6 +834,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XYY-7m-qC4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3192" y="516"/>
         </scene>
@@ -895,7 +895,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="EL Logo cleanup" width="320" height="568"/>
+        <image name="EL Logo" width="320" height="568"/>
         <image name="second" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
