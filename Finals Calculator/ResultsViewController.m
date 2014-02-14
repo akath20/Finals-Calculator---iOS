@@ -8,6 +8,7 @@
 
 #import "ResultsViewController.h"
 #import "SharedValues.h"
+#import "DisplayGradeScaleViewController.h"
 
 @interface ResultsViewController () {
     UITapGestureRecognizer *yourTap;
@@ -40,6 +41,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
+    //set the labels at the top
+    self.weightLabel.text = [NSString stringWithFormat:@"Weight: %.2f%%", ([[SharedValues allValues] finalWeight]*100)];
+    self.averageLabel.text = [NSString stringWithFormat:@"Average: %.2f%%", [[SharedValues allValues] currentCombinedAverage]];
+
 
     //create the grade scale dictionary
     [self createDictionary];
@@ -383,6 +388,13 @@
         
     }
     [[SharedValues allValues] setGradeScale:loadGradeDictionary];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showCurrentGradeScaleHideButton"]) {
+        DisplayGradeScaleViewController *vc = segue.destinationViewController;
+        vc.showButton = false;
+    }
 }
 
 @end

@@ -16,6 +16,13 @@
 @implementation DisplayGradeScaleViewController
 
 - (void)viewWillAppear:(BOOL)animated {
+    //set the button hidden property
+    if (self.showButton) {
+        [self.setValueButton setHidden:false];
+    } else {
+        [self.setValueButton setHidden:true];
+    }
+    
     //make the labels show the correspoding grade
     int xCounter = 0;
     for (UILabel *currentLabel in self.displayLabels) {

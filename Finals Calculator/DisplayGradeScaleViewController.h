@@ -10,6 +10,8 @@
 
 @interface DisplayGradeScaleViewController : UIViewController
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *displayLabels;
+@property (strong, nonatomic) IBOutlet UIButton *setValueButton;
+@property BOOL showButton;
 
 
 @end

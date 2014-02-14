@@ -7,6 +7,7 @@
 //
 
 #import "AboutViewController.h"
+#import "DisplayGradeScaleViewController.h"
 
 @interface AboutViewController ()
 
@@ -23,6 +24,13 @@
 
 - (IBAction)launchWebsite:(id)sender {
     //open my website
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"www.webpages.charter.net/akath20"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"webpages.charter.net/akath20"]];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showCurrentGradeScale"]) {
+        DisplayGradeScaleViewController *vc = segue.destinationViewController;
+        vc.showButton = true;
+    }
 }
 @end

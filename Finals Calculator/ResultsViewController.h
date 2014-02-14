@@ -21,6 +21,9 @@
 @property (strong, nonatomic) IBOutlet UIView *pickGradeView;
 @property (strong, nonatomic) IBOutlet UIView *gradeAlreadyMadeView;
 @property (strong, nonatomic) IBOutlet UILabel *gradeAlreadyMadeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *averageLabel;
+@property (strong, nonatomic) IBOutlet UILabel *weightLabel;
+@property (strong, nonatomic) IBOutlet UIButton *viewGradeScaleButton;
 
 - (IBAction)customScoreTextField:(id)sender;
 - (IBAction)segmentValueChanged:(id)sender;

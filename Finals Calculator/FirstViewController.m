@@ -70,7 +70,7 @@
         if (sender.tag == 0) {
             //if score text box
             if ([sender.text floatValue] > 110.0) {
-                UIAlertView *tooHighAlert = [[UIAlertView alloc] initWithTitle:@"Value Too High" message:@"Value cannot exceed 100%, please input a smaller average." delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+                UIAlertView *tooHighAlert = [[UIAlertView alloc] initWithTitle:@"Value Too High" message:@"Value too high, please input a smaller average." delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
                 [tooHighAlert show];
                 self.firstTextFull = false;
                 
