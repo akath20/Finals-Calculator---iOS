@@ -14,4 +14,15 @@
 
 @implementation AboutViewController
 
+- (void)viewDidLoad {
+    
+    //set the current version number
+    self.versionLabel.text = [NSString stringWithFormat:@"Version: %@", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]];
+    
+}
+
+- (IBAction)launchWebsite:(id)sender {
+    //open my website
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"www.webpages.charter.net/akath20"]];
+}
 @end

@@ -15,6 +15,17 @@
 {
     // Override point for customization after application launch.
     [[SharedValues allValues] setCurrentCombinedAverage:-1.0];
+    
+    //set the grad scale Values if needed
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"]) {
+        //if there isn't anything there (loaded for the first time) then create it)
+    
+    }
+    
+    
+    
+    
+    
     return YES;
 }
 							

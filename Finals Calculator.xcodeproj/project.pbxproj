@@ -25,6 +25,7 @@
 		FA674B2518A1C2C300C0B8FB /* SharedValues.m in Sources */ = {isa = PBXBuildFile; fileRef = FA674B2418A1C2C300C0B8FB /* SharedValues.m */; };
 		FA674B2818A1DB1900C0B8FB /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA674B2718A1DB1900C0B8FB /* ResultsViewController.m */; };
 		FA79376A1897399C001F2BD2 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7937691897399C001F2BD2 /* AboutViewController.m */; };
+		FAF39B1418ADA23A00BFBBC8 /* DisplayGradeScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF39B1318ADA23A00BFBBC8 /* DisplayGradeScaleViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		FA674B2718A1DB1900C0B8FB /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; wrapsLines = 1; };
 		FA7937681897399C001F2BD2 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		FA7937691897399C001F2BD2 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		FAF39B1218ADA23A00BFBBC8 /* DisplayGradeScaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayGradeScaleViewController.h; sourceTree = "<group>"; };
+		FAF39B1318ADA23A00BFBBC8 /* DisplayGradeScaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayGradeScaleViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,10 +173,9 @@
 				FA26A72D18945678006F1D69 /* FirstViewController.m */,
 				FA26A752189462BD006F1D69 /* GetAverageViewController.h */,
 				FA26A753189462BD006F1D69 /* GetAverageViewController.m */,
-				FA7937681897399C001F2BD2 /* AboutViewController.h */,
-				FA7937691897399C001F2BD2 /* AboutViewController.m */,
 				FA674B2618A1DB1900C0B8FB /* ResultsViewController.h */,
 				FA674B2718A1DB1900C0B8FB /* ResultsViewController.m */,
+				FAF39B0E18AD9F3B00BFBBC8 /* About/Settings */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -194,6 +196,17 @@
 				FA674B2418A1C2C300C0B8FB /* SharedValues.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		FAF39B0E18AD9F3B00BFBBC8 /* About/Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FA7937681897399C001F2BD2 /* AboutViewController.h */,
+				FA7937691897399C001F2BD2 /* AboutViewController.m */,
+				FAF39B1218ADA23A00BFBBC8 /* DisplayGradeScaleViewController.h */,
+				FAF39B1318ADA23A00BFBBC8 /* DisplayGradeScaleViewController.m */,
+			);
+			name = About/Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +310,7 @@
 				FA26A72818945678006F1D69 /* AppDelegate.m in Sources */,
 				FA79376A1897399C001F2BD2 /* AboutViewController.m in Sources */,
 				FA26A72E18945678006F1D69 /* FirstViewController.m in Sources */,
+				FAF39B1418ADA23A00BFBBC8 /* DisplayGradeScaleViewController.m in Sources */,
 				FA26A72418945678006F1D69 /* main.m in Sources */,
 				FA674B2518A1C2C300C0B8FB /* SharedValues.m in Sources */,
 				FA26A754189462BD006F1D69 /* GetAverageViewController.m in Sources */,

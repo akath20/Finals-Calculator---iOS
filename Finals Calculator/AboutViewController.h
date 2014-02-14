@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface AboutViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UILabel *versionLabel;
+- (IBAction)launchWebsite:(id)sender;
 
 @end
