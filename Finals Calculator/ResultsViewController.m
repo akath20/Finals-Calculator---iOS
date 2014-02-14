@@ -41,74 +41,94 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    //set the labels at the top
-    self.weightLabel.text = [NSString stringWithFormat:@"Weight: %.2f%%", ([[SharedValues allValues] finalWeight]*100)];
-    self.averageLabel.text = [NSString stringWithFormat:@"Average: %.2f%%", [[SharedValues allValues] currentCombinedAverage]];
-    
-    if ([[SharedValues allValues] roundUp]) {
-        self.roundsUpLabel.text = [NSString stringWithFormat:@"Teacher Rounds Up: Yes"];
-    } else {
-        self.roundsUpLabel.text = [NSString stringWithFormat:@"Teacher Rounds Up: No"];
+    if (![[SharedValues allValues] resultsAlreadyShown]) {
+        //if results werent already shown, create the view
+        //set the labels at the top
+        self.weightLabel.text = [NSString stringWithFormat:@"Weight: %.2f%%", ([[SharedValues allValues] finalWeight]*100)];
+        self.averageLabel.text = [NSString stringWithFormat:@"Average: %.2f%%", [[SharedValues allValues] currentCombinedAverage]];
+        
+        if ([[SharedValues allValues] roundUp]) {
+            self.roundsUpLabel.text = [NSString stringWithFormat:@"Teacher Rounds Up: Yes"];
+        } else {
+            self.roundsUpLabel.text = [NSString stringWithFormat:@"Teacher Rounds Up: No"];
+        }
+        
+        
+        //create the grade scale dictionary
+        NSLog(@"\n\nResults ViewWillAppear before: %@", [[SharedValues allValues] gradeScale]);
+        [[SharedValues allValues] createDictionary];
+        NSLog(@"\n\nResults ViewWillAppear after: %@", [[SharedValues allValues] gradeScale]);
+        
+        //Get calculation and all the update all the labels when view is about to show
+        self.zeroLabel.text = [NSString stringWithFormat:@"(%@) %.2f%%", [self gradeAsLetter:[[SharedValues allValues] lowestPossibleGrade]] ,[[SharedValues allValues] lowestPossibleGrade]];
+        self.hundredLabel.text = [NSString stringWithFormat:@"(%@) %.2f%%",[self gradeAsLetter:[[SharedValues allValues] highestPossibleGrade]] ,[[SharedValues allValues] highestPossibleGrade]];
+        
+        //NSLog(@"\nzeroLabel: %@\nhundredLabel: %@", self.zeroLabel.text, self.hundredLabel.text);
+        
+        
+        //Check for keyboard show/hide
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardWillShow)
+                                                     name:UIKeyboardWillShowNotification
+                                                   object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardWillShow)
+                                                     name:UIKeyboardWillHideNotification
+                                                   object:nil];
+        
+        
+        if ([[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] highestPossibleGrade]]] isEqualToString:[self gradeAsLetter:[[SharedValues allValues] lowestPossibleGrade]]]) {
+            //if the two strings are equal, then don't show or create the segment  (If more than one to show basically)
+            //hide the view and move the view behind up
+            //MOVE THE VIEW UP
+            [self.pickGradeView setHidden:true];
+            
+            //show the alt view and format it
+            [self.gradeAlreadyMadeView setHidden:false];
+            [self.gradeAlreadyMadeLabel setText:[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] highestPossibleGrade]]]];
+            
+            //set the bool to show the uialertview
+            showAlert = true;
+            
+            
+        } else {
+            //otherwise, format the segment and show the view
+            //update the segment control to present the appropriate labels with passing the right things in
+            //NSLog(@"\nlowestPossibleGrade: %f", [[SharedValues allValues] lowestPossibleGrade]);
+            //NSLog(@"\nlowLetterGrade Sent As: %@", [NSString stringWithFormat:@"%@", [self gradeAsLetter:[[SharedValues allValues] lowestPossibleGrade]]]);
+            [self formatSegmentControl:[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] highestPossibleGrade]]] :[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] lowestPossibleGrade]]]];
+            
+            //show the view
+            [self.pickGradeView setHidden:false];
+            
+            //hide the alt view
+            [self.gradeAlreadyMadeView setHidden:true];
+            
+            //dont' show the alert view
+            showAlert = false;
+        }
+        
+        //show the alert if neccessary
+        if (showAlert) {
+            if ([[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] highestPossibleGrade]]] isEqualToString:@"A"]) {
+                //if they are both A's
+                UIAlertView *gotTheAAlert = [[UIAlertView alloc] initWithTitle:@"Good News!" message:@"No matter what you get on your final, you will get pass the class with an A! Congratulations!" delegate:Nil cancelButtonTitle:@"Thanks!" otherButtonTitles: nil];
+                [gotTheAAlert show];
+            } else {
+                UIAlertView *gotAnF = [[UIAlertView alloc] initWithTitle:@"Bad News" message:@"Unfortunately, you will not pass this class, and will recieve an F..." delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+                [gotAnF show];
+            }
+            
+        }
+        
+        
     }
-
-
-    //create the grade scale dictionary
-    NSLog(@"\n\nResults ViewWillAppear before: %@", [[SharedValues allValues] gradeScale]);
-    [[SharedValues allValues] createDictionary];
-    NSLog(@"\n\nResults ViewWillAppear after: %@", [[SharedValues allValues] gradeScale]);
     
-    //Get calculation and all the update all the labels when view is about to show
-    self.zeroLabel.text = [NSString stringWithFormat:@"(%@) %.2f%%", [self gradeAsLetter:[[SharedValues allValues] lowestPossibleGrade]] ,[[SharedValues allValues] lowestPossibleGrade]];
-    self.hundredLabel.text = [NSString stringWithFormat:@"(%@) %.2f%%",[self gradeAsLetter:[[SharedValues allValues] highestPossibleGrade]] ,[[SharedValues allValues] highestPossibleGrade]];
-    
-    //NSLog(@"\nzeroLabel: %@\nhundredLabel: %@", self.zeroLabel.text, self.hundredLabel.text);
-    
-    
-    //Check for keyboard show/hide
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillShow)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillShow)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
-    
-    
-    if ([[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] highestPossibleGrade]]] isEqualToString:[self gradeAsLetter:[[SharedValues allValues] lowestPossibleGrade]]]) {
-        //if the two strings are equal, then don't show or create the segment  (If more than one to show basically)
-        //hide the view and move the view behind up
-        //MOVE THE VIEW UP
-        [self.pickGradeView setHidden:true];
-        
-        //show the alt view and format it
-        [self.gradeAlreadyMadeView setHidden:false];
-        [self.gradeAlreadyMadeLabel setText:[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] highestPossibleGrade]]]];
-        
-        //set the bool to show the uialertview
-        showAlert = true;
-        
-        
-    } else {
-        //otherwise, format the segment and show the view
-        //update the segment control to present the appropriate labels with passing the right things in
-        //NSLog(@"\nlowestPossibleGrade: %f", [[SharedValues allValues] lowestPossibleGrade]);
-        //NSLog(@"\nlowLetterGrade Sent As: %@", [NSString stringWithFormat:@"%@", [self gradeAsLetter:[[SharedValues allValues] lowestPossibleGrade]]]);
-        [self formatSegmentControl:[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] highestPossibleGrade]]] :[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] lowestPossibleGrade]]]];
-        
-        //show the view
-        [self.pickGradeView setHidden:false];
-        
-        //hide the alt view
-        [self.gradeAlreadyMadeView setHidden:true];
-        
-        //dont' show the alert view
-        showAlert = false;
-    }
+    [[SharedValues allValues] setResultsAlreadyShown:true];
 
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)showAlert {
     if (showAlert) {
         if ([[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] highestPossibleGrade]]] isEqualToString:@"A"]) {
             //if they are both A's
@@ -120,6 +140,7 @@
         }
         
     }
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -226,6 +247,7 @@
 }
 
 - (void)formatSegmentControl:(NSString *)highLetterGrade :(NSString *)lowLetterGrade {
+    
     //update the segment control to present the appropriate labels
     //CLEAN UP BY CUTTING OUT MIDDLE MAN
     NSString *highestScoreAsLetter = highLetterGrade;

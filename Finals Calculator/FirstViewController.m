@@ -60,6 +60,8 @@
         [[SharedValues allValues] setRoundUp:FALSE];
     }
     
+    [[SharedValues allValues] setResultsAlreadyShown:false];
+    
     //move to next screen
     [self performSegueWithIdentifier:@"goSegue" sender:self];
 }

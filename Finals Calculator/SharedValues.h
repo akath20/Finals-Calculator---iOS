@@ -15,6 +15,7 @@
 @property NSMutableDictionary *gradeScale;
 @property bool roundUp;
 @property bool firstViewFirstTextFull;
+@property BOOL resultsAlreadyShown;
 
 + (SharedValues *) allValues;
 
