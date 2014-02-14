@@ -105,17 +105,29 @@
         
         
         //load values OVERRIDE USER GIVEN VALUES HERE
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"A"] floatValue] - 0.5)] forKey:@"A"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"A-"] floatValue] - 0.5)] forKey:@"A-"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"B+"] floatValue] - 0.5)] forKey:@"B+"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"B"] floatValue] - 0.5)] forKey:@"B"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"B-"] floatValue] - 0.5)] forKey:@"B-"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"C+"] floatValue] - 0.5)] forKey:@"C+"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"C"] floatValue] - 0.5)] forKey:@"C"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"C-"] floatValue] - 0.5)] forKey:@"C-"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"D+"] floatValue] - 0.5)] forKey:@"D+"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"D"] floatValue] - 0.5)] forKey:@"D"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"D-"] floatValue] - 0.5)] forKey:@"D-"];
+        //        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"A"] floatValue] - 0.5)] forKey:@"A"];
+        //        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"A-"] floatValue] - 0.5)] forKey:@"A-"];
+        //        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"B+"] floatValue] - 0.5)] forKey:@"B+"];
+        //        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"B"] floatValue] - 0.5)] forKey:@"B"];
+        //        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"B-"] floatValue] - 0.5)] forKey:@"B-"];
+        //        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"C+"] floatValue] - 0.5)] forKey:@"C+"];
+        //        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"C"] floatValue] - 0.5)] forKey:@"C"];
+        //        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"C-"] floatValue] - 0.5)] forKey:@"C-"];
+        //        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"D+"] floatValue] - 0.5)] forKey:@"D+"];
+        //        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"D"] floatValue] - 0.5)] forKey:@"D"];
+        //        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"D-"] floatValue] - 0.5)] forKey:@"D-"];
+
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"A"] floatValue])] forKey:@"A"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"A-"] floatValue])] forKey:@"A-"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"B+"] floatValue])] forKey:@"B+"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"B"] floatValue])] forKey:@"B"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"B-"] floatValue])] forKey:@"B-"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"C+"] floatValue])] forKey:@"C+"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"C"] floatValue])] forKey:@"C"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"C-"] floatValue])] forKey:@"C-"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"D+"] floatValue])] forKey:@"D+"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"D"] floatValue])] forKey:@"D"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"D-"] floatValue])] forKey:@"D-"];
         
         
         
