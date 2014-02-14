@@ -44,16 +44,24 @@
     //set the labels at the top
     self.weightLabel.text = [NSString stringWithFormat:@"Weight: %.2f%%", ([[SharedValues allValues] finalWeight]*100)];
     self.averageLabel.text = [NSString stringWithFormat:@"Average: %.2f%%", [[SharedValues allValues] currentCombinedAverage]];
+    
+    if ([[SharedValues allValues] roundUp]) {
+        self.roundsUpLabel.text = [NSString stringWithFormat:@"Teacher Rounds Up: Yes"];
+    } else {
+        self.roundsUpLabel.text = [NSString stringWithFormat:@"Teacher Rounds Up: No"];
+    }
 
 
     //create the grade scale dictionary
-    [self createDictionary];
+    NSLog(@"\n\nResults ViewWillAppear before: %@", [[SharedValues allValues] gradeScale]);
+    [[SharedValues allValues] createDictionary];
+    NSLog(@"\n\nResults ViewWillAppear after: %@", [[SharedValues allValues] gradeScale]);
     
     //Get calculation and all the update all the labels when view is about to show
     self.zeroLabel.text = [NSString stringWithFormat:@"(%@) %.2f%%", [self gradeAsLetter:[[SharedValues allValues] lowestPossibleGrade]] ,[[SharedValues allValues] lowestPossibleGrade]];
     self.hundredLabel.text = [NSString stringWithFormat:@"(%@) %.2f%%",[self gradeAsLetter:[[SharedValues allValues] highestPossibleGrade]] ,[[SharedValues allValues] highestPossibleGrade]];
     
-    NSLog(@"\nzeroLabel: %@\nhundredLabel: %@", self.zeroLabel.text, self.hundredLabel.text);
+    //NSLog(@"\nzeroLabel: %@\nhundredLabel: %@", self.zeroLabel.text, self.hundredLabel.text);
     
     
     //Check for keyboard show/hide
@@ -84,8 +92,8 @@
     } else {
         //otherwise, format the segment and show the view
         //update the segment control to present the appropriate labels with passing the right things in
-        NSLog(@"\nlowestPossibleGrade: %f", [[SharedValues allValues] lowestPossibleGrade]);
-        NSLog(@"\nlowLetterGrade Sent As: %@", [NSString stringWithFormat:@"%@", [self gradeAsLetter:[[SharedValues allValues] lowestPossibleGrade]]]);
+        //NSLog(@"\nlowestPossibleGrade: %f", [[SharedValues allValues] lowestPossibleGrade]);
+        //NSLog(@"\nlowLetterGrade Sent As: %@", [NSString stringWithFormat:@"%@", [self gradeAsLetter:[[SharedValues allValues] lowestPossibleGrade]]]);
         [self formatSegmentControl:[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] highestPossibleGrade]]] :[NSString stringWithString:[self gradeAsLetter:[[SharedValues allValues] lowestPossibleGrade]]]];
         
         //show the view
@@ -118,10 +126,10 @@
     //make sure the view contoller before is okay
     [[SharedValues allValues] setFirstViewFirstTextFull:true];
     
-    //reset the dictionary if add +.5 if it was rouded up
-    if (![[SharedValues allValues] roundUp]) {
-        [self resetDictionary];
-    }
+    //reset the dictionary if add +.5 if it was rounded up
+    NSLog(@"\n\nResults ViewWillDisappear before: %@", [[SharedValues allValues] gradeScale]);
+    [[SharedValues allValues] resetDictionary];
+    NSLog(@"\n\nResults ViewWillDisappear after: %@", [[SharedValues allValues] gradeScale]);
 }
 
 - (void)keyboardWillHide {
@@ -222,7 +230,7 @@
     //CLEAN UP BY CUTTING OUT MIDDLE MAN
     NSString *highestScoreAsLetter = highLetterGrade;
     NSString *lowestScoreAsLetter = lowLetterGrade;
-    NSLog(@"\nhighestScoreAsLetter: %@\nlowestScoreAsLetter: %@", highestScoreAsLetter, lowestScoreAsLetter);
+    //NSLog(@"\nhighestScoreAsLetter: %@\nlowestScoreAsLetter: %@", highestScoreAsLetter, lowestScoreAsLetter);
     
     //set the index of the higest/lowest grade letter from the array
     int highGrade = [[[[SharedValues allValues] gradeScale] objectForKey:@"gradesArray"] indexOfObject:highestScoreAsLetter];
@@ -238,6 +246,7 @@
     [self.getGradeSegment setTitle:nil forSegmentAtIndex:1];
    
     int xCounter = 0;
+    NSLog(@"\ngradeScale Dic: %@", [[SharedValues allValues] gradeScale]);
     while (abs(highGrade-lowGrade) >= xCounter) {
         NSString *nestedTempTitle = [NSString stringWithString:[[[[SharedValues allValues] gradeScale] objectForKey:@"gradesArray"] objectAtIndex:(highGrade + xCounter)]];
         if (xCounter == 0) {
@@ -313,81 +322,7 @@
         //return @"F";
     }
     
-    //Error; Shouldn't reach here, should return a value above
-    //NSLog(@"Error. -> ResultsViewController.m -> -gradeAsLetter");
-    
     return returnString;
-}
-
-- (void)createDictionary {
-    //decide how to create the dictionary
-    NSMutableDictionary *loadGradeDictionary = [[NSMutableDictionary alloc] initWithCapacity:11];
-    //also set a NSArray to be able to loop through the grades reliably
-    [loadGradeDictionary setObject:[NSArray arrayWithObjects:@"A", @"A-", @"B+", @"B", @"B-", @"C+", @"C", @"C-", @"D+", @"D", @"D-", @"F" , nil] forKey:@"gradesArray"];
-    
-    if (![[SharedValues allValues] roundUp]) {
-     
-        //if teacher doesn't round up, temp add .5 to the default values that were loaded
-        
-        //if the teacher doesn't round up, add +.5 to make sure that that min value is at least this if not round up
-        //Set up the dictionary of the grade scale
-        //create
-        
-        
-        //load values OVERRIDE USER GIVEN VALUES HERE
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"A"] floatValue] + 0.5)] forKey:@"A"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"A-"] floatValue] + 0.5)] forKey:@"A-"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"B+"] floatValue] + 0.5)] forKey:@"B+"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"B"] floatValue] + 0.5)] forKey:@"B"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"B-"] floatValue] + 0.5)] forKey:@"B-"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"C+"] floatValue] + 0.5)] forKey:@"C+"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"C"] floatValue] + 0.5)] forKey:@"C"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"C-"] floatValue] + 0.5)] forKey:@"C-"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"D+"] floatValue] + 0.5)] forKey:@"D+"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"D"] floatValue] + 0.5)] forKey:@"D"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"D-"] floatValue] + 0.5)] forKey:@"D-"];
-        
-        
-        
-        //set the dictionary in sharedValues
-        [[SharedValues allValues] setGradeScale:loadGradeDictionary];
-    }
-    
-}
-
-- (void)resetDictionary {
-    //minus .5 if you had to when the view was shown
-    
-    NSMutableDictionary *loadGradeDictionary = [[NSMutableDictionary alloc] initWithCapacity:11];
-    
-    if (![[SharedValues allValues] roundUp]) {
-        
-        //if teacher doesn't round up, temp add .5 to the default values that were loaded
-        
-        //if the teacher doesn't round up, add +.5 to make sure that that min value is at least this if not round up
-        //Set up the dictionary of the grade scale
-        //create
-        
-        
-        //load values OVERRIDE USER GIVEN VALUES HERE
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"A"] floatValue] - 0.5)] forKey:@"A"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"A-"] floatValue] - 0.5)] forKey:@"A-"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"B+"] floatValue] - 0.5)] forKey:@"B+"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"B"] floatValue] - 0.5)] forKey:@"B"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"B-"] floatValue] - 0.5)] forKey:@"B-"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"C+"] floatValue] - 0.5)] forKey:@"C+"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"C"] floatValue] - 0.5)] forKey:@"C"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"C-"] floatValue] - 0.5)] forKey:@"C-"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"D+"] floatValue] - 0.5)] forKey:@"D+"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"D"] floatValue] - 0.5)] forKey:@"D"];
-        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"] objectForKey:@"D-"] floatValue] - 0.5)] forKey:@"D-"];
-        
-        
-        
-        //set the dictionary in sharedValues
-        
-    }
-    [[SharedValues allValues] setGradeScale:loadGradeDictionary];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

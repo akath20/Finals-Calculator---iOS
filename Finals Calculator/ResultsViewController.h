@@ -24,6 +24,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *averageLabel;
 @property (strong, nonatomic) IBOutlet UILabel *weightLabel;
 @property (strong, nonatomic) IBOutlet UIButton *viewGradeScaleButton;
+@property (strong, nonatomic) IBOutlet UILabel *roundsUpLabel;
 
 - (IBAction)customScoreTextField:(id)sender;
 - (IBAction)segmentValueChanged:(id)sender;

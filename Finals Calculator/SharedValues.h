@@ -21,4 +21,6 @@
 - (float)lowestPossibleGrade;
 - (float)highestPossibleGrade;
 - (float)customScore:(float)customScore;
+- (void)createDictionary;
+- (void)resetDictionary;
 @end

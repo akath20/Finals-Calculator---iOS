@@ -18,6 +18,7 @@
     
     //for debugging purposes
     //[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"defaultGradeScaleValues"];
+    //NSLog(@"\nNSUserDefaults Cleaned");
     
     //set the grad scale values if needed
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"]) {
