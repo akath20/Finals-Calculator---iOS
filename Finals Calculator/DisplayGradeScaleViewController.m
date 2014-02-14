@@ -16,10 +16,13 @@
 @implementation DisplayGradeScaleViewController
 
 - (void)viewWillAppear:(BOOL)animated {
-    //recreate the dictionary so if it's rounded up it will be created as so
-    NSLog(@"\n\nDisplay ViewWillAppear before: %@", [[SharedValues allValues] gradeScale]);
-    [[SharedValues allValues] createDictionary];
-    NSLog(@"\n\nDisplay ViewWillAppear after: %@", [[SharedValues allValues] gradeScale]);
+    if ([[SharedValues allValues] comingFromResultsView]) {
+        //recreate the dictionary so if it's rounded up it will be created as so
+        NSLog(@"\n\nDisplay ViewWillAppear before: %@", [[SharedValues allValues] gradeScale]);
+        [[SharedValues allValues] createDictionary];
+        NSLog(@"\n\nDisplay ViewWillAppear after: %@", [[SharedValues allValues] gradeScale]);
+    }
+    
     
     //set the button hidden property
     if (self.showButton) {
@@ -39,8 +42,12 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
+    if ([[SharedValues allValues] comingFromResultsView]) {
+        
     NSLog(@"\n\nDisplay ViewWillDisappear before: %@", [[SharedValues allValues] gradeScale]);
     [[SharedValues allValues] resetDictionary];
     NSLog(@"\n\nDisplay ViewWillDisappear after: %@", [[SharedValues allValues] gradeScale]);
+        
+    }
 }
 @end

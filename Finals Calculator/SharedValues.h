@@ -16,6 +16,7 @@
 @property bool roundUp;
 @property bool firstViewFirstTextFull;
 @property BOOL resultsAlreadyShown;
+@property BOOL comingFromResultsView;
 
 + (SharedValues *) allValues;
 

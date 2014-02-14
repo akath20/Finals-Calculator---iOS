@@ -8,6 +8,7 @@
 
 #import "AboutViewController.h"
 #import "DisplayGradeScaleViewController.h"
+#import "SharedValues.h"
 
 @interface AboutViewController ()
 
@@ -32,5 +33,9 @@
         DisplayGradeScaleViewController *vc = segue.destinationViewController;
         vc.showButton = true;
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [[SharedValues allValues] setComingFromResultsView:false];
 }
 @end

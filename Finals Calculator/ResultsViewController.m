@@ -351,6 +351,7 @@
     if ([segue.identifier isEqualToString:@"showCurrentGradeScaleHideButton"]) {
         DisplayGradeScaleViewController *vc = segue.destinationViewController;
         vc.showButton = false;
+        [[SharedValues allValues] setComingFromResultsView:true];
     }
 }
 
