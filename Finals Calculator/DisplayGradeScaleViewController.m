@@ -19,7 +19,10 @@
     //make the labels show the correspoding grade
     int xCounter = 0;
     for (UILabel *currentLabel in self.displayLabels) {
-        currentLabel.text = [NSString stringWithFormat:@"%@%%", [[[SharedValues allValues] gradeScale] valueForKey:[[[[SharedValues allValues] gradeScale] objectForKey:@"gradesArray"] objectAtIndex:xCounter]]];
+        NSDictionary *dic = [[SharedValues allValues] gradeScale];
+        NSString *str = [[[[SharedValues allValues] gradeScale] objectForKey:@"gradesArray"] objectAtIndex:xCounter];
+        currentLabel.text = [NSString stringWithFormat:@"%@%%", [dic valueForKey:str]];
+        xCounter++;
     }
 }
 
