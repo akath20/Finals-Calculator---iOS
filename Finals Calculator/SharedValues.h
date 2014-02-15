@@ -17,6 +17,7 @@
 @property bool firstViewFirstTextFull;
 @property BOOL resultsAlreadyShown;
 @property BOOL comingFromResultsView;
+@property int currentSelectedFirstViewSegmentIndex;
 
 + (SharedValues *) allValues;
 

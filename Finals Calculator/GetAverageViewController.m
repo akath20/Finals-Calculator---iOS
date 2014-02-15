@@ -275,6 +275,7 @@
         //if the keyboard isn't showing and it says it's the back button
         
         if (haveValueToReturn) {
+            
             //set the allValues object equal to this
             [[SharedValues allValues] setCurrentCombinedAverage:actualAverage];
         }

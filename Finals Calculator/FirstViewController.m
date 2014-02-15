@@ -15,8 +15,7 @@
 
 @implementation FirstViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 
@@ -32,7 +31,7 @@
     self.firstTextFull = [[SharedValues allValues] firstViewFirstTextFull];
     
     
-    if ([[SharedValues allValues] currentCombinedAverage] == -1.0) {
+    if (([[SharedValues allValues] currentCombinedAverage] == -1.0) || ([[SharedValues allValues] currentCombinedAverage] == 0.0)) {
         self.percentAverageTextField.placeholder = @"%";
     } else {
         self.percentAverageTextField.text = [NSString stringWithFormat:@"%.2f", [[SharedValues allValues] currentCombinedAverage]];
@@ -42,6 +41,19 @@
     } else {
         [self.goButton setEnabled:false];
     }
+    
+    //set the selected segment index if loaded from another view
+    if (([self.segmentOutlet selectedSegmentIndex] == -1) && ([[SharedValues allValues] currentSelectedFirstViewSegmentIndex] >= 0)) {
+        //if nothing is selected and there is a previous load of it, then load it
+        [self.segmentOutlet setSelectedSegmentIndex:[[SharedValues allValues] currentSelectedFirstViewSegmentIndex]];
+    }
+
+    //set the weight if loaded from another view and if previously set
+    if (([self.finalWeight.text isEqualToString:@""]) && ([[SharedValues allValues] finalWeight])) {
+        //if nothing is in the text box and there is something in the share class from before, load it
+        [self.finalWeight setText:[NSString stringWithFormat:@"%.2f", ([[SharedValues allValues] finalWeight]*100)]];
+    }
+    
 }
 
 - (IBAction)goPushed:(id)sender {
@@ -61,6 +73,9 @@
     }
     
     [[SharedValues allValues] setResultsAlreadyShown:false];
+    
+    //set the current segment segment
+    [[SharedValues allValues] setCurrentSelectedFirstViewSegmentIndex:[self.segmentOutlet selectedSegmentIndex]];
     
     //move to next screen
     [self performSegueWithIdentifier:@"goSegue" sender:self];
@@ -89,6 +104,9 @@
                 //if all good, say the text is full
                 self.firstTextFull = true;
                 [sender setText:[NSString stringWithFormat:@"%.2f", [sender.text floatValue]]];
+                
+                //ERROR WOULD BE HERE
+                [[SharedValues allValues] setCurrentCombinedAverage:[self.percentAverageTextField.text floatValue]];
             }
             
         } else {
@@ -111,14 +129,26 @@
                 //if all good, say the text is full
                 secondTextFull = true;
                 [sender setText:[NSString stringWithFormat:@"%.2f", [sender.text floatValue]]];
+                
+                //ERROR WOULD BE HERE
+                //set weight
+                //MAKE IT A DECIMAL
+                [[SharedValues allValues] setFinalWeight:([self.finalWeight.text floatValue]/100)];
+                
             }
         }
         
         
     } else {
         if (sender.tag == 0) {
+            //weight text box
             self.firstTextFull = false;
+            [[SharedValues allValues] setCurrentCombinedAverage:0.0];
+            self.percentAverageTextField.placeholder = @"%";
         } else {
+            //weight text box
+            [[SharedValues allValues] setFinalWeight:0.0];
+            self.finalWeight.placeholder = @"%";
             secondTextFull = false;
         }
 
@@ -154,6 +184,9 @@
     } else {
         [self.goButton setEnabled:false];
     }
+    
+    //set it in the shared class to later restore if necessary
+    [[SharedValues allValues] setCurrentSelectedFirstViewSegmentIndex:[self.segmentOutlet selectedSegmentIndex]];
 }
 
 - (BOOL)allFilled {
