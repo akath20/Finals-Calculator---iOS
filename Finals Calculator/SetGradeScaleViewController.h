@@ -14,9 +14,11 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *setButton;
 @property (strong, nonatomic) IBOutlet UILabel *incrementLabel;
 @property (strong, nonatomic) IBOutlet UIStepper *incrementStepper;
+@property (strong, nonatomic) IBOutlet UIScrollView *mainScrollView;
 
 - (IBAction)setButtonClicked:(UIBarButtonItem *)sender;
 - (IBAction)cancelButtonClicked:(UIBarButtonItem *)sender;
 - (IBAction)stepperValueChanged:(UIStepper *)sender;
+@property (strong, nonatomic) IBOutlet UIView *scrollViewView;
 
 @end

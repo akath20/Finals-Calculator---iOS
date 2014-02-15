@@ -34,6 +34,22 @@
     self.incrementLabel.text = [NSString stringWithFormat:@"%.1f", self.incrementStepper.value];
 }
 
+- (void)viewDidLoad {
+    
+    //FIX FOR SCROLLVIEW WITH AUTOLAYOUT
+    [self setAutomaticallyAdjustsScrollViewInsets:false];
+    [self.mainScrollView setContentSize:CGSizeMake(320, 800)];
+    
+    //auto reposition so if i edit in IB it will return at runtime
+    //y NOT 64 to not have a white space above it
+    [self.scrollViewView setFrame:CGRectMake(0, 0, self.scrollViewView.frame.size.width, self.scrollViewView.frame.size.height)];
+}
+
+- (void)viewDidLayoutSubviews {
+    //FIX FOR SCROLLVIEW WITH AUTOLAYOUT
+    [self.mainScrollView setContentSize:CGSizeMake(320, self.scrollViewView.frame.size.height)];
+}
+
 - (IBAction)setButtonClicked:(UIBarButtonItem *)sender {
     UIAlertView *confirmAlert = [[UIAlertView alloc] initWithTitle:@"Are You Sure?" message:@"Are you sure that you want to set the grade scale like this?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
     [confirmAlert show];

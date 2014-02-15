@@ -24,7 +24,7 @@
     
     //make sure at runtime it doesn't account for the toolbar being there so that it's not moved down when accouting for it
     [self setAutomaticallyAdjustsScrollViewInsets:false];
-    [self.mainScrollView setContentSize:CGSizeMake(320, 800)];
+    [self.mainScrollView setContentSize:CGSizeMake(320, self.scrollViewView.frame.size.height)];
     
     //auto reposition so if i edit in IB it will return at runtime
     //y NOT 64 to not have a white space above it

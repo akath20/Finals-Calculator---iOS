@@ -37,4 +37,5 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [[SharedValues allValues] setComingFromResultsView:false];
 }
+
 @end
