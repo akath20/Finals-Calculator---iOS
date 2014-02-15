@@ -36,7 +36,7 @@
     for (UILabel *currentLabel in self.displayLabels) {
         NSDictionary *dic = [[SharedValues allValues] gradeScale];
         NSString *str = [[[[SharedValues allValues] gradeScale] objectForKey:@"gradesArray"] objectAtIndex:xCounter];
-        currentLabel.text = [NSString stringWithFormat:@"%@%%", [dic valueForKey:str]];
+        currentLabel.text = [NSString stringWithFormat:@"%.2f%%", [[dic valueForKey:str] floatValue]];
         xCounter++;
     }
 }

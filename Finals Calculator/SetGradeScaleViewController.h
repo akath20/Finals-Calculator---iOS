@@ -12,10 +12,13 @@
 
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *displayLabels;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *setButton;
+@property (strong, nonatomic) IBOutlet UILabel *incrementLabel;
+@property (strong, nonatomic) IBOutlet UIStepper *incrementStepper;
 
 
-- (IBAction)sliderValueChanged:(UISlider *)sender;
+
 - (IBAction)setButtonClicked:(UIBarButtonItem *)sender;
 - (IBAction)cancelButtonClicked:(UIBarButtonItem *)sender;
+- (IBAction)stepperValueChanged:(UIStepper *)sender;
 
 @end
