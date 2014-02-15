@@ -103,7 +103,6 @@
 				FA26A71D18945678006F1D69 /* Finals Calculator */,
 				FA26A73F18945679006F1D69 /* Finals CalculatorTests */,
 				FA26A71618945678006F1D69 /* Frameworks */,
-				FA26A71518945678006F1D69 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +113,7 @@
 				FA26A73818945679006F1D69 /* Finals CalculatorTests.xctest */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		FA26A71618945678006F1D69 /* Frameworks */ = {
@@ -154,6 +154,7 @@
 		FA26A73F18945679006F1D69 /* Finals CalculatorTests */ = {
 			isa = PBXGroup;
 			children = (
+				FA26A71518945678006F1D69 /* Products */,
 				FA26A74518945679006F1D69 /* Finals_CalculatorTests.m */,
 				FA26A74018945679006F1D69 /* Supporting Files */,
 			);
