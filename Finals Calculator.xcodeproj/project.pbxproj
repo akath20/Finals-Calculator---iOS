@@ -25,6 +25,7 @@
 		FA674B2518A1C2C300C0B8FB /* SharedValues.m in Sources */ = {isa = PBXBuildFile; fileRef = FA674B2418A1C2C300C0B8FB /* SharedValues.m */; };
 		FA674B2818A1DB1900C0B8FB /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA674B2718A1DB1900C0B8FB /* ResultsViewController.m */; };
 		FA79376A1897399C001F2BD2 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7937691897399C001F2BD2 /* AboutViewController.m */; };
+		FA9B3DA018AEE54500CB625B /* SetGradeScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9B3D9F18AEE54500CB625B /* SetGradeScaleViewController.m */; };
 		FAF39B1418ADA23A00BFBBC8 /* DisplayGradeScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF39B1318ADA23A00BFBBC8 /* DisplayGradeScaleViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,8 @@
 		FA674B2718A1DB1900C0B8FB /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; wrapsLines = 1; };
 		FA7937681897399C001F2BD2 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		FA7937691897399C001F2BD2 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		FA9B3D9E18AEE54500CB625B /* SetGradeScaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetGradeScaleViewController.h; sourceTree = "<group>"; };
+		FA9B3D9F18AEE54500CB625B /* SetGradeScaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetGradeScaleViewController.m; sourceTree = "<group>"; };
 		FAF39B1218ADA23A00BFBBC8 /* DisplayGradeScaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayGradeScaleViewController.h; sourceTree = "<group>"; };
 		FAF39B1318ADA23A00BFBBC8 /* DisplayGradeScaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayGradeScaleViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -205,6 +208,8 @@
 				FA7937691897399C001F2BD2 /* AboutViewController.m */,
 				FAF39B1218ADA23A00BFBBC8 /* DisplayGradeScaleViewController.h */,
 				FAF39B1318ADA23A00BFBBC8 /* DisplayGradeScaleViewController.m */,
+				FA9B3D9E18AEE54500CB625B /* SetGradeScaleViewController.h */,
+				FA9B3D9F18AEE54500CB625B /* SetGradeScaleViewController.m */,
 			);
 			name = About/Settings;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA674B2818A1DB1900C0B8FB /* ResultsViewController.m in Sources */,
+				FA9B3DA018AEE54500CB625B /* SetGradeScaleViewController.m in Sources */,
 				FA26A72818945678006F1D69 /* AppDelegate.m in Sources */,
 				FA79376A1897399C001F2BD2 /* AboutViewController.m in Sources */,
 				FA26A72E18945678006F1D69 /* FirstViewController.m in Sources */,
