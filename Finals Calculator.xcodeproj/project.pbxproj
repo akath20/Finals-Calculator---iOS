@@ -26,6 +26,7 @@
 		FA674B2818A1DB1900C0B8FB /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA674B2718A1DB1900C0B8FB /* ResultsViewController.m */; };
 		FA79376A1897399C001F2BD2 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7937691897399C001F2BD2 /* AboutViewController.m */; };
 		FA9B3DA018AEE54500CB625B /* SetGradeScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9B3D9F18AEE54500CB625B /* SetGradeScaleViewController.m */; };
+		FA9B3DA618AFFAF400CB625B /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9B3DA518AFFAF400CB625B /* iAd.framework */; };
 		FAF39B1418ADA23A00BFBBC8 /* DisplayGradeScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF39B1318ADA23A00BFBBC8 /* DisplayGradeScaleViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		FA7937691897399C001F2BD2 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		FA9B3D9E18AEE54500CB625B /* SetGradeScaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetGradeScaleViewController.h; sourceTree = "<group>"; };
 		FA9B3D9F18AEE54500CB625B /* SetGradeScaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetGradeScaleViewController.m; sourceTree = "<group>"; };
+		FA9B3DA518AFFAF400CB625B /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		FAF39B1218ADA23A00BFBBC8 /* DisplayGradeScaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayGradeScaleViewController.h; sourceTree = "<group>"; };
 		FAF39B1318ADA23A00BFBBC8 /* DisplayGradeScaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayGradeScaleViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA9B3DA618AFFAF400CB625B /* iAd.framework in Frameworks */,
 				FA26A71A18945678006F1D69 /* CoreGraphics.framework in Frameworks */,
 				FA26A71C18945678006F1D69 /* UIKit.framework in Frameworks */,
 				FA26A71818945678006F1D69 /* Foundation.framework in Frameworks */,
@@ -119,6 +122,7 @@
 		FA26A71618945678006F1D69 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA9B3DA518AFFAF400CB625B /* iAd.framework */,
 				FA26A71718945678006F1D69 /* Foundation.framework */,
 				FA26A71918945678006F1D69 /* CoreGraphics.framework */,
 				FA26A71B18945678006F1D69 /* UIKit.framework */,
