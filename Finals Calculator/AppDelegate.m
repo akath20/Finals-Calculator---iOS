@@ -15,6 +15,7 @@
 {
     // Override point for customization after application launch.
     [[SharedValues allValues] setCurrentCombinedAverage:-1.0];
+    [[SharedValues allValues] setCurrentSelectedFirstViewSegmentIndex:-1];
     
     //for debugging purposes
     //[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"defaultGradeScaleValues"];
@@ -48,7 +49,6 @@
     
     //then load into the SharedValues dictionary for global access throught the program
     [[SharedValues allValues] setGradeScale:[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"]];
-    
 
     
     return YES;

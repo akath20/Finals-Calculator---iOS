@@ -26,7 +26,7 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    
+        
     //set the firstTextBoxFull property from the shared class
     self.firstTextFull = [[SharedValues allValues] firstViewFirstTextFull];
     
@@ -48,6 +48,8 @@
         [self.segmentOutlet setSelectedSegmentIndex:[[SharedValues allValues] currentSelectedFirstViewSegmentIndex]];
     }
 
+    
+    
     //set the weight if loaded from another view and if previously set
     if (([self.finalWeight.text isEqualToString:@""]) && ([[SharedValues allValues] finalWeight])) {
         //if nothing is in the text box and there is something in the share class from before, load it
