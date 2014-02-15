@@ -56,6 +56,8 @@
         [self.finalWeight setText:[NSString stringWithFormat:@"%.2f", ([[SharedValues allValues] finalWeight]*100)]];
     }
     
+
+    
 }
 
 - (IBAction)goPushed:(id)sender {
