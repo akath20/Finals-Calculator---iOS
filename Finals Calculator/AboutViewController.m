@@ -25,7 +25,7 @@
 
 - (IBAction)launchWebsite:(id)sender {
     //open my website
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"webpages.charter.net/akath20"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://webpages.charter.net/akath20/"]];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
