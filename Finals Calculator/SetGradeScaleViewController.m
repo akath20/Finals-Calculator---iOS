@@ -18,6 +18,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
+    //auto make the set button disabled
+    [self.setButton setEnabled:false];
+    
     //make the labels show the correspoding grade
     int xCounter = 0;
     for (UILabel *currentLabel in self.displayLabels) {
@@ -32,6 +35,9 @@
 }
 
 - (IBAction)setButtonClicked:(UIBarButtonItem *)sender {
+    UIAlertView *confirmAlert = [[UIAlertView alloc] initWithTitle:@"Are You Sure?" message:@"Are you sure that you want to set the grade scale like this?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+    [confirmAlert show];
+    
 }
 
 - (IBAction)cancelButtonClicked:(UIBarButtonItem *)sender {
@@ -39,6 +45,13 @@
 }
 
 - (IBAction)stepperValueChanged:(UIStepper *)sender {
+    
+    //enable the set button if the value is not 0
+    if (!(sender.value == 0)) {
+        [self.setButton setEnabled:true];
+    } else {
+        [self.setButton setEnabled:false];
+    }
     
     //update the labels to show the correspoding grade from the stepper change
     int xCounter = 0;
@@ -60,8 +73,42 @@
     
 }
 
-
-
-
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (!(buttonIndex == [alertView cancelButtonIndex])){
+        //if cancel button not clicked, then set the values and alert the user
+        
+        //create the dictionary
+        NSMutableDictionary *loadGradeDictionary = [[NSMutableDictionary alloc] initWithCapacity:11];
+        
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  (92.5 + self.incrementStepper.value)] forKey:@"A"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  (89.5 + self.incrementStepper.value)] forKey:@"A-"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  (86.5 + self.incrementStepper.value)] forKey:@"B+"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  (82.5 + self.incrementStepper.value)] forKey:@"B"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  (79.5 + self.incrementStepper.value)] forKey:@"B-"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  (76.5 + self.incrementStepper.value)] forKey:@"C+"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  (72.5 + self.incrementStepper.value)] forKey:@"C"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  (69.5 + self.incrementStepper.value)] forKey:@"C-"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  (66.5 + self.incrementStepper.value)] forKey:@"D+"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  (62.5 + self.incrementStepper.value)] forKey:@"D"];
+        [loadGradeDictionary setObject:[NSString stringWithFormat:@"%.2f",  (59.5 + self.incrementStepper.value)] forKey:@"D-"];
+        
+        [loadGradeDictionary setObject:[NSArray arrayWithObjects:@"A", @"A-", @"B+", @"B", @"B-", @"C+", @"C", @"C-", @"D+", @"D", @"D-", @"F" , nil] forKey:@"gradesArray"];
+        
+        //set the values
+        [[NSUserDefaults standardUserDefaults] setObject:loadGradeDictionary forKey:@"defaultGradeScaleValues"];
+        [[SharedValues allValues] setGradeScale:[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"]];
+        
+        //go back to the display screen
+        [self dismissViewControllerAnimated:YES completion:^{
+            //tell the user that it was successful
+            UIAlertView *allSetAlert = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"The values have been successfully updated!" delegate:nil cancelButtonTitle:@"Great!" otherButtonTitles: nil];
+            [allSetAlert show];
+        }];
+        
+        
+   
+    }
+}
 
 @end

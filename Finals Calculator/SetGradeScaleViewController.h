@@ -8,14 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SetGradeScaleViewController : UIViewController
+@interface SetGradeScaleViewController : UIViewController <UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *displayLabels;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *setButton;
 @property (strong, nonatomic) IBOutlet UILabel *incrementLabel;
 @property (strong, nonatomic) IBOutlet UIStepper *incrementStepper;
-
-
 
 - (IBAction)setButtonClicked:(UIBarButtonItem *)sender;
 - (IBAction)cancelButtonClicked:(UIBarButtonItem *)sender;
