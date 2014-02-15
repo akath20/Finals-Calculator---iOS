@@ -21,16 +21,31 @@
         NSLog(@"\n\nDisplay ViewWillAppear before: %@", [[SharedValues allValues] gradeScale]);
         [[SharedValues allValues] createDictionary];
         NSLog(@"\n\nDisplay ViewWillAppear after: %@", [[SharedValues allValues] gradeScale]);
-    }
-    
-    
-    //set the button hidden property
-    if (self.showButton) {
-        [self.setValueButton setHidden:false];
-    } else {
+        
+        //show setValueButton
         [self.setValueButton setHidden:true];
+        [self.resetButtonOutlet setEnabled:false];
+        
+    } else {
+        
+        //if coming from the about page
+       [self.setValueButton setHidden:false];
+        
+        
+        
+        if (!([[[[SharedValues allValues] gradeScale] valueForKey:@"A"] floatValue] == 92.5)) {
+            //if the values arn't the original value then enable the reset button and disable the set button
+            [self.resetButtonOutlet setEnabled:true];
+            [self.setValueButton setEnabled:false];
+        } else {
+            //if the values are the original ones, disable the reset button and enable the set button
+            [self.resetButtonOutlet setEnabled:false];
+            [self.setValueButton setEnabled:true];
+        }
+        
     }
     
+
     //make the labels show the correspoding grade
     int xCounter = 0;
     for (UILabel *currentLabel in self.displayLabels) {
@@ -51,4 +66,6 @@
     }
 }
 
+- (IBAction)resetPushed:(UIBarButtonItem *)sender {
+}
 @end

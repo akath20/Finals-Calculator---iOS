@@ -11,7 +11,9 @@
 @interface DisplayGradeScaleViewController : UIViewController
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *displayLabels;
 @property (strong, nonatomic) IBOutlet UIButton *setValueButton;
-@property BOOL showButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *resetButtonOutlet;
 
+
+- (IBAction)resetPushed:(UIBarButtonItem *)sender;
 
 @end

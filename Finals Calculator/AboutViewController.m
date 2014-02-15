@@ -30,8 +30,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showCurrentGradeScale"]) {
-        DisplayGradeScaleViewController *vc = segue.destinationViewController;
-        vc.showButton = true;
+        [[SharedValues allValues] setComingFromResultsView:false];
     }
 }
 

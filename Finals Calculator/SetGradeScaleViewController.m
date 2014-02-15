@@ -35,6 +35,7 @@
 }
 
 - (IBAction)cancelButtonClicked:(UIBarButtonItem *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)stepperValueChanged:(UIStepper *)sender {
