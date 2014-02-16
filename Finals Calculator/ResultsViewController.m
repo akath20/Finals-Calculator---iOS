@@ -230,24 +230,9 @@
     //get weighted average
     //float weightedAverage = [[SharedValues allValues] currentCombinedAverage]*(1-[[SharedValues allValues] finalWeight]);
     
-    
-    
-    
-    
-    
-    
-    
     //get the values to show
     NSLog(@"\nfinalWeight %.2f", [[SharedValues allValues] finalWeight]);
     float minimumGrade = (requestedGradeAsPercent - [[SharedValues allValues] lowestPossibleGrade])/[[SharedValues allValues] finalWeight];
-    
-    
-    
-    
-    
-    
-    
-    
     
     //error handle the last bit of code above
     if (minimumGrade < 0.0) {
@@ -271,8 +256,8 @@
     //NSLog(@"\nhighestScoreAsLetter: %@\nlowestScoreAsLetter: %@", highestScoreAsLetter, lowestScoreAsLetter);
     
     //set the index of the higest/lowest grade letter from the array
-    int highGrade = [[[[SharedValues allValues] gradeScale] objectForKey:@"gradesArray"] indexOfObject:highestScoreAsLetter];
-    int lowGrade = [[[[SharedValues allValues] gradeScale] objectForKey:@"gradesArray"] indexOfObject:lowestScoreAsLetter];
+    int highGrade = (int)[[[[SharedValues allValues] gradeScale] objectForKey:@"gradesArray"] indexOfObject:highestScoreAsLetter];
+    int lowGrade = (int)[[[[SharedValues allValues] gradeScale] objectForKey:@"gradesArray"] indexOfObject:lowestScoreAsLetter];
     
     //delete the older section down to two
     while ([self.getGradeSegment numberOfSegments] > 2) {

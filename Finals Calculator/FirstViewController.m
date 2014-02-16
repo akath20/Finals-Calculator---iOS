@@ -79,7 +79,7 @@
     [[SharedValues allValues] setResultsAlreadyShown:false];
     
     //set the current segment segment
-    [[SharedValues allValues] setCurrentSelectedFirstViewSegmentIndex:[self.segmentOutlet selectedSegmentIndex]];
+    [[SharedValues allValues] setCurrentSelectedFirstViewSegmentIndex:(int)[self.segmentOutlet selectedSegmentIndex]];
     
     //move to next screen
     [self performSegueWithIdentifier:@"goSegue" sender:self];
@@ -190,7 +190,7 @@
     }
     
     //set it in the shared class to later restore if necessary
-    [[SharedValues allValues] setCurrentSelectedFirstViewSegmentIndex:[self.segmentOutlet selectedSegmentIndex]];
+    [[SharedValues allValues] setCurrentSelectedFirstViewSegmentIndex:(int)[self.segmentOutlet selectedSegmentIndex]];
 }
 
 - (BOOL)allFilled {
