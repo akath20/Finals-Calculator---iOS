@@ -228,10 +228,11 @@
     float requestedGradeAsPercent = [[gradeScale valueForKey:requestedGradeAsLetter] floatValue];
     
     //get weighted average
-    float weightedAverage = [[SharedValues allValues] currentCombinedAverage]*(1-[[SharedValues allValues] finalWeight]);
+    //float weightedAverage = [[SharedValues allValues] currentCombinedAverage]*(1-[[SharedValues allValues] finalWeight]);
     
     //get the values to show
-    float minimumGrade = (requestedGradeAsPercent - weightedAverage)*10;
+    NSLog(@"\nfinalWeight %.2f", [[SharedValues allValues] finalWeight]);
+    float minimumGrade = (requestedGradeAsPercent - [[SharedValues allValues] lowestPossibleGrade])/[[SharedValues allValues] finalWeight];
     
     //error handle the last bit of code above
     if (minimumGrade < 0.0) {
