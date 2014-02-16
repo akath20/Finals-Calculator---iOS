@@ -230,9 +230,24 @@
     //get weighted average
     //float weightedAverage = [[SharedValues allValues] currentCombinedAverage]*(1-[[SharedValues allValues] finalWeight]);
     
+    
+    
+    
+    
+    
+    
+    
     //get the values to show
     NSLog(@"\nfinalWeight %.2f", [[SharedValues allValues] finalWeight]);
     float minimumGrade = (requestedGradeAsPercent - [[SharedValues allValues] lowestPossibleGrade])/[[SharedValues allValues] finalWeight];
+    
+    
+    
+    
+    
+    
+    
+    
     
     //error handle the last bit of code above
     if (minimumGrade < 0.0) {
@@ -269,7 +284,6 @@
     [self.getGradeSegment setTitle:nil forSegmentAtIndex:1];
    
     int xCounter = 0;
-    NSLog(@"\ngradeScale Dic: %@", [[SharedValues allValues] gradeScale]);
     while (abs(highGrade-lowGrade) >= xCounter) {
         NSString *nestedTempTitle = [NSString stringWithString:[[[[SharedValues allValues] gradeScale] objectForKey:@"gradesArray"] objectAtIndex:(highGrade + xCounter)]];
         if (xCounter == 0) {
