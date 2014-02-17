@@ -148,7 +148,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I1M-jI-CMV">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="665"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="564"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Final average if you got a 0% on the final:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="dyA-jF-0TD">
@@ -197,7 +197,7 @@
                                                 </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rpx-Z8-Fno" userLabel="PickGradeView">
-                                                <rect key="frame" x="0.0" y="406" width="320" height="144"/>
+                                                <rect key="frame" x="0.0" y="362" width="320" height="144"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To get a(n):" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gxk-Qk-zaK">
@@ -238,7 +238,7 @@
                                                 </subviews>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eNN-HA-Xi0" userLabel="GradeAlreadyMadeView">
-                                                <rect key="frame" x="0.0" y="406" width="320" height="144"/>
+                                                <rect key="frame" x="0.0" y="362" width="320" height="144"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your grade no matter what grade you get on your final:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="WtG-E6-vd0">
@@ -945,7 +945,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="----------------------->" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRL-vQ-9OX">
-                                                <rect key="frame" x="66" y="292" width="186" height="21"/>
+                                                <rect key="frame" x="66" y="298" width="186" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
@@ -999,7 +999,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7Q-YM-hFS">
-                                                <rect key="frame" x="243" y="292" width="65" height="21"/>
+                                                <rect key="frame" x="243" y="298" width="65" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
@@ -1115,17 +1115,17 @@
                         <outlet property="mainScrollView" destination="xZp-LV-eHw" id="tY7-Hk-Tvb"/>
                         <outlet property="scrollViewView" destination="c4e-rg-EIQ" id="4JD-vz-fvh"/>
                         <outlet property="setButton" destination="mwv-Dq-FIl" id="jO7-eG-zAW"/>
-                        <outletCollection property="displayLabels" destination="ZWe-N2-ddk" id="jyp-RT-td3"/>
-                        <outletCollection property="displayLabels" destination="X3L-D7-OpA" id="gko-Jp-LJR"/>
-                        <outletCollection property="displayLabels" destination="fhQ-aM-LMk" id="fNk-Wh-hFt"/>
-                        <outletCollection property="displayLabels" destination="8qr-Iu-QeA" id="3Pu-kg-whE"/>
-                        <outletCollection property="displayLabels" destination="W7Q-YM-hFS" id="wO5-do-KjA"/>
-                        <outletCollection property="displayLabels" destination="b39-RM-l5N" id="I8W-85-Da5"/>
-                        <outletCollection property="displayLabels" destination="IWG-2b-Lnc" id="2mG-Bx-tia"/>
-                        <outletCollection property="displayLabels" destination="zVh-u2-143" id="b6z-nC-4Ge"/>
-                        <outletCollection property="displayLabels" destination="0Mr-gf-uLm" id="NSE-IS-etc"/>
-                        <outletCollection property="displayLabels" destination="bQg-oT-7bU" id="xtX-aj-Obb"/>
-                        <outletCollection property="displayLabels" destination="paj-Zr-OAT" id="vVl-4i-AFv"/>
+                        <outletCollection property="displayLabels" destination="paj-Zr-OAT" id="uXE-GR-EaO"/>
+                        <outletCollection property="displayLabels" destination="zVh-u2-143" id="kF3-a2-Bei"/>
+                        <outletCollection property="displayLabels" destination="X3L-D7-OpA" id="Rh9-Wm-tzA"/>
+                        <outletCollection property="displayLabels" destination="b39-RM-l5N" id="koA-dE-fFc"/>
+                        <outletCollection property="displayLabels" destination="IWG-2b-Lnc" id="FTr-aK-Or0"/>
+                        <outletCollection property="displayLabels" destination="ZWe-N2-ddk" id="hqW-3y-vEe"/>
+                        <outletCollection property="displayLabels" destination="W7Q-YM-hFS" id="i16-En-Y4B"/>
+                        <outletCollection property="displayLabels" destination="8qr-Iu-QeA" id="c3N-5d-ZUG"/>
+                        <outletCollection property="displayLabels" destination="fhQ-aM-LMk" id="4oC-Xt-4A7"/>
+                        <outletCollection property="displayLabels" destination="0Mr-gf-uLm" id="rDu-9R-nzZ"/>
+                        <outletCollection property="displayLabels" destination="bQg-oT-7bU" id="9qI-z1-fea"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XYY-7m-qC4" userLabel="First Responder" sceneMemberID="firstResponder"/>
