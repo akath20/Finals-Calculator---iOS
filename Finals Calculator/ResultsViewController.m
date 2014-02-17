@@ -32,6 +32,12 @@
     
     //init the gesture tap
     yourTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollTap)];
+    
+    
+    
+    //reset the scroll view in case it is off in IB
+    [self.scrollViewView setFrame:CGRectMake(0, 0, 320, self.scrollViewView.frame.size.height)];
+    
 
 }
 
