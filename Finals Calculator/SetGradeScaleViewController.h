@@ -7,14 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 
-@interface SetGradeScaleViewController : UIViewController <UIAlertViewDelegate>
+@interface SetGradeScaleViewController : UIViewController <UIAlertViewDelegate, ADBannerViewDelegate> {
+    
+}
 
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *displayLabels;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *setButton;
 @property (strong, nonatomic) IBOutlet UILabel *incrementLabel;
 @property (strong, nonatomic) IBOutlet UIStepper *incrementStepper;
 @property (strong, nonatomic) IBOutlet UIScrollView *mainScrollView;
+@property (strong, nonatomic) IBOutlet ADBannerView *adBanner;
 
 - (IBAction)setButtonClicked:(UIBarButtonItem *)sender;
 - (IBAction)cancelButtonClicked:(UIBarButtonItem *)sender;

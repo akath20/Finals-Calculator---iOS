@@ -47,6 +47,8 @@
     [self.averageLabel setHidden:TRUE];
     haveValueToReturn = FALSE;
     
+    [self.adBanner setHidden:true];
+    
     
 }
 
@@ -292,6 +294,22 @@
     
 }
 
+
+#pragma mark Ads
+
+-(void)bannerViewDidLoadAd:(ADBannerView *)banner {
+    
+    //NSLog(@"\nAd Loaded");
+    [banner setHidden:false];
+    
+}
+
+-(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
+    
+    //NSLog(@"\nAd Not Loaded");
+    [banner setHidden:true];
+    
+}
 
 
 

@@ -36,6 +36,8 @@
 
 - (void)viewDidLoad {
     
+    [self.adBanner setHidden:true];
+    
     //FIX FOR SCROLLVIEW WITH AUTOLAYOUT
     [self setAutomaticallyAdjustsScrollViewInsets:false];
     [self.mainScrollView setContentSize:CGSizeMake(320, 800)];
@@ -125,6 +127,22 @@
         
    
     }
+}
+
+#pragma mark Ads
+
+-(void)bannerViewDidLoadAd:(ADBannerView *)banner {
+    
+    //NSLog(@"\nAd Loaded");
+    [banner setHidden:false];
+    
+}
+
+-(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
+    
+    //NSLog(@"\nAd Not Loaded");
+    [banner setHidden:true];
+    
 }
 
 @end

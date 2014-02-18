@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 
-@interface GetAverageViewController : UIViewController
+@interface GetAverageViewController : UIViewController <ADBannerViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *buttonView;
 @property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *textFieldsOutlet;
@@ -19,8 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *instructLabel;
 @property (weak, nonatomic) IBOutlet UILabel *averageLabel;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *backButtonOutlet;
-
-
+@property (strong, nonatomic) IBOutlet ADBannerView *adBanner;
 
 //this might belong as a class instance variable rather than a property; doesn't really matter, but cleaner code
 @property int whatsShowing;
