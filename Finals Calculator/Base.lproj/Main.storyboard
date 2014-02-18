@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="mpN-pi-he3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2VE-Yg-loa">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What is your current average?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="208" translatesAutoresizingMaskIntoConstraints="NO" id="Dna-VP-ETP">
@@ -108,7 +108,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="o2w-bH-fYz">
-                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="430" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="jXh-oA-Zdl"/>
@@ -157,15 +157,15 @@
                         <viewControllerLayoutGuide type="bottom" id="52I-Sw-3jN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ubs-jH-fsD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEz-DP-hhz">
-                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEz-DP-hhz">
+                                <rect key="frame" x="0.0" y="65" width="320" height="415"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I1M-jI-CMV">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="564"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="565"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Final average if you got a 0% on the final:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="dyA-jF-0TD">
@@ -214,7 +214,7 @@
                                                 </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rpx-Z8-Fno" userLabel="PickGradeView">
-                                                <rect key="frame" x="0.0" y="362" width="320" height="144"/>
+                                                <rect key="frame" x="0.0" y="362" width="320" height="154"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To get a(n):" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gxk-Qk-zaK">
@@ -255,7 +255,7 @@
                                                 </subviews>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eNN-HA-Xi0" userLabel="GradeAlreadyMadeView">
-                                                <rect key="frame" x="0.0" y="362" width="320" height="144"/>
+                                                <rect key="frame" x="0.0" y="362" width="320" height="159"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your grade no matter what grade you get on your final:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="WtG-E6-vd0">
@@ -307,29 +307,21 @@
                                         <color key="backgroundColor" red="0.94117653369999998" green="0.94117653369999998" blue="0.94117653369999998" alpha="1" colorSpace="deviceRGB"/>
                                     </view>
                                 </subviews>
-                            </scrollView>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="ccd-F4-OCE">
-                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="HaT-US-ITV"/>
-                                    <constraint firstAttribute="height" constant="50" id="VU5-mR-ove"/>
+                                    <constraint firstAttribute="width" constant="320" id="YQl-Dp-ymI"/>
                                 </constraints>
-                                <connections>
-                                    <outlet property="delegate" destination="Mqt-Pv-NyQ" id="CwU-XY-AFm"/>
-                                </connections>
-                            </adBannerView>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.94117653369999998" green="0.94117653369999998" blue="0.94117653369999998" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ccd-F4-OCE" secondAttribute="trailing" id="3gF-Oj-dfC"/>
-                            <constraint firstItem="52I-Sw-3jN" firstAttribute="top" secondItem="ccd-F4-OCE" secondAttribute="bottom" id="mLi-pb-P2K"/>
-                            <constraint firstItem="ccd-F4-OCE" firstAttribute="leading" secondItem="Ubs-jH-fsD" secondAttribute="leading" id="swX-W8-Jti"/>
+                            <constraint firstAttribute="bottom" secondItem="jEz-DP-hhz" secondAttribute="bottom" id="qW1-LZ-92B"/>
+                            <constraint firstItem="jEz-DP-hhz" firstAttribute="leading" secondItem="Ubs-jH-fsD" secondAttribute="leading" id="rCP-4C-OM6"/>
+                            <constraint firstItem="jEz-DP-hhz" firstAttribute="top" secondItem="rOM-xO-VWF" secondAttribute="bottom" constant="1" id="to5-Mb-jcb"/>
+                            <constraint firstAttribute="trailing" secondItem="jEz-DP-hhz" secondAttribute="trailing" id="ztE-j1-3Eq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Results" id="bDt-Hg-Q6q"/>
                     <connections>
-                        <outlet property="adBanner" destination="ccd-F4-OCE" id="MtY-a1-IBI"/>
                         <outlet property="averageLabel" destination="X2J-uV-gsr" id="QGa-T7-fbV"/>
                         <outlet property="customScoreLabel" destination="oNb-oQ-8qC" id="BJ5-xY-XmL"/>
                         <outlet property="customScoreTextFieldOutlet" destination="2kI-ed-5wn" id="GkO-sv-0Le"/>
@@ -360,7 +352,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Mpa-dQ-gBg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rNG-lL-OjE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How many terms are in the semester?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbf-sf-KOa">
@@ -510,7 +502,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="AOg-Ua-gCG">
-                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="430" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="32H-6B-lvd"/>
@@ -572,7 +564,7 @@
                         <viewControllerLayoutGuide type="bottom" id="MeF-AR-jb3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gMD-aP-Fq6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="aboutpage" translatesAutoresizingMaskIntoConstraints="NO" id="AmF-cz-ImR">
@@ -622,7 +614,7 @@
                                 </connections>
                             </button>
                             <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="6VA-Aw-HQ5">
-                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="430" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="61R-IU-m3s"/>
@@ -665,11 +657,11 @@
                         <viewControllerLayoutGuide type="bottom" id="VUq-LQ-8l1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZoR-4i-4cp">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XEi-LM-86I" userLabel="labelView">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="A" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNj-P5-KUS">
@@ -882,7 +874,7 @@
                                         </connections>
                                     </button>
                                     <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="vWb-Z0-2Yk">
-                                        <rect key="frame" x="0.0" y="454" width="320" height="50"/>
+                                        <rect key="frame" x="0.0" y="366" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="V5e-Ao-62P"/>
@@ -945,15 +937,15 @@
                         <viewControllerLayoutGuide type="bottom" id="XBX-AJ-mPj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7Hw-SC-uZW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZp-LV-eHw">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c4e-rg-EIQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="550"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="----------------------->" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KdS-e4-9GM">
@@ -1179,7 +1171,7 @@
                                 </subviews>
                             </scrollView>
                             <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Os7-Qe-aYg">
-                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="430" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ukE-Vb-V2k"/>
@@ -1190,7 +1182,7 @@
                                 </connections>
                             </adBannerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94117653369999998" green="0.94117653369999998" blue="0.94117653369999998" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="xZp-LV-eHw" firstAttribute="leading" secondItem="7Hw-SC-uZW" secondAttribute="leading" id="Cs6-Gl-4OZ"/>
                             <constraint firstAttribute="trailing" secondItem="Os7-Qe-aYg" secondAttribute="trailing" id="DN6-G2-bv0"/>
@@ -1318,9 +1310,9 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="klq-5D-0RX"/>
+        <segue reference="BnB-Le-Y4A"/>
     </inferredMetricsTieBreakers>
 </document>
