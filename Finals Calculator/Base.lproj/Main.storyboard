@@ -107,8 +107,24 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="o2w-bH-fYz">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="jXh-oA-Zdl"/>
+                                    <constraint firstAttribute="width" constant="320" id="wgA-Tw-tS0"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="CZ4-MO-1fc" id="fnp-wv-TnX"/>
+                                </connections>
+                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" red="0.94117653369999998" green="0.94117653369999998" blue="0.94117653369999998" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="mpN-pi-he3" firstAttribute="top" secondItem="o2w-bH-fYz" secondAttribute="bottom" id="TER-kq-b2C"/>
+                            <constraint firstAttribute="trailing" secondItem="o2w-bH-fYz" secondAttribute="trailing" id="VBk-SI-1BK"/>
+                            <constraint firstItem="o2w-bH-fYz" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="gJT-Cg-UMT"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Finals Calculator" id="bgJ-Os-k1M">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="Aq9-GV-u8c">
@@ -118,6 +134,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="adBanner" destination="o2w-bH-fYz" id="XuE-ys-ADh"/>
                         <outlet property="assumeNoLabel" destination="fhX-tV-ZAp" id="dba-IA-c6n"/>
                         <outlet property="finalWeight" destination="tgo-Ih-5s8" id="Hia-pg-gBG"/>
                         <outlet property="goButton" destination="AZS-RV-Osf" id="FG5-61-ufp"/>
@@ -291,11 +308,28 @@
                                     </view>
                                 </subviews>
                             </scrollView>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="ccd-F4-OCE">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="HaT-US-ITV"/>
+                                    <constraint firstAttribute="height" constant="50" id="VU5-mR-ove"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="Mqt-Pv-NyQ" id="CwU-XY-AFm"/>
+                                </connections>
+                            </adBannerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94117653369999998" green="0.94117653369999998" blue="0.94117653369999998" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ccd-F4-OCE" secondAttribute="trailing" id="3gF-Oj-dfC"/>
+                            <constraint firstItem="52I-Sw-3jN" firstAttribute="top" secondItem="ccd-F4-OCE" secondAttribute="bottom" id="mLi-pb-P2K"/>
+                            <constraint firstItem="ccd-F4-OCE" firstAttribute="leading" secondItem="Ubs-jH-fsD" secondAttribute="leading" id="swX-W8-Jti"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Results" id="bDt-Hg-Q6q"/>
                     <connections>
+                        <outlet property="adBanner" destination="ccd-F4-OCE" id="MtY-a1-IBI"/>
                         <outlet property="averageLabel" destination="X2J-uV-gsr" id="QGa-T7-fbV"/>
                         <outlet property="customScoreLabel" destination="oNb-oQ-8qC" id="BJ5-xY-XmL"/>
                         <outlet property="customScoreTextFieldOutlet" destination="2kI-ed-5wn" id="GkO-sv-0Le"/>
@@ -524,7 +558,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="aboutpage" translatesAutoresizingMaskIntoConstraints="NO" id="AmF-cz-ImR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="aboutpage" translatesAutoresizingMaskIntoConstraints="NO" id="AmF-cz-ImR">
                                 <rect key="frame" x="0.0" y="63" width="320" height="505"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -545,13 +579,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Support:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7N-dF-YPw">
-                                <rect key="frame" x="72" y="421" width="87" height="21"/>
+                                <rect key="frame" x="66" y="432" width="87" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Km-0r-MTa">
-                                <rect key="frame" x="203" y="417" width="55" height="30"/>
+                                <rect key="frame" x="205" y="432" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Website">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -570,8 +604,24 @@
                                     <segue destination="W9f-Ga-dcO" kind="push" identifier="showCurrentGradeScale" id="klq-5D-0RX"/>
                                 </connections>
                             </button>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="6VA-Aw-HQ5">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="61R-IU-m3s"/>
+                                    <constraint firstAttribute="height" constant="50" id="Ru2-Ot-Myk"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="QUy-BD-bpt" id="mnx-Su-HzY"/>
+                                </connections>
+                            </adBannerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94117653369999998" green="0.94117653369999998" blue="0.94117653369999998" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="6VA-Aw-HQ5" secondAttribute="trailing" id="W8H-FU-kRL"/>
+                            <constraint firstItem="6VA-Aw-HQ5" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leading" id="a5l-cw-fb2"/>
+                            <constraint firstItem="MeF-AR-jb3" firstAttribute="top" secondItem="6VA-Aw-HQ5" secondAttribute="bottom" id="kG2-eq-dwM"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="hyc-if-72s">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="shp-NS-FBo">
@@ -581,6 +631,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="adBanner" destination="6VA-Aw-HQ5" id="6nK-CQ-0Ze"/>
                         <outlet property="versionLabel" destination="7f5-5M-G5H" id="ffP-5r-Nh5"/>
                     </connections>
                 </viewController>
@@ -813,6 +864,13 @@
                                             <segue destination="SMX-bo-WTc" kind="modal" identifier="setGradeScale" modalTransitionStyle="coverVertical" id="AA2-l3-45L"/>
                                         </connections>
                                     </button>
+                                    <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vWb-Z0-2Yk">
+                                        <rect key="frame" x="0.0" y="454" width="320" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="W9f-Ga-dcO" id="jvT-QG-XKv"/>
+                                        </connections>
+                                    </adBannerView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.94117653369999998" green="0.94117653369999998" blue="0.94117653369999998" alpha="1" colorSpace="deviceRGB"/>
                             </view>
@@ -827,6 +885,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="adBanner" destination="vWb-Z0-2Yk" id="DJb-ja-B9R"/>
                         <outlet property="resetButtonOutlet" destination="c5B-LZ-LFT" id="BDd-vR-5M8"/>
                         <outlet property="setValueButton" destination="cFX-Ou-052" id="FTV-Bg-k6K"/>
                         <outletCollection property="displayLabels" destination="BcC-p3-bVO" id="vPI-Bf-pJO"/>
@@ -1216,6 +1275,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="klq-5D-0RX"/>
+        <segue reference="BnB-Le-Y4A"/>
     </inferredMetricsTieBreakers>
 </document>

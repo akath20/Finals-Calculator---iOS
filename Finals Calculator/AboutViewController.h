@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 
-@interface AboutViewController : UIViewController
+@interface AboutViewController : UIViewController <ADBannerViewDelegate> {
+    
+}
 
 @property (strong, nonatomic) IBOutlet UILabel *versionLabel;
+@property (strong, nonatomic) IBOutlet ADBannerView *adBanner;
 
 - (IBAction)launchWebsite:(id)sender;
 

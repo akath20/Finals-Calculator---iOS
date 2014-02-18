@@ -266,6 +266,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Alex Atwater";
 				TargetAttributes = {
+					FA26A71318945678006F1D69 = {
+						DevelopmentTeam = AZN3C59G8S;
+					};
 					FA26A73718945679006F1D69 = {
 						TestTargetID = FA26A71318945678006F1D69;
 					};
@@ -451,6 +454,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Finals Calculator/Finals Calculator-Prefix.pch";
 				INFOPLIST_FILE = "Finals Calculator/Finals Calculator-Info.plist";
@@ -465,6 +469,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Finals Calculator/Finals Calculator-Prefix.pch";
 				INFOPLIST_FILE = "Finals Calculator/Finals Calculator-Info.plist";

@@ -20,6 +20,8 @@
     
     //set the current version number
     self.versionLabel.text = [NSString stringWithFormat:@"Version: %@", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]];
+    [self.adBanner setHidden:true];
+    
     
 }
 
@@ -37,5 +39,23 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [[SharedValues allValues] setComingFromResultsView:false];
 }
+
+#pragma mark Ads
+
+-(void)bannerViewDidLoadAd:(ADBannerView *)banner {
+    
+    //NSLog(@"\nAd Loaded");
+    [banner setHidden:false];
+    
+}
+
+-(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
+    
+    //NSLog(@"\nAd Not Loaded");
+    [banner setHidden:true];
+    
+}
+
+
 
 @end

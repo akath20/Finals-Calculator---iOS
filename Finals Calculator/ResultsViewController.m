@@ -47,6 +47,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
+    [self.adBanner setHidden:true];
+    
     if (![[SharedValues allValues] resultsAlreadyShown]) {
         //if results werent already shown, create the view
         //set the labels at the top
@@ -61,9 +63,9 @@
         
         
         //create the grade scale dictionary
-        NSLog(@"\n\nResults ViewWillAppear before: %@", [[SharedValues allValues] gradeScale]);
+        
         [[SharedValues allValues] createDictionary];
-        NSLog(@"\n\nResults ViewWillAppear after: %@", [[SharedValues allValues] gradeScale]);
+        
         
         //Get calculation and all the update all the labels when view is about to show
         self.zeroLabel.text = [NSString stringWithFormat:@"(%@) %.2f%%", [self gradeAsLetter:[[SharedValues allValues] lowestPossibleGrade]] ,[[SharedValues allValues] lowestPossibleGrade]];
@@ -154,9 +156,9 @@
     [[SharedValues allValues] setFirstViewFirstTextFull:true];
     
     //reset the dictionary if add +.5 if it was rounded up
-    NSLog(@"\n\nResults ViewWillDisappear before: %@", [[SharedValues allValues] gradeScale]);
+    
     [[SharedValues allValues] resetDictionary];
-    NSLog(@"\n\nResults ViewWillDisappear after: %@", [[SharedValues allValues] gradeScale]);
+    
 }
 
 - (void)keyboardWillHide {
@@ -237,7 +239,7 @@
     //float weightedAverage = [[SharedValues allValues] currentCombinedAverage]*(1-[[SharedValues allValues] finalWeight]);
     
     //get the values to show
-    NSLog(@"\nfinalWeight %.2f", [[SharedValues allValues] finalWeight]);
+    
     float minimumGrade = (requestedGradeAsPercent - [[SharedValues allValues] lowestPossibleGrade])/[[SharedValues allValues] finalWeight];
     
     //error handle the last bit of code above
@@ -357,6 +359,22 @@
     if ([segue.identifier isEqualToString:@"showCurrentGradeScaleHideButton"]) {
         [[SharedValues allValues] setComingFromResultsView:true];
     }
+}
+
+#pragma mark Ads
+
+-(void)bannerViewDidLoadAd:(ADBannerView *)banner {
+    
+    //NSLog(@"\nAd Loaded");
+    [banner setHidden:false];
+    
+}
+
+-(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
+    
+    //NSLog(@"\nAd Not Loaded");
+    [banner setHidden:true];
+    
 }
 
 @end

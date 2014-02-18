@@ -8,8 +8,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 
-@interface FirstViewController : UIViewController
+@interface FirstViewController : UIViewController <ADBannerViewDelegate> {
+    
+}
 
 @property (strong, nonatomic) IBOutlet UITextField *percentAverageTextField;
 @property (strong, nonatomic) IBOutlet UITextField *finalWeight;
@@ -17,9 +20,12 @@
 @property (strong, nonatomic) IBOutlet UILabel *weightWorthLabel;
 @property (strong, nonatomic) IBOutlet UILabel *assumeNoLabel;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentOutlet;
+@property (strong, nonatomic) IBOutlet ADBannerView *adBanner;
+
 @property bool firstTextFull;
 @property CGRect originalLabel;
 @property CGRect originalTextField;
+
 
 - (IBAction)goPushed:(id)sender;
 - (IBAction)textboxEdited:(UITextField *)sender;

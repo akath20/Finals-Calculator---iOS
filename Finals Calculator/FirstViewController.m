@@ -19,8 +19,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 
-    //hide the assume no label
-    [self.assumeNoLabel setHidden:true];
+    
+    
+    [self.adBanner setHidden:true];
+    
     
     
 }
@@ -56,8 +58,10 @@
         [self.finalWeight setText:[NSString stringWithFormat:@"%.2f", ([[SharedValues allValues] finalWeight]*100)]];
     }
     
-
     
+    
+    
+
 }
 
 - (IBAction)goPushed:(id)sender {
@@ -221,6 +225,25 @@
     [self.percentAverageTextField resignFirstResponder];
     [self.finalWeight resignFirstResponder];
 }
+
+#pragma mark Ads
+
+-(void)bannerViewDidLoadAd:(ADBannerView *)banner {
+
+    //NSLog(@"\nAd Loaded");
+    [banner setHidden:false];
+
+}
+
+-(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
+    
+    //NSLog(@"\nAd Not Loaded");
+    [banner setHidden:true];
+    
+}
+
+
+
 
 
 @end

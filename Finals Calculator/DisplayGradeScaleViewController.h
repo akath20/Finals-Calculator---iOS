@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 
-@interface DisplayGradeScaleViewController : UIViewController <UIAlertViewDelegate>
+@interface DisplayGradeScaleViewController : UIViewController <UIAlertViewDelegate> {
+    
+}
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *displayLabels;
 @property (strong, nonatomic) IBOutlet UIButton *setValueButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *resetButtonOutlet;
+@property (strong, nonatomic) IBOutlet ADBannerView *adBanner;
 
 
 - (IBAction)resetPushed:(UIBarButtonItem *)sender;

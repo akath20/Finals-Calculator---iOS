@@ -15,12 +15,16 @@
 
 @implementation DisplayGradeScaleViewController
 
+-(void)viewDidLoad {
+    [self.adBanner setHidden:true];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     if ([[SharedValues allValues] comingFromResultsView]) {
         //recreate the dictionary so if it's rounded up it will be created as so
-        NSLog(@"\n\nDisplay ViewWillAppear before: %@", [[SharedValues allValues] gradeScale]);
+       
         [[SharedValues allValues] createDictionary];
-        NSLog(@"\n\nDisplay ViewWillAppear after: %@", [[SharedValues allValues] gradeScale]);
+        
         
         //show setValueButton
         [self.setValueButton setHidden:true];
@@ -55,9 +59,9 @@
 - (void)viewWillDisappear:(BOOL)animated {
     if ([[SharedValues allValues] comingFromResultsView]) {
         
-    NSLog(@"\n\nDisplay ViewWillDisappear before: %@", [[SharedValues allValues] gradeScale]);
+    
     [[SharedValues allValues] resetDictionary];
-    NSLog(@"\n\nDisplay ViewWillDisappear after: %@", [[SharedValues allValues] gradeScale]);
+    
         
     }
 }
@@ -138,6 +142,22 @@
         currentLabel.text = [NSString stringWithFormat:@"%.2f%%", [[dic valueForKey:str] floatValue]];
         xCounter++;
     }
+    
+}
+
+#pragma mark Ads
+
+-(void)bannerViewDidLoadAd:(ADBannerView *)banner {
+    
+    //NSLog(@"\nAd Loaded");
+    [banner setHidden:false];
+    
+}
+
+-(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
+    
+    //NSLog(@"\nAd Not Loaded");
+    [banner setHidden:true];
     
 }
 
