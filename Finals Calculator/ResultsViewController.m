@@ -195,7 +195,7 @@
             
             //go back to the textbox for new value
             [sender becomeFirstResponder];
-        } else if (customValue < 20.0) {
+        } else if (customValue < 0.0) {
             UIAlertView *tooLowAlert = [[UIAlertView alloc] initWithTitle:@"Score Too Low" message:@"Value too low, please input a larger score." delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
             [tooLowAlert show];
             

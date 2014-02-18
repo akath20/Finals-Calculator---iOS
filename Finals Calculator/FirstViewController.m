@@ -22,6 +22,7 @@
     
     
     [self.adBanner setHidden:true];
+    [self.assumeNoLabel setHidden:true];
     
     
     
