@@ -9,12 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <iAd/iAd.h>
 
-@interface AboutViewController : UIViewController <ADBannerViewDelegate> {
-    
-}
+@interface AboutViewController : UIViewController 
 
 @property (strong, nonatomic) IBOutlet UILabel *versionLabel;
-@property (strong, nonatomic) IBOutlet ADBannerView *adBanner;
+@property (strong, nonatomic) ADBannerView *adBanner;
 
 - (IBAction)launchWebsite:(id)sender;
 

@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <iAd/iAd.h>
 
-@interface ResultsViewController : UIViewController <ADBannerViewDelegate> {
-    
-}
+@interface ResultsViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIScrollView *mainScrollView;
 @property (strong, nonatomic) IBOutlet UILabel *zeroLabel;
@@ -28,7 +26,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *weightLabel;
 @property (strong, nonatomic) IBOutlet UIButton *viewGradeScaleButton;
 @property (strong, nonatomic) IBOutlet UILabel *roundsUpLabel;
-@property (strong, nonatomic) IBOutlet ADBannerView *adBanner;
+@property (strong, nonatomic) ADBannerView *adBanner;
 
 - (IBAction)customScoreTextField:(id)sender;
 - (IBAction)segmentValueChanged:(id)sender;

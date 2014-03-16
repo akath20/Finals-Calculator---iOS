@@ -8,6 +8,7 @@
 
 #import "DisplayGradeScaleViewController.h"
 #import "SharedValues.h"
+#import "AppDelegate.h"
 
 @interface DisplayGradeScaleViewController ()
 
@@ -15,11 +16,20 @@
 
 @implementation DisplayGradeScaleViewController
 
--(void)viewDidLoad {
-    [self.adBanner setHidden:true];
-}
+
 
 - (void)viewWillAppear:(BOOL)animated {
+    
+    self.adBanner = SharedAdBannerView;
+    
+    
+    if ([[SharedValues allValues] adLoaded]) {
+        [self loadBanner];
+    } else {
+        [self bannerError];
+    }
+    
+    
     if ([[SharedValues allValues] comingFromResultsView]) {
         //recreate the dictionary so if it's rounded up it will be created as so
        
@@ -52,7 +62,15 @@
     //set the labels
     [self updateLabels];
     
+    
+    //add the iAd Watchers
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadBanner) name:@"bannerLoaded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bannerError) name:@"bannerError" object:nil];
+    
 
+    
+    [self.view addSubview:self.adBanner];
+    
     
 }
 
@@ -64,6 +82,10 @@
     
         
     }
+    
+    //Cancel iAd Watchers
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"bannerLoaded" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"bannerError" object:nil];
 }
 
 - (IBAction)resetPushed:(UIBarButtonItem *)sender {
@@ -147,18 +169,14 @@
 
 #pragma mark Ads
 
--(void)bannerViewDidLoadAd:(ADBannerView *)banner {
-    
-    //NSLog(@"\nAd Loaded");
-    [banner setHidden:false];
+- (void)loadBanner {
+    [self.adBanner setHidden:false];
     
 }
 
--(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
-    
-    //NSLog(@"\nAd Not Loaded");
-    [banner setHidden:true];
-    
+- (void)bannerError {
+    [self.adBanner setHidden:true];
 }
+
 
 @end
