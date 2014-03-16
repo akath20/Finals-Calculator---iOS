@@ -14,7 +14,7 @@
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *displayLabels;
 @property (strong, nonatomic) IBOutlet UIButton *setValueButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *resetButtonOutlet;
-@property (strong, nonatomic) IBOutlet ADBannerView *adBanner;
+@property (strong, nonatomic) ADBannerView *adBanner;
 
 
 - (IBAction)resetPushed:(UIBarButtonItem *)sender;

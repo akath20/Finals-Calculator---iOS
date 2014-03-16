@@ -16,7 +16,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *incrementLabel;
 @property (strong, nonatomic) IBOutlet UIStepper *incrementStepper;
 @property (strong, nonatomic) IBOutlet UIScrollView *mainScrollView;
-@property (strong, nonatomic) IBOutlet ADBannerView *adBanner;
+@property (strong, nonatomic) ADBannerView *adBanner;
 
 - (IBAction)setButtonClicked:(UIBarButtonItem *)sender;
 - (IBAction)cancelButtonClicked:(UIBarButtonItem *)sender;

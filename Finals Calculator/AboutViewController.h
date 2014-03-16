@@ -12,7 +12,7 @@
 @interface AboutViewController : UIViewController 
 
 @property (strong, nonatomic) IBOutlet UILabel *versionLabel;
-@property (strong, nonatomic) IBOutlet ADBannerView *adBanner;
+@property (strong, nonatomic) ADBannerView *adBanner;
 
 - (IBAction)launchWebsite:(id)sender;
 

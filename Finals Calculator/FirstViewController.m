@@ -68,7 +68,7 @@
     }
     
     
-    
+    [self.view addSubview:self.adBanner];
     
 
 }

@@ -69,6 +69,9 @@
     
 
     
+    [self.view addSubview:self.adBanner];
+    
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

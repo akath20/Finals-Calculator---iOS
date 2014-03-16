@@ -145,6 +145,8 @@
     }
     
     [[SharedValues allValues] setResultsAlreadyShown:true];
+    
+    [self.view addSubview:self.adBanner];
 
 }
 

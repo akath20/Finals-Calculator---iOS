@@ -47,6 +47,11 @@
     } else {
         [self bannerError];
     }
+    
+    [self.view addSubview:self.adBanner];
+    
+    
+    
 }
 
 - (void)viewDidLoad {
