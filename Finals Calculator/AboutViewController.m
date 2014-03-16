@@ -9,6 +9,7 @@
 #import "AboutViewController.h"
 #import "DisplayGradeScaleViewController.h"
 #import "SharedValues.h"
+#import "AppDelegate.h"
 
 @interface AboutViewController ()
 

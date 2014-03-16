@@ -9,9 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <iAd/iAd.h>
 
-@interface DisplayGradeScaleViewController : UIViewController <UIAlertViewDelegate> {
-    
-}
+@interface DisplayGradeScaleViewController : UIViewController
+
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *displayLabels;
 @property (strong, nonatomic) IBOutlet UIButton *setValueButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *resetButtonOutlet;
