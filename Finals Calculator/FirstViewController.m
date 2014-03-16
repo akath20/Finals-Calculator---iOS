@@ -199,24 +199,12 @@
 }
 
 - (BOOL)allFilled {
-    xCount = 0;
-    
-    if (self.firstTextFull) {
-        xCount++;
-    }
-    
-    if (secondTextFull) {
-        xCount++;
-    }
-    
-    if (segmentSelected) {
-        xCount++;
-    }
-    
-    if (xCount == 3) {
-        return true;
-    } else {
+
+
+    if ([self.percentAverageTextField.text isEqualToString:@""] || [self.finalWeight.text isEqualToString:@""] || self.segmentOutlet.selectedSegmentIndex == -1) {
         return false;
+    } else {
+        return true;
     }
     
 }
