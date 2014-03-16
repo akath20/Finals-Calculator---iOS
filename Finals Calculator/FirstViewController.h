@@ -10,9 +10,8 @@
 #import <UIKit/UIKit.h>
 #import <iAd/iAd.h>
 
-@interface FirstViewController : UIViewController <ADBannerViewDelegate> {
+@interface FirstViewController : UIViewController
     
-}
 
 @property (strong, nonatomic) IBOutlet UITextField *percentAverageTextField;
 @property (strong, nonatomic) IBOutlet UITextField *finalWeight;

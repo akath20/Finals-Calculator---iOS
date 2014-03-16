@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
+#define SharedAdBannerView ((AppDelegate *)[[UIApplication sharedApplication] delegate]).adBanner
+#define appDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, ADBannerViewDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) ADBannerView *adBanner;
 
 @end

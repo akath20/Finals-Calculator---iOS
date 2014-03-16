@@ -11,8 +11,7 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [[SharedValues allValues] setCurrentCombinedAverage:-1.0];
     [[SharedValues allValues] setCurrentSelectedFirstViewSegmentIndex:-1];
@@ -21,7 +20,15 @@
     //[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"defaultGradeScaleValues"];
     //NSLog(@"\nNSUserDefaults Cleaned");
     
-    //set the grad scale values if needed
+    
+    //iAd Shared Banner
+    self.adBanner = [[ADBannerView alloc] initWithFrame:CGRectZero];
+    [self.adBanner setDelegate:self];
+    [self.adBanner setAlpha:0.0];
+    
+    
+    
+    //set the grade scale values if needed
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"defaultGradeScaleValues"]) {
         //if there isn't anything there (loaded for the first time) then create it
         
@@ -54,31 +61,20 @@
     return YES;
 }
 							
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner{
+    
+    NSLog(@"\nBanner Loaded");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"bannerLoaded" object:self];
+    
+    
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
+    
+    NSLog(@"\nBanner failed to load");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"bannerError" object:self];
+    
+    
 }
 
 

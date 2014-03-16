@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <iAd/iAd.h>
 
-@interface GetAverageViewController : UIViewController <ADBannerViewDelegate>
+@interface GetAverageViewController : UIViewController 
 
 @property (weak, nonatomic) IBOutlet UIView *buttonView;
 @property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *textFieldsOutlet;

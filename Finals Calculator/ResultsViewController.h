@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <iAd/iAd.h>
 
-@interface ResultsViewController : UIViewController <ADBannerViewDelegate> {
-    
-}
+@interface ResultsViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIScrollView *mainScrollView;
 @property (strong, nonatomic) IBOutlet UILabel *zeroLabel;

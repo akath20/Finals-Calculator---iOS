@@ -32,6 +32,11 @@
     
     //set the stepper label just in case
     self.incrementLabel.text = [NSString stringWithFormat:@"%.1f", self.incrementStepper.value];
+    
+    
+    //add the iAd Watchers
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadBanner) name:@"bannerLoaded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bannerError) name:@"bannerError" object:nil];
 }
 
 - (void)viewDidLoad {
@@ -91,6 +96,12 @@
     
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    //Cancel iAd Watchers
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"bannerLoaded" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"bannerError" object:nil];
+}
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if (!(buttonIndex == [alertView cancelButtonIndex])){
@@ -131,18 +142,15 @@
 
 #pragma mark Ads
 
--(void)bannerViewDidLoadAd:(ADBannerView *)banner {
-    
-    //NSLog(@"\nAd Loaded");
-    [banner setHidden:false];
+- (void)loadBanner {
+    [self.adBanner setHidden:false];
     
 }
 
--(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
-    
-    //NSLog(@"\nAd Not Loaded");
-    [banner setHidden:true];
-    
+- (void)bannerError {
+    [self.adBanner setHidden:true];
 }
+
+
 
 @end

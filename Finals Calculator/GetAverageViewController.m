@@ -9,6 +9,8 @@
 #import "GetAverageViewController.h"
 #import "FirstViewController.h"
 #import "SharedValues.h"
+#import "AppDelegate.h"
+
 @class FirstViewController;
 
 @interface GetAverageViewController ()
@@ -54,13 +56,23 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.backButtonOutlet setTitle:@"Back"];
+    
+    self.adBanner = SharedAdBannerView;
+    
+    
+    //add the iAd Watchers
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadBanner) name:@"bannerLoaded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bannerError) name:@"bannerError" object:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     //cancel the keyboardwatchers
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    
+    //Cancel iAd Watchers
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"bannerLoaded" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"bannerError" object:nil];
 }
 
 #pragma mark Keyboard
@@ -297,21 +309,14 @@
 
 #pragma mark Ads
 
--(void)bannerViewDidLoadAd:(ADBannerView *)banner {
-    
-    //NSLog(@"\nAd Loaded");
-    [banner setHidden:false];
+- (void)loadBanner {
+    [self.adBanner setHidden:false];
     
 }
 
--(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
-    
-    //NSLog(@"\nAd Not Loaded");
-    [banner setHidden:true];
-    
+- (void)bannerError {
+    [self.adBanner setHidden:true];
 }
-
-
 
 
 

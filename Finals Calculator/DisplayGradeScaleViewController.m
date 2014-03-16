@@ -52,6 +52,11 @@
     //set the labels
     [self updateLabels];
     
+    
+    //add the iAd Watchers
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadBanner) name:@"bannerLoaded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bannerError) name:@"bannerError" object:nil];
+    
 
     
 }
@@ -64,6 +69,10 @@
     
         
     }
+    
+    //Cancel iAd Watchers
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"bannerLoaded" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"bannerError" object:nil];
 }
 
 - (IBAction)resetPushed:(UIBarButtonItem *)sender {
@@ -147,18 +156,14 @@
 
 #pragma mark Ads
 
--(void)bannerViewDidLoadAd:(ADBannerView *)banner {
-    
-    //NSLog(@"\nAd Loaded");
-    [banner setHidden:false];
+- (void)loadBanner {
+    [self.adBanner setHidden:false];
     
 }
 
--(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
-    
-    //NSLog(@"\nAd Not Loaded");
-    [banner setHidden:true];
-    
+- (void)bannerError {
+    [self.adBanner setHidden:true];
 }
+
 
 @end

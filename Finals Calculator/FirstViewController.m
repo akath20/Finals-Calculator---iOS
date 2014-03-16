@@ -8,6 +8,7 @@
 
 #import "FirstViewController.h"
 #import "SharedValues.h"
+#import "AppDelegate.h"
 
 @interface FirstViewController ()
 
@@ -19,6 +20,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadBanner) name:@"bannerLoaded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bannerError) name:@"bannerError" object:nil];
+    
     
     
     [self.adBanner setHidden:true];
@@ -29,7 +33,9 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-        
+    
+    
+    self.adBanner = SharedAdBannerView;
     
     if (([[SharedValues allValues] currentCombinedAverage] == -1.0) || ([[SharedValues allValues] currentCombinedAverage] == 0.0)) {
         self.percentAverageTextField.placeholder = @"%";
@@ -205,18 +211,13 @@
 
 #pragma mark Ads
 
--(void)bannerViewDidLoadAd:(ADBannerView *)banner {
-
-    //NSLog(@"\nAd Loaded");
-    [banner setHidden:false];
-
+- (void)loadBanner {
+    [self.adBanner setHidden:false];
+    
 }
 
--(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
-    
-    //NSLog(@"\nAd Not Loaded");
-    [banner setHidden:true];
-    
+- (void)bannerError {
+    [self.adBanner setHidden:true];
 }
 
 

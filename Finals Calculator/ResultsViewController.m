@@ -9,6 +9,7 @@
 #import "ResultsViewController.h"
 #import "SharedValues.h"
 #import "DisplayGradeScaleViewController.h"
+#import "AppDelegate.h"
 
 @interface ResultsViewController () {
     UITapGestureRecognizer *yourTap;
@@ -46,6 +47,13 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
+    self.adBanner = SharedAdBannerView;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadBanner) name:@"bannerLoaded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bannerError) name:@"bannerError" object:nil];
+    
+    
     
     [self.adBanner setHidden:true];
     
@@ -154,6 +162,12 @@
 - (void)viewWillDisappear:(BOOL)animated {
     //make sure the view contoller before is okay
     [[SharedValues allValues] setFirstViewFirstTextFull:true];
+    
+    //Cancel iAd Watchers
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"bannerLoaded" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"bannerError" object:nil];
+    
+    
     
     //reset the dictionary if add +.5 if it was rounded up
     
@@ -363,18 +377,13 @@
 
 #pragma mark Ads
 
--(void)bannerViewDidLoadAd:(ADBannerView *)banner {
-    
-    //NSLog(@"\nAd Loaded");
-    [banner setHidden:false];
+- (void)loadBanner {
+    [self.adBanner setHidden:false];
     
 }
 
--(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
-    
-    //NSLog(@"\nAd Not Loaded");
-    [banner setHidden:true];
-    
+- (void)bannerError {
+    [self.adBanner setHidden:true];
 }
 
 @end
