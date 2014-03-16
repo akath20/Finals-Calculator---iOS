@@ -8,6 +8,7 @@
 
 #import "DisplayGradeScaleViewController.h"
 #import "SharedValues.h"
+#import "AppDelegate.h"
 
 @interface DisplayGradeScaleViewController ()
 
@@ -20,6 +21,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
+    self.adBanner = SharedAdBannerView;
+    
     if ([[SharedValues allValues] comingFromResultsView]) {
         //recreate the dictionary so if it's rounded up it will be created as so
        

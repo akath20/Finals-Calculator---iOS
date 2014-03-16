@@ -26,6 +26,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
+    self.adBanner = SharedAdBannerView;
     //add the iAd Watchers
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadBanner) name:@"bannerLoaded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bannerError) name:@"bannerError" object:nil];

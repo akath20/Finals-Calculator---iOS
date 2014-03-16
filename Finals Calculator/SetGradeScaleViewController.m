@@ -8,6 +8,7 @@
 
 #import "SetGradeScaleViewController.h"
 #import "SharedValues.h"
+#import "AppDelegate.h"
 
 @interface SetGradeScaleViewController ()
 
@@ -17,6 +18,9 @@
 
 
 - (void)viewWillAppear:(BOOL)animated {
+    
+    
+    self.adBanner = SharedAdBannerView;
     
     //auto make the set button disabled
     [self.setButton setEnabled:false];

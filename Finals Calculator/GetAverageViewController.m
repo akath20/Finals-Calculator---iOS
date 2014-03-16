@@ -55,10 +55,11 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
     [self.backButtonOutlet setTitle:@"Back"];
     
-    self.adBanner = SharedAdBannerView;
     
+    self.adBanner = SharedAdBannerView;
     
     //add the iAd Watchers
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadBanner) name:@"bannerLoaded" object:nil];
@@ -317,6 +318,7 @@
 - (void)bannerError {
     [self.adBanner setHidden:true];
 }
+
 
 
 

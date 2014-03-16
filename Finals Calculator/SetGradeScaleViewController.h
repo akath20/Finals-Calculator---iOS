@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <iAd/iAd.h>
 
-@interface SetGradeScaleViewController : UIViewController <UIAlertViewDelegate, ADBannerViewDelegate> {
-    
-}
+@interface SetGradeScaleViewController : UIViewController <UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *displayLabels;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *setButton;
