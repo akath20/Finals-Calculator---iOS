@@ -22,7 +22,7 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentOutlet;
 @property (strong, nonatomic) IBOutlet ADBannerView *adBanner;
 
-@property bool firstTextFull;
+
 @property CGRect originalLabel;
 @property CGRect originalTextField;
 
@@ -34,7 +34,3 @@
 
 @end
 
-BOOL allFilledIn;
-bool secondTextFull;
-bool segmentSelected;
-int xCount;

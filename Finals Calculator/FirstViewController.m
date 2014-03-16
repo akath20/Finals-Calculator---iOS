@@ -30,9 +30,6 @@
 
 - (void) viewWillAppear:(BOOL)animated {
         
-    //set the firstTextBoxFull property from the shared class
-    self.firstTextFull = [[SharedValues allValues] firstViewFirstTextFull];
-    
     
     if (([[SharedValues allValues] currentCombinedAverage] == -1.0) || ([[SharedValues allValues] currentCombinedAverage] == 0.0)) {
         self.percentAverageTextField.placeholder = @"%";
@@ -98,20 +95,19 @@
             if ([sender.text floatValue] > 110.0) {
                 UIAlertView *tooHighAlert = [[UIAlertView alloc] initWithTitle:@"Value Too High" message:@"Value too high, please input a smaller average." delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
                 [tooHighAlert show];
-                self.firstTextFull = false;
+                
                 
                 //go back to the textbox for new value
                 [sender becomeFirstResponder];
             } else if ([sender.text floatValue] < 5.0) {
                 UIAlertView *tooLowAlert = [[UIAlertView alloc] initWithTitle:@"Value Too Low" message:@"Value too low, please input a larger average." delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
                 [tooLowAlert show];
-                self.firstTextFull = false;
+                
                 
                 //go back to the textbox for new value
                 [sender becomeFirstResponder];
             } else {
                 //if all good, say the text is full
-                self.firstTextFull = true;
                 [sender setText:[NSString stringWithFormat:@"%.2f", [sender.text floatValue]]];
                 
                 //ERROR WOULD BE HERE
@@ -123,20 +119,17 @@
             if ([sender.text floatValue] > 95.0) {
                 UIAlertView *tooHighAlert = [[UIAlertView alloc] initWithTitle:@"Weight Too High" message:@"Weight too high, please input a smaller weight." delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
                 [tooHighAlert show];
-                secondTextFull = false;
                 
                 //go back to the textbox for new value
                 [sender becomeFirstResponder];
             } else if ([sender.text floatValue] < 5.0) {
                 UIAlertView *tooLowAlert = [[UIAlertView alloc] initWithTitle:@"Weight Too Low" message:@"Weight too low, please input a larger weight." delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
                 [tooLowAlert show];
-                secondTextFull = false;
                 
                 //go back to the textbox for new value
                 [sender becomeFirstResponder];
             } else {
                 //if all good, say the text is full
-                secondTextFull = true;
                 [sender setText:[NSString stringWithFormat:@"%.2f", [sender.text floatValue]]];
                 
                 //ERROR WOULD BE HERE
@@ -151,14 +144,12 @@
     } else {
         if (sender.tag == 0) {
             //weight text box
-            self.firstTextFull = false;
             [[SharedValues allValues] setCurrentCombinedAverage:0.0];
             self.percentAverageTextField.placeholder = @"%";
         } else {
             //weight text box
             [[SharedValues allValues] setFinalWeight:0.0];
             self.finalWeight.placeholder = @"%";
-            secondTextFull = false;
         }
 
     }
@@ -176,14 +167,12 @@
     
     //-1 means nothing selected
     if (sender.selectedSegmentIndex >= 0) {
-        segmentSelected = TRUE;
         if (sender.selectedSegmentIndex == 2) {
             [self.assumeNoLabel setHidden:false];
         } else {
             [self.assumeNoLabel setHidden:true];
         }
     } else {
-        segmentSelected = false;
         [self.assumeNoLabel setHidden:true];
     }
     
