@@ -55,7 +55,11 @@
     
     
     
-    [self.adBanner setHidden:true];
+    if ([[SharedValues allValues] adLoaded]) {
+        [self loadBanner];
+    } else {
+        [self bannerError];
+    }
     
     if (![[SharedValues allValues] resultsAlreadyShown]) {
         //if results werent already shown, create the view

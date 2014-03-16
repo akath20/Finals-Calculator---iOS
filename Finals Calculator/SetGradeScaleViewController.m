@@ -41,11 +41,16 @@
     //add the iAd Watchers
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadBanner) name:@"bannerLoaded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bannerError) name:@"bannerError" object:nil];
+    
+    if ([[SharedValues allValues] adLoaded]) {
+        [self loadBanner];
+    } else {
+        [self bannerError];
+    }
 }
 
 - (void)viewDidLoad {
     
-    [self.adBanner setHidden:true];
     
     //FIX FOR SCROLLVIEW WITH AUTOLAYOUT
     [self setAutomaticallyAdjustsScrollViewInsets:false];

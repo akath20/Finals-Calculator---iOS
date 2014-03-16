@@ -19,7 +19,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *weightWorthLabel;
 @property (strong, nonatomic) IBOutlet UILabel *assumeNoLabel;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentOutlet;
-@property (strong, nonatomic) IBOutlet ADBannerView *adBanner;
+@property (strong, nonatomic) ADBannerView *adBanner;
 
 
 @property CGRect originalLabel;

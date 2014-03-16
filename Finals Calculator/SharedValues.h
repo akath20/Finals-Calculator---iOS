@@ -18,6 +18,7 @@
 @property BOOL resultsAlreadyShown;
 @property BOOL comingFromResultsView;
 @property int currentSelectedFirstViewSegmentIndex;
+@property BOOL adLoaded;
 
 + (SharedValues *) allValues;
 

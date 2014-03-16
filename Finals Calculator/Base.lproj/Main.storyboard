@@ -107,24 +107,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="o2w-bH-fYz">
-                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="jXh-oA-Zdl"/>
-                                    <constraint firstAttribute="width" constant="320" id="wgA-Tw-tS0"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="delegate" destination="CZ4-MO-1fc" id="fnp-wv-TnX"/>
-                                </connections>
-                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" red="0.94117653369999998" green="0.94117653369999998" blue="0.94117653369999998" alpha="1" colorSpace="deviceRGB"/>
-                        <constraints>
-                            <constraint firstItem="mpN-pi-he3" firstAttribute="top" secondItem="o2w-bH-fYz" secondAttribute="bottom" id="TER-kq-b2C"/>
-                            <constraint firstAttribute="trailing" secondItem="o2w-bH-fYz" secondAttribute="trailing" id="VBk-SI-1BK"/>
-                            <constraint firstItem="o2w-bH-fYz" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="gJT-Cg-UMT"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Finals Calculator" id="bgJ-Os-k1M">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="Aq9-GV-u8c">
@@ -134,7 +118,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="adBanner" destination="o2w-bH-fYz" id="XuE-ys-ADh"/>
                         <outlet property="assumeNoLabel" destination="fhX-tV-ZAp" id="dba-IA-c6n"/>
                         <outlet property="finalWeight" destination="tgo-Ih-5s8" id="Hia-pg-gBG"/>
                         <outlet property="goButton" destination="AZS-RV-Osf" id="FG5-61-ufp"/>
@@ -311,23 +294,9 @@
                                     <constraint firstAttribute="width" constant="320" id="YQl-Dp-ymI"/>
                                 </constraints>
                             </scrollView>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="eDV-Q2-Dk2">
-                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="JRk-78-3lK"/>
-                                    <constraint firstAttribute="width" constant="320" id="POV-c4-apM"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="delegate" destination="Mqt-Pv-NyQ" id="Ehg-yR-JuM"/>
-                                </connections>
-                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" red="0.94117653369999998" green="0.94117653369999998" blue="0.94117653369999998" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
-                            <constraint firstItem="52I-Sw-3jN" firstAttribute="top" secondItem="eDV-Q2-Dk2" secondAttribute="bottom" id="1wb-Zj-bIh"/>
-                            <constraint firstAttribute="trailing" secondItem="eDV-Q2-Dk2" secondAttribute="trailing" id="Nuj-HP-zAj"/>
-                            <constraint firstItem="eDV-Q2-Dk2" firstAttribute="leading" secondItem="Ubs-jH-fsD" secondAttribute="leading" id="dUC-gu-fc4"/>
                             <constraint firstAttribute="bottom" secondItem="jEz-DP-hhz" secondAttribute="bottom" id="qW1-LZ-92B"/>
                             <constraint firstItem="jEz-DP-hhz" firstAttribute="leading" secondItem="Ubs-jH-fsD" secondAttribute="leading" id="rCP-4C-OM6"/>
                             <constraint firstItem="jEz-DP-hhz" firstAttribute="top" secondItem="rOM-xO-VWF" secondAttribute="bottom" constant="1" id="to5-Mb-jcb"/>
@@ -336,7 +305,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Results" id="bDt-Hg-Q6q"/>
                     <connections>
-                        <outlet property="adBanner" destination="eDV-Q2-Dk2" id="bS5-Ja-awG"/>
                         <outlet property="averageLabel" destination="X2J-uV-gsr" id="QGa-T7-fbV"/>
                         <outlet property="customScoreLabel" destination="oNb-oQ-8qC" id="BJ5-xY-XmL"/>
                         <outlet property="customScoreTextFieldOutlet" destination="2kI-ed-5wn" id="GkO-sv-0Le"/>
@@ -516,24 +484,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="AOg-Ua-gCG">
-                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="32H-6B-lvd"/>
-                                    <constraint firstAttribute="height" constant="50" id="DhE-Bs-jUy"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="delegate" destination="DbV-Tt-inA" id="1em-Bf-6bL"/>
-                                </connections>
-                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" red="0.94117653369999998" green="0.94117653369999998" blue="0.94117653369999998" alpha="1" colorSpace="deviceRGB"/>
-                        <constraints>
-                            <constraint firstItem="AOg-Ua-gCG" firstAttribute="leading" secondItem="rNG-lL-OjE" secondAttribute="leading" id="1hQ-HR-6eb"/>
-                            <constraint firstAttribute="trailing" secondItem="AOg-Ua-gCG" secondAttribute="trailing" id="2Cf-Fy-2cO"/>
-                            <constraint firstItem="Mpa-dQ-gBg" firstAttribute="top" secondItem="AOg-Ua-gCG" secondAttribute="bottom" id="Nh4-G7-fZR"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Calculate" id="KHp-qa-kBd">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="gog-7F-ctK">
@@ -544,7 +496,6 @@
                     </navigationItem>
                     <keyCommands/>
                     <connections>
-                        <outlet property="adBanner" destination="AOg-Ua-gCG" id="Rhz-j3-dqB"/>
                         <outlet property="averageLabel" destination="Ab6-79-xd0" id="l9L-r4-KAA"/>
                         <outlet property="backButtonOutlet" destination="gog-7F-ctK" id="Ara-eh-FA8"/>
                         <outlet property="buttonView" destination="6to-Vc-cGj" id="GfP-hd-UxC"/>
@@ -628,24 +579,8 @@
                                     <segue destination="W9f-Ga-dcO" kind="push" identifier="showCurrentGradeScale" id="klq-5D-0RX"/>
                                 </connections>
                             </button>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="6VA-Aw-HQ5">
-                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="61R-IU-m3s"/>
-                                    <constraint firstAttribute="height" constant="50" id="Ru2-Ot-Myk"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="delegate" destination="QUy-BD-bpt" id="mnx-Su-HzY"/>
-                                </connections>
-                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" red="0.94117653369999998" green="0.94117653369999998" blue="0.94117653369999998" alpha="1" colorSpace="deviceRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="6VA-Aw-HQ5" secondAttribute="trailing" id="W8H-FU-kRL"/>
-                            <constraint firstItem="6VA-Aw-HQ5" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leading" id="a5l-cw-fb2"/>
-                            <constraint firstItem="MeF-AR-jb3" firstAttribute="top" secondItem="6VA-Aw-HQ5" secondAttribute="bottom" id="kG2-eq-dwM"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="hyc-if-72s">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="shp-NS-FBo">
@@ -655,7 +590,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="adBanner" destination="6VA-Aw-HQ5" id="6nK-CQ-0Ze"/>
                         <outlet property="versionLabel" destination="7f5-5M-G5H" id="ffP-5r-Nh5"/>
                     </connections>
                 </viewController>
@@ -888,29 +822,14 @@
                                             <segue destination="SMX-bo-WTc" kind="modal" identifier="setGradeScale" modalTransitionStyle="coverVertical" id="AA2-l3-45L"/>
                                         </connections>
                                     </button>
-                                    <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="vWb-Z0-2Yk">
-                                        <rect key="frame" x="0.0" y="454" width="320" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="320" id="V5e-Ao-62P"/>
-                                            <constraint firstAttribute="height" constant="50" id="iA4-Iz-3dh"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="delegate" destination="W9f-Ga-dcO" id="jvT-QG-XKv"/>
-                                        </connections>
-                                    </adBannerView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.94117653369999998" green="0.94117653369999998" blue="0.94117653369999998" alpha="1" colorSpace="deviceRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="vWb-Z0-2Yk" secondAttribute="bottom" id="M8w-Hk-Rlr"/>
-                                    <constraint firstItem="vWb-Z0-2Yk" firstAttribute="leading" secondItem="XEi-LM-86I" secondAttribute="leading" id="NsY-4k-0Jg"/>
-                                    <constraint firstAttribute="trailing" secondItem="vWb-Z0-2Yk" secondAttribute="trailing" id="hx2-6t-8G6"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XEi-LM-86I" firstAttribute="top" secondItem="c3Z-c7-7fN" secondAttribute="bottom" id="0Vo-Or-bDL"/>
+                            <constraint firstAttribute="trailing" secondItem="XEi-LM-86I" secondAttribute="trailing" id="Q8S-VZ-bD5"/>
                             <constraint firstItem="XEi-LM-86I" firstAttribute="leading" secondItem="ZoR-4i-4cp" secondAttribute="leading" id="WBd-3O-g3R"/>
                             <constraint firstAttribute="bottom" secondItem="XEi-LM-86I" secondAttribute="bottom" id="cG1-dO-QL1"/>
                         </constraints>
@@ -923,7 +842,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="adBanner" destination="vWb-Z0-2Yk" id="DJb-ja-B9R"/>
                         <outlet property="resetButtonOutlet" destination="c5B-LZ-LFT" id="BDd-vR-5M8"/>
                         <outlet property="setValueButton" destination="cFX-Ou-052" id="FTV-Bg-k6K"/>
                         <outletCollection property="displayLabels" destination="BcC-p3-bVO" id="vPI-Bf-pJO"/>
@@ -1185,24 +1103,10 @@
                                     </view>
                                 </subviews>
                             </scrollView>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Os7-Qe-aYg">
-                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="ukE-Vb-V2k"/>
-                                    <constraint firstAttribute="width" constant="320" id="vff-b4-Yjt"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="delegate" destination="0hX-VQ-Usm" id="7Ic-jU-q3k"/>
-                                </connections>
-                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" red="0.94117653369999998" green="0.94117653369999998" blue="0.94117653369999998" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="xZp-LV-eHw" firstAttribute="leading" secondItem="7Hw-SC-uZW" secondAttribute="leading" id="Cs6-Gl-4OZ"/>
-                            <constraint firstAttribute="trailing" secondItem="Os7-Qe-aYg" secondAttribute="trailing" id="DN6-G2-bv0"/>
-                            <constraint firstItem="Os7-Qe-aYg" firstAttribute="leading" secondItem="7Hw-SC-uZW" secondAttribute="leading" id="FgS-a8-IUX"/>
-                            <constraint firstItem="XBX-AJ-mPj" firstAttribute="top" secondItem="Os7-Qe-aYg" secondAttribute="bottom" id="I4Z-Uc-URO"/>
                             <constraint firstItem="XBX-AJ-mPj" firstAttribute="top" secondItem="xZp-LV-eHw" secondAttribute="bottom" id="Q57-My-g0I"/>
                             <constraint firstAttribute="trailing" secondItem="xZp-LV-eHw" secondAttribute="trailing" id="hQZ-4E-ji9"/>
                             <constraint firstItem="xZp-LV-eHw" firstAttribute="top" secondItem="S9G-l2-Rnm" secondAttribute="bottom" id="oeC-um-ucC"/>
@@ -1221,7 +1125,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="adBanner" destination="Os7-Qe-aYg" id="GBl-dZ-h5Z"/>
                         <outlet property="incrementLabel" destination="OyI-d7-hhl" id="CWm-Ro-Sjp"/>
                         <outlet property="incrementStepper" destination="LbV-5E-QbO" id="nX1-cd-CrF"/>
                         <outlet property="mainScrollView" destination="xZp-LV-eHw" id="tY7-Hk-Tvb"/>
@@ -1328,6 +1231,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="klq-5D-0RX"/>
+        <segue reference="BnB-Le-Y4A"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -26,7 +26,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *weightLabel;
 @property (strong, nonatomic) IBOutlet UIButton *viewGradeScaleButton;
 @property (strong, nonatomic) IBOutlet UILabel *roundsUpLabel;
-@property (strong, nonatomic) IBOutlet ADBannerView *adBanner;
+@property (strong, nonatomic) ADBannerView *adBanner;
 
 - (IBAction)customScoreTextField:(id)sender;
 - (IBAction)segmentValueChanged:(id)sender;

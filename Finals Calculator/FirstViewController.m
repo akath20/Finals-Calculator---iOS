@@ -23,9 +23,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadBanner) name:@"bannerLoaded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bannerError) name:@"bannerError" object:nil];
     
-    
-    
-    [self.adBanner setHidden:true];
     [self.assumeNoLabel setHidden:true];
     
     
@@ -36,6 +33,14 @@
     
     
     self.adBanner = SharedAdBannerView;
+    //[self.adBanner setFrame:CGRectMake(0, 50, 320, 50)];
+    
+    if ([[SharedValues allValues] adLoaded]) {
+        [self loadBanner];
+    } else {
+        [self bannerError];
+    }
+    
     
     if (([[SharedValues allValues] currentCombinedAverage] == -1.0) || ([[SharedValues allValues] currentCombinedAverage] == 0.0)) {
         self.percentAverageTextField.placeholder = @"%";

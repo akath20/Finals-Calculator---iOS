@@ -22,9 +22,23 @@
     
     
     //iAd Shared Banner
-    self.adBanner = [[ADBannerView alloc] initWithFrame:CGRectZero];
+    self.adBanner = [[ADBannerView alloc] init];
+    
+    if ((int)[[UIScreen mainScreen] bounds].size.height == 568) {
+        //4 inch
+        [self.adBanner setFrame:CGRectMake(0, 518, 320, 50)];
+    } else {
+        //3.5 inch
+        [self.adBanner setFrame:CGRectMake(0, 430, 320, 50)];
+        
+    }
+    
+    
+    
     [self.adBanner setDelegate:self];
-    [self.adBanner setAlpha:0.0];
+    [self.adBanner setHidden:true];
+    
+    [[SharedValues allValues] setAdLoaded:false];
     
     
     
@@ -65,7 +79,7 @@
     
     NSLog(@"\nBanner Loaded");
     [[NSNotificationCenter defaultCenter] postNotificationName:@"bannerLoaded" object:self];
-    
+    [[SharedValues allValues] setAdLoaded:true];
     
 }
 
@@ -73,6 +87,7 @@
     
     NSLog(@"\nBanner failed to load");
     [[NSNotificationCenter defaultCenter] postNotificationName:@"bannerError" object:self];
+    [[SharedValues allValues] setAdLoaded:false];
     
     
 }

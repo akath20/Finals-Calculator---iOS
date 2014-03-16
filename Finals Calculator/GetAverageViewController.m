@@ -49,7 +49,7 @@
     [self.averageLabel setHidden:TRUE];
     haveValueToReturn = FALSE;
     
-    [self.adBanner setHidden:true];
+    
     
     
 }
@@ -60,6 +60,12 @@
     
     
     self.adBanner = SharedAdBannerView;
+    
+    if ([[SharedValues allValues] adLoaded]) {
+        [self loadBanner];
+    } else {
+        [self bannerError];
+    }
     
     //add the iAd Watchers
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadBanner) name:@"bannerLoaded" object:nil];
