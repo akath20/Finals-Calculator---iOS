@@ -22,6 +22,7 @@
 		FA26A74418945679006F1D69 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA26A74218945679006F1D69 /* InfoPlist.strings */; };
 		FA26A74618945679006F1D69 /* Finals_CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA26A74518945679006F1D69 /* Finals_CalculatorTests.m */; };
 		FA26A754189462BD006F1D69 /* GetAverageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA26A753189462BD006F1D69 /* GetAverageViewController.m */; };
+		FA36FC9C1909B22500C6FB47 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA36FC9B1909B22500C6FB47 /* MessageUI.framework */; };
 		FA674B2518A1C2C300C0B8FB /* SharedValues.m in Sources */ = {isa = PBXBuildFile; fileRef = FA674B2418A1C2C300C0B8FB /* SharedValues.m */; };
 		FA674B2818A1DB1900C0B8FB /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA674B2718A1DB1900C0B8FB /* ResultsViewController.m */; };
 		FA79376A1897399C001F2BD2 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7937691897399C001F2BD2 /* AboutViewController.m */; };
@@ -62,6 +63,7 @@
 		FA26A74518945679006F1D69 /* Finals_CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Finals_CalculatorTests.m; sourceTree = "<group>"; };
 		FA26A752189462BD006F1D69 /* GetAverageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetAverageViewController.h; sourceTree = "<group>"; };
 		FA26A753189462BD006F1D69 /* GetAverageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetAverageViewController.m; sourceTree = "<group>"; };
+		FA36FC9B1909B22500C6FB47 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		FA674B2318A1C2C300C0B8FB /* SharedValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedValues.h; sourceTree = "<group>"; };
 		FA674B2418A1C2C300C0B8FB /* SharedValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedValues.m; sourceTree = "<group>"; };
 		FA674B2618A1DB1900C0B8FB /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; wrapsLines = 1; };
@@ -80,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA36FC9C1909B22500C6FB47 /* MessageUI.framework in Frameworks */,
 				FA9B3DA618AFFAF400CB625B /* iAd.framework in Frameworks */,
 				FA26A71A18945678006F1D69 /* CoreGraphics.framework in Frameworks */,
 				FA26A71C18945678006F1D69 /* UIKit.framework in Frameworks */,
@@ -122,6 +125,7 @@
 		FA26A71618945678006F1D69 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA36FC9B1909B22500C6FB47 /* MessageUI.framework */,
 				FA9B3DA518AFFAF400CB625B /* iAd.framework */,
 				FA26A71718945678006F1D69 /* Foundation.framework */,
 				FA26A71918945678006F1D69 /* CoreGraphics.framework */,

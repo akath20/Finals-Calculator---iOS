@@ -10,6 +10,7 @@
 #import "DisplayGradeScaleViewController.h"
 #import "SharedValues.h"
 #import "AppDelegate.h"
+#import <sys/utsname.h>
 
 @interface AboutViewController ()
 
@@ -74,6 +75,42 @@
     [self.adBanner setHidden:true];
 }
 
+
+#pragma  mark Email
+
+- (IBAction)sendDevEmail:(UIButton *)sender {
+    
+    
+    MFMailComposeViewController *emailSheet = [[MFMailComposeViewController alloc] init];
+    
+    emailSheet.mailComposeDelegate = self;
+    
+    // Fill out the email body text.
+    
+    //get the device type
+    //*IMPORT* <sys/utsname.h>
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    NSString *deviceType = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+    
+    
+    
+    NSString *emailBody = [NSString stringWithFormat:@"\n\r\n\r\n\riOS Version: %@\n\rDevice: %@\n\rApp Version: %@\n\rApp Name: %@", [[UIDevice currentDevice] systemVersion], deviceType, [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"], [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]];
+    [emailSheet setMessageBody:emailBody isHTML:NO];
+    
+    // Present the mail composition interface.
+    [self presentViewController:emailSheet animated:true completion:nil];
+    
+    
+    
+    
+    
+    
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    [controller dismissViewControllerAnimated:true completion:nil];
+}
 
 
 
