@@ -179,16 +179,14 @@
     
     [[SharedValues allValues] resetDictionary];
     
+    //cancel the keyboardwatchers
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    
 }
 
 - (void)keyboardWillHide {
     [self.mainScrollView removeGestureRecognizer:yourTap];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    //cancel the keyboardwatchers
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
 }
 
 - (void)keyboardWillShow {

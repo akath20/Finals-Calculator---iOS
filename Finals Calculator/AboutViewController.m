@@ -43,12 +43,6 @@
     [self.view addSubview:self.adBanner];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    //Cancel iAd Watchers
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"bannerLoaded" object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"bannerError" object:nil];
-}
-
 - (IBAction)launchWebsite:(id)sender {
     //open my website
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://webpages.charter.net/akath20/"]];
@@ -62,6 +56,11 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [[SharedValues allValues] setComingFromResultsView:false];
+    
+    //Cancel iAd Watchers
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"bannerLoaded" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"bannerError" object:nil];
+    
 }
 
 #pragma mark Ads

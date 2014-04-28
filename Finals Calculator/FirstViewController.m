@@ -47,11 +47,8 @@
     } else {
         self.percentAverageTextField.text = [NSString stringWithFormat:@"%.2f", [[SharedValues allValues] currentCombinedAverage]];
     }
-    if ([self allFilled]) {
-        [self.goButton setEnabled:true];
-    } else {
-        [self.goButton setEnabled:false];
-    }
+    
+    
     
     //set the selected segment index if loaded from another view
     if (([self.segmentOutlet selectedSegmentIndex] == -1) && ([[SharedValues allValues] currentSelectedFirstViewSegmentIndex] >= 0)) {
@@ -66,6 +63,13 @@
         //if nothing is in the text box and there is something in the share class from before, load it
         [self.finalWeight setText:[NSString stringWithFormat:@"%.2f", ([[SharedValues allValues] finalWeight]*100)]];
     }
+    
+    if ([self allFilled]) {
+        [self.goButton setEnabled:true];
+    } else {
+        [self.goButton setEnabled:false];
+    }
+    
     
     
     [self.view addSubview:self.adBanner];
@@ -199,6 +203,7 @@
 }
 
 - (BOOL)allFilled {
+    NSLog(@"\nSelected: %d", _segmentOutlet.selectedSegmentIndex);
 
     if ([self.percentAverageTextField.text isEqualToString:@""] || [self.finalWeight.text isEqualToString:@""] || self.segmentOutlet.selectedSegmentIndex == -1) {
         return false;
