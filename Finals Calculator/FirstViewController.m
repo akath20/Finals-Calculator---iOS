@@ -203,7 +203,6 @@
 }
 
 - (BOOL)allFilled {
-    NSLog(@"\nSelected: %d", _segmentOutlet.selectedSegmentIndex);
 
     if ([self.percentAverageTextField.text isEqualToString:@""] || [self.finalWeight.text isEqualToString:@""] || self.segmentOutlet.selectedSegmentIndex == -1) {
         return false;

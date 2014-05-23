@@ -321,7 +321,7 @@
     NSMutableString *returnString = [[NSMutableString alloc] initWithCapacity:2];
     NSString *xString = [NSString stringWithFormat:@"%.2f", passedGrade];
     
-    if (([xString floatValue] > [[gradeScale valueForKey:@"A"] floatValue])) {
+    if (([xString floatValue] >= [[gradeScale valueForKey:@"A"] floatValue])) {
         //return the letter here
         returnString = [@"A" mutableCopy];
     } else if (([[gradeScale valueForKey:@"A"] floatValue] > passedGrade) && (passedGrade >= [[gradeScale valueForKey:@"A-"] floatValue])) {
