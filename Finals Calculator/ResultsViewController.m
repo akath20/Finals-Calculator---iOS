@@ -11,6 +11,15 @@
 #import "DisplayGradeScaleViewController.h"
 #import "AppDelegate.h"
 
+
+
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+
 @interface ResultsViewController () {
     UITapGestureRecognizer *yourTap;
 }
@@ -24,7 +33,15 @@
 	// Do any additional setup after loading the view.
     
     //make sure at runtime it doesn't account for the toolbar being there so that it's not moved down when accouting for it
-    [self setAutomaticallyAdjustsScrollViewInsets:false];
+    
+    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        // code here
+        [self setAutomaticallyAdjustsScrollViewInsets:false];
+    } 
+    
+    
+    
     [self.mainScrollView setContentSize:CGSizeMake(320, self.scrollViewView.frame.size.height)];
     
     //auto reposition so if i edit in IB it will return at runtime
