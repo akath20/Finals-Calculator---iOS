@@ -45,7 +45,7 @@
 
 - (IBAction)launchWebsite:(id)sender {
     //open my website
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://webpages.charter.net/akath20/"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://alexatwater.com"]];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -96,7 +96,7 @@
     
     NSString *emailBody = [NSString stringWithFormat:@"\n\r\n\r\n\riOS Version: %@\n\rDevice: %@\n\rApp Version: %@\n\rApp Name: %@", [[UIDevice currentDevice] systemVersion], deviceType, [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"], [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]];
     [emailSheet setMessageBody:emailBody isHTML:NO];
-    [emailSheet setToRecipients:[NSArray arrayWithObject:@"akath20@gmail.com"]];
+    [emailSheet setToRecipients:[NSArray arrayWithObject:@"akath20developer@gmail.com"]];
 
     
     // Present the mail composition interface.
