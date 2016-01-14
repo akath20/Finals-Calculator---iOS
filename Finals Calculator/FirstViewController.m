@@ -23,7 +23,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadBanner) name:@"bannerLoaded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bannerError) name:@"bannerError" object:nil];
     
-    [self.assumeNoLabel setHidden:true];
     
     
     
@@ -218,6 +217,13 @@
     [self.finalWeight resignFirstResponder];
 }
 
+- (IBAction)newsButton:(id)sender {
+    
+    UIAlertView *newsAlert = [[UIAlertView alloc] initWithTitle:@"News" message:@"Great News! Finals Calculator is now available on the web for all devices!  Want to try it out now?" delegate:self cancelButtonTitle:@"Not Right Now" otherButtonTitles:@"Yes!", nil];
+    [newsAlert show];
+}
+
+
 #pragma mark Ads
 
 - (void)loadBanner {
@@ -227,6 +233,13 @@
 
 - (void)bannerError {
     [self.adBanner setHidden:true];
+}
+
+#pragma mark alert delegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if ([[alertView buttonTitleAtIndex:buttonIndex]  isEqual: @"Yes!"]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://alexatwater.com/webapps/finalscalculator"]];
+    }
 }
 
 

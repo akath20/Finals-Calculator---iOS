@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <iAd/iAd.h>
 
-@interface FirstViewController : UIViewController
+@interface FirstViewController : UIViewController <UIAlertViewDelegate>
     
 
 @property (strong, nonatomic) IBOutlet UITextField *percentAverageTextField;
@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *assumeNoLabel;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentOutlet;
 @property (strong, nonatomic) ADBannerView *adBanner;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *newsButton;
 
 
 @property CGRect originalLabel;

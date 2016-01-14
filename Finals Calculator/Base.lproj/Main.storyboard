@@ -181,11 +181,17 @@
                                 <segue destination="c0z-UB-9vb" kind="modal" modalTransitionStyle="flipHorizontal" id="cOb-7r-Ts7"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="News" id="tzJ-NF-QLL">
+                            <connections>
+                                <action selector="newsButton:" destination="CZ4-MO-1fc" id="3rL-hU-nBv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="assumeNoLabel" destination="fhX-tV-ZAp" id="dba-IA-c6n"/>
                         <outlet property="finalWeight" destination="tgo-Ih-5s8" id="Hia-pg-gBG"/>
                         <outlet property="goButton" destination="AZS-RV-Osf" id="FG5-61-ufp"/>
+                        <outlet property="newsButton" destination="tzJ-NF-QLL" id="BIT-3R-GwN"/>
                         <outlet property="percentAverageTextField" destination="Z0F-Tz-pKc" id="BJh-vp-nS3"/>
                         <outlet property="segmentOutlet" destination="99F-Zw-dzQ" id="ppw-QF-t17"/>
                         <outlet property="weightWorthLabel" destination="3pi-Q7-rXd" id="jcQ-Op-QFX"/>
